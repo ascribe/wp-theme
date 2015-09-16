@@ -2,7 +2,7 @@
 /**
  * The template for displaying the header.
  *
- * @package ascribe.io
+ * @package ascribe
  * @since 0.1.0
  */
  ?>

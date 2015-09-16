@@ -1,5 +1,5 @@
 /**
- * ascribe.io
+ * ascribe
  * http://wordpress.org/themes
  *
  * Copyright (c) 2015 Territorial

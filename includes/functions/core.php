@@ -1,5 +1,4 @@
 <?php
-namespace TenUp\ascribe.io\Core;
 
 /**
  * Set up theme defaults and register supported WordPress features.

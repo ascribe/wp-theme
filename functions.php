@@ -1,7 +1,7 @@
 <?php
 
 /**
- * ascribe.io functions and definitions
+ * ascribe functions and definitions
  *
  * When using a child theme (see http://codex.wordpress.org/Theme_Development and
  * http://codex.wordpress.org/Child_Themes), you can override certain functions
@@ -9,7 +9,7 @@
  * functions.php file. The child theme's functions.php file is included before the parent
  * theme's file, so the child theme functions would be used.
  *
- * @package ascribe.io
+ * @package ascribe
  * @since 0.1.0
  */
 
@@ -26,4 +26,4 @@ require_once TTL_INC . 'functions/core.php';
 // Include lib classes
 
 // Run the setup functions
-TenUp\ascribe.io\Core\setup();
+TenUp\ascribe\Core\setup();

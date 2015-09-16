@@ -122,7 +122,7 @@ module.exports = function( grunt ) {
                 },
                 cache: 'sftpCache.json',
                 src: '/Users/sarahetter/Dropbox/_shared/sarahetter/ascribe/assets/css/',
-                dest: '/home/ascribe/public_html/wp-content/themes/territorial/assets/css',
+                dest: '/home/ascribe/public_html/wp-content/themes/ascribe/assets/css',
                 serverSep: '/',
                 concurrency: 4,
                 progress: true
@@ -135,7 +135,7 @@ module.exports = function( grunt ) {
                 },
                 cache: 'sftpCache.json',
                 src: '/Users/sarahetter/Dropbox/_shared/sarahetter/ascribe/assets/js/',
-                dest: '/home/ascribe/public_html/wp-content/themes/territorial/assets/js',
+                dest: '/home/ascribe/public_html/wp-content/themes/ascribe/assets/js',
                 serverSep: '/',
                 concurrency: 4,
                 progress: true
@@ -147,7 +147,7 @@ module.exports = function( grunt ) {
                     authKey: 'key1'
                 },
                 src: '/Users/sarahetter/Dropbox/_shared/sarahetter/ascribe/controller/',
-                dest: '/home/ascribe/public_html/wp-content/themes/territorial/controller/',
+                dest: '/home/ascribe/public_html/wp-content/themes/ascribe/controller/',
                 serverSep: '/',
                 concurrency: 4,
                 progress: true

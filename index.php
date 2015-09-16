@@ -2,7 +2,7 @@
 /**
  * The main template file
  *
- * @package ascribe.io
+ * @package ascribe
  * @since 0.1.0
  */
 

@@ -1,7 +1,7 @@
 {
   "name": "ascribeio",
-  "title": "ascribe.io",
-  "description": "ascribe.io theme by Territorial",
+  "title": "ascribe",
+  "description": "ascribe theme by Territorial",
   "version": "0.0.1",
   "homepage": "http://wordpress.org/themes",
   "repository": {
@@ -29,6 +29,7 @@
     "grunt-phpunit": "^0.3.6",
     "grunt-postcss": "^0.5.4",
     "grunt-sass": "^1.0.0",
+    "grunt-sftp-deploy": "^0.2.4",
     "load-grunt-tasks": "^3.2.0",
     "qunitjs": "~1.18.0"
   },
