@@ -14,14 +14,14 @@
  */
 
 // Useful global constants
-define( 'TTL_VERSION',      '0.1.0' );
-define( 'TTL_URL',          get_stylesheet_directory_uri() );
-define( 'TTL_TEMPLATE_URL', get_template_directory_uri() );
-define( 'TTL_PATH',         get_template_directory() . '/' );
-define( 'TTL_INC',          TTL_PATH . 'includes/' );
+define( 'WPTHEME_VERSION',      '0.1.0' );
+define( 'WPTHEME_URL',          get_stylesheet_directory_uri() );
+define( 'WPTHEME_TEMPLATE_URL', get_template_directory_uri() );
+define( 'WPTHEME_PATH',         get_template_directory() . '/' );
+define( 'WPTHEME_INC',          WPTHEME_PATH . 'includes/' );
 
 // Include compartmentalized functions
-require_once TTL_INC . 'functions/core.php';
+require_once WPTHEME_INC . 'functions/core.php';
 
 // Include lib classes
 

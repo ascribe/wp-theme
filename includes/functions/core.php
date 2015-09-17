@@ -1,4 +1,5 @@
 <?php
+namespace TenUp\ascribe\Core;
 
 /**
  * Set up theme defaults and register supported WordPress features.
@@ -34,7 +35,7 @@ function setup() {
  * @return void.
  */
 function i18n() {
-	load_theme_textdomain( 'ttl', TTL_PATH . '/languages' );
+	load_theme_textdomain( 'wptheme', WPTHEME_PATH . '/languages' );
  }
 
 /**
@@ -50,10 +51,10 @@ function scripts( $debug = false ) {
 	$min = ( $debug || defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) ? '' : '.min';
 
 	wp_enqueue_script(
-		'ttl',
-		TTL_TEMPLATE_URL . "/assets/js/ascribeio{$min}.js",
+		'wptheme',
+		WPTHEME_TEMPLATE_URL . "/assets/js/ascribe{$min}.js",
 		array(),
-		TTL_VERSION,
+		WPTHEME_VERSION,
 		true
 	);
 }
@@ -71,10 +72,10 @@ function styles( $debug = false ) {
 	$min = ( $debug || defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) ? '' : '.min';
 
 	wp_enqueue_style(
-		'ttl',
-		TTL_URL . "/assets/css/ascribeio{$min}.css",
+		'wptheme',
+		WPTHEME_URL . "/assets/css/ascribe{$min}.css",
 		array(),
-		TTL_VERSION
+		WPTHEME_VERSION
 	);
 }
 
@@ -88,7 +89,7 @@ function styles( $debug = false ) {
  * @return void.
  */
 function header_meta() {
-	$humans = '<link type="text/plain" rel="author" href="' . TTL_TEMPLATE_URL . '/humans.txt" />';
+	$humans = '<link type="text/plain" rel="author" href="' . WPTHEME_TEMPLATE_URL . '/humans.txt" />';
 
-	echo apply_filters( 'ttl_humans', $humans );
+	echo apply_filters( 'wptheme_humans', $humans );
 }
