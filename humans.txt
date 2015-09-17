@@ -17,5 +17,5 @@
 	Twitter:         @lkwdwrd
 	
 /* SITE */
-	Created:  Wed Sep 16 2015
+	Created:  Thu Sep 17 2015
 	Template: https://github.com/10up/generator-wp-make
