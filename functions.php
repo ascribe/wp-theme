@@ -13,6 +13,9 @@
  * @since 0.1.0
  */
 
+require "controller/controller.inc.php";
+
+
 // Useful global constants
 define( 'WPTHEME_VERSION',      '0.1.0' );
 define( 'WPTHEME_URL',          get_stylesheet_directory_uri() );
@@ -23,7 +26,29 @@ define( 'WPTHEME_INC',          WPTHEME_PATH . 'includes/' );
 // Include compartmentalized functions
 require_once WPTHEME_INC . 'functions/core.php';
 
-// Include lib classes
-
 // Run the setup functions
 TenUp\ascribe\Core\setup();
+
+
+// REMOVE WIDTH AND HEIGHT ATTRIBUTES ON THUMBNAILS
+add_filter( 'post_thumbnail_html', 'remove_thumbnail_dimensions', 10, 3 );
+
+//ACF Collapser temp fix
+add_filter('acf/compatibility/field_wrapper_class', '__return_true');
+
+// TURN ON ACF SETTINGS PAGE
+if( function_exists('acf_add_options_page') ) {
+	acf_add_options_page(array(
+		'page_title' 	=> 'Theme General Settings',
+		'menu_title'	=> 'Theme Settings',
+		'menu_slug' 	=> 'theme-general-settings',
+		'capability'	=> 'edit_posts',
+		'redirect'		=> false
+	));
+}
+
+//add excerpt to page
+function wpcodex_add_excerpt_support_for_pages() {
+	add_post_type_support( 'page', 'excerpt' );
+}
+add_action( 'init', 'wpcodex_add_excerpt_support_for_pages' );
