@@ -33,6 +33,12 @@ TenUp\ascribe\Core\setup();
 // REMOVE WIDTH AND HEIGHT ATTRIBUTES ON THUMBNAILS
 add_filter( 'post_thumbnail_html', 'remove_thumbnail_dimensions', 10, 3 );
 
+//remove emoji script
+remove_action( 'wp_head', 'print_emoji_detection_script', 7 );
+remove_action( 'admin_print_scripts', 'print_emoji_detection_script' );
+remove_action( 'wp_print_styles', 'print_emoji_styles' );
+remove_action( 'admin_print_styles', 'print_emoji_styles' );
+
 //ACF Collapser temp fix
 add_filter('acf/compatibility/field_wrapper_class', '__return_true');
 
@@ -52,3 +58,11 @@ function wpcodex_add_excerpt_support_for_pages() {
 	add_post_type_support( 'page', 'excerpt' );
 }
 add_action( 'init', 'wpcodex_add_excerpt_support_for_pages' );
+
+
+//Register Navigation
+function register_primary_nav_menu() {
+	register_nav_menu('header-menu',__( 'Primary Navigation Menu' ));
+	register_nav_menu('research-menu',__( 'Research Areas Menu' ));
+}
+add_action( 'init', 'register_primary_nav_menu');

@@ -67,26 +67,3 @@ $controller = new Controller();
 <body <?php body_class(); ?>>
 <div class="wrapper">
 
-	<div class="scrollpos"></div>
-	<?php
-	$headerClass = '';
-	$indexHeadContent = '';
-	$indexHead = '';
-	$headerImageMarkup = '';
-	if (is_front_page()) {
-		$headerClass = 'index';
-		$indexHeadContent   = $controller->indexHeader();
-		$indexMobileBg      = get_field('mobile_video_replacement_image')['url'];
-		$indexHead = "<section class='indexHead' style='background-image:url({$indexMobileBg})'>{$indexHeadContent}</section>";
-	}
-	?>
-	<header class="<?php echo $headerClass; ?>">
-		<div class="centered">
-			<?php echo $logo; ?>
-			<span class="icon-menu mobile-only"></span>
-			<nav>
-				<?php wp_nav_menu( array( 'theme_location' => 'header-menu', 'container' => false ) ); ?>
-			</nav>
-		</div>
-	</header>
-	<?php echo $indexHead; ?>
