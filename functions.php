@@ -38,9 +38,9 @@ remove_action( 'wp_head', 'print_emoji_detection_script', 7 );
 remove_action( 'admin_print_scripts', 'print_emoji_detection_script' );
 remove_action( 'wp_print_styles', 'print_emoji_styles' );
 remove_action( 'admin_print_styles', 'print_emoji_styles' );
-
-//ACF Collapser temp fix
-add_filter('acf/compatibility/field_wrapper_class', '__return_true');
+//
+////ACF Collapser temp fix
+//add_filter('acf/compatibility/field_wrapper_class', '__return_true');
 
 // TURN ON ACF SETTINGS PAGE
 if( function_exists('acf_add_options_page') ) {
@@ -62,7 +62,7 @@ add_action( 'init', 'wpcodex_add_excerpt_support_for_pages' );
 
 //Register Navigation
 function register_primary_nav_menu() {
-	register_nav_menu('header-menu',__( 'Primary Navigation Menu' ));
-	register_nav_menu('research-menu',__( 'Research Areas Menu' ));
+	register_nav_menu('landing-menu',__( 'Product Tour Navigation Menu' ));
+	register_nav_menu('general-menu',__( 'General Page Navigation Menu' ));
 }
 add_action( 'init', 'register_primary_nav_menu');

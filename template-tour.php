@@ -11,11 +11,11 @@ $controller = new Controller();
 		<?php echo $logo; ?>
 		<nav>
 			<span class="icon-menu mobile-only"></span>
-			<?php wp_nav_menu( array( 'theme_location' => 'header-menu', 'container' => false ) ); ?>
+			<?php wp_nav_menu( array( 'theme_location' => 'landing-menu', 'container' => false ) ); ?>
 		</nav>
 	</div>
 </header>
 
-<?php get_template_part( 'content', 'main' ); ?>
+<?php require 'content-main.php'; ?>
 
 <?php get_footer(); ?>

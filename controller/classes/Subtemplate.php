@@ -13,13 +13,15 @@ class Subtemplate {
 		$id             = $post->ID;
 		$result = '';
 
-		$subtemplates = get_field('subtemplate', $id);
-		$result       = '';
-		if( $subtemplates ) {
-			foreach ( $subtemplates as $subtemplate ) {
-				$subtemplateType = $subtemplate['subtemplate_type'];
+		if (have_rows('subtemplate',$id)) {
+			while (have_rows('subtemplate',$id)) {
+				the_row();
 
-				$subtemplateTitle = $subtemplate['section_title'];
+				$subtemplateType = get_sub_field('subtemplate_type');
+
+				$subtemplateTitle = get_sub_field('section_title');
+
+				$subtemplate = '';
 
 				switch ($subtemplateType) {
 					case 'featurecircles':
@@ -52,14 +54,21 @@ class Subtemplate {
 					case 'team':
 						$result .= $this->team($subtemplate,$subtemplateTitle);
 						break;
-
-
+					case 'content':
+						$result .= $this->content($subtemplate,$subtemplateTitle);
+						break;
+					case 'faq':
+						$result .= $this->faq($subtemplate,$subtemplateTitle);
+						break;
+					case 'careers':
+						$result .= $this->careers($subtemplate,$subtemplateTitle);
+						break;
+					case 'mediadetail':
+						$result .= $this->mediaDetail($subtemplate,$subtemplateTitle);
+						break;
 				}
 			}
-
-			return $result;
 		}
-
 
 		return $result;
 	}
@@ -67,53 +76,73 @@ class Subtemplate {
 	public function featureCircles($subtemplate,$subtemplateTitle) {
 		$result = '';
 
-		return result;
+		return $result;
 	}
 	public function caseStudies($subtemplate,$subtemplateTitle) {
 		$result = '';
 
-		return result;
+		return $result;
 	}
 	public function oldNew($subtemplate,$subtemplateTitle) {
 		$result = '';
 
-		return result;
+		return $result;
 	}
 	public function productOverview($subtemplate,$subtemplateTitle) {
 		$result = '';
 
-		return result;
+		return $result;
 	}
 	public function blueBox($subtemplate,$subtemplateTitle) {
 		$result = '';
 
-		return result;
+		return $result;
 	}
 	public function createAccount($subtemplate,$subtemplateTitle) {
 		$result = '';
 
-		return result;
+		return $result;
 	}
 	public function galleries($subtemplate,$subtemplateTitle) {
 		$result = '';
 
-		return result;
+		return $result;
 	}
 	public function blogFeatures($subtemplate,$subtemplateTitle) {
 		$result = '';
 
-		return result;
+		return $result;
 	}
 	public function mediaFeature($subtemplate,$subtemplateTitle) {
 		$result = '';
 
-		return result;
+		return $result;
 	}
 	public function team($subtemplate,$subtemplateTitle) {
 		$result = '';
 
-		return result;
+		return $result;
 	}
+	public function content($subtemplate,$subtemplateTitle) {
+		$result = '';
 
+		$result .= get_sub_field('content');
 
+		return $result;
+	}
+	public function faq($subtemplate,$subtemplateTitle) {
+		$result = '';
+
+		return $result;
+	}
+	public function careers($subtemplate,$subtemplateTitle) {
+		$result = '';
+
+		return $result;
+	}
+	public function mediaDetail($subtemplate,$subtemplateTitle) {
+		$result = '';
+
+		return $result;
+	}
 }
