@@ -63,6 +63,10 @@ add_action( 'init', 'wpcodex_add_excerpt_support_for_pages' );
 //Register Navigation
 function register_primary_nav_menu() {
 	register_nav_menu('landing-menu',__( 'Product Tour Navigation Menu' ));
-	register_nav_menu('general-menu',__( 'General Page Navigation Menu' ));
+	register_nav_menu('main-footer-menu',__( 'Main Footer Navigation Menu' ));
+	register_nav_menu('lower-footer-menu',__( 'Lower Footer Navigation Menu' ));
 }
 add_action( 'init', 'register_primary_nav_menu');
+
+
+add_theme_support( 'post-thumbnails' );

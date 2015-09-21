@@ -53,3 +53,9 @@ if (empty($image)) {
 	$image = WPTHEME_TEMPLATE_URL.'/images/ico/apple-touch-icon-152x152.png';
 }
 //</editor-fold>
+
+//<editor-fold desc="Get Links">
+$signInLink = get_field('sign_in_link','option');
+$signUpLink = get_field('sign_up_link','option');
+//</editor-fold>
+

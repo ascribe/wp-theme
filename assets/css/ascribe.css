@@ -456,6 +456,20 @@ th {
 .centered-content:after {
   clear: both;
 }
+.centered-footer {
+  zoom: 1;
+  max-width: 650px;
+  width: 100%;
+  margin: 0 auto;
+}
+.centered-footer:before,
+.centered-footer:after {
+  content: "";
+  display: table;
+}
+.centered-footer:after {
+  clear: both;
+}
 ul,
 ol {
   padding: 0;
