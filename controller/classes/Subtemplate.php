@@ -57,14 +57,23 @@ class Subtemplate {
 					case 'content':
 						$result .= $this->content($subtemplate,$subtemplateTitle);
 						break;
+					case 'image':
+						$result .= $this->image($subtemplate,$subtemplateTitle);
+						break;
 					case 'faq':
 						$result .= $this->faq($subtemplate,$subtemplateTitle);
+						break;
+					case 'values':
+						$result .= $this->values($subtemplate,$subtemplateTitle);
 						break;
 					case 'careers':
 						$result .= $this->careers($subtemplate,$subtemplateTitle);
 						break;
 					case 'mediadetail':
 						$result .= $this->mediaDetail($subtemplate,$subtemplateTitle);
+						break;
+					case 'download':
+						$result .= $this->download($subtemplate,$subtemplateTitle);
 						break;
 				}
 			}
@@ -92,7 +101,7 @@ class Subtemplate {
 			}
 		}
 
-		$result = "<section class='feature-circles'><div class='centered-content'><div class='column-container'>{$featureCircles}</div></div></section>";
+		$result = "<section class='subtemplate feature-circles'><div class='centered-content'><div class='column-container'>{$featureCircles}</div></div></section>";
 
 		return $result;
 	}
@@ -113,7 +122,7 @@ class Subtemplate {
 			}
 		}
 
-		$result = "<section class='case-studies'>{$caseStudies}</section>";
+		$result = "<section class='subtemplate case-studies'>{$caseStudies}</section>";
 
 		return $result;
 	}
@@ -133,7 +142,7 @@ class Subtemplate {
 			}
 		}
 
-		$result = "<section class='old-new'>
+		$result = "<section class='subtemplate old-new'>
 					<div class='centered-content'>
 						<h1>{$subtemplateTitle}</h1>
 						<table>
@@ -152,7 +161,7 @@ class Subtemplate {
 
 		$content    = get_sub_field('content');
 
-		$result = "<section class='product-overview'>
+		$result = "<section class='subtemplate product-overview'>
 						<div class='centered-content'>
 							<img src='{$imageUrl}' alt='{$imageAlt}'>
 							<div class='text-column'>
@@ -167,7 +176,7 @@ class Subtemplate {
 
 		$content    = get_sub_field('content');
 
-		$result = "<section class='blue-box'>
+		$result = "<section class='subtemplate blue-box'>
 						<div class='centered-content'>
 						<article class='blue-copy'>
 							<h1>{$subtemplateTitle}</h1>
@@ -184,7 +193,7 @@ class Subtemplate {
 		$backgroundImg  = get_sub_field('image')['url'];
 
 
-		$result = "<section class='sign-up' style='background-image: url({$backgroundImg})'>
+		$result = "<section class='subtemplate sign-up' style='background-image: url({$backgroundImg})'>
 						<div class='centered-content'>
 							<a href='{$signUpLink}' class='button blue'>{$buttonText}</a>
 						</div>
@@ -198,7 +207,7 @@ class Subtemplate {
 		$galleriesImgAlt    = get_sub_field('galleries_image')['alt'];
 
 
-		$result = "<section class='galleries-marketplaces'>
+		$result = "<section class='subtemplate galleries-marketplaces'>
 						<div class='centered-content'>
 							<h1>{$subtemplateTitle}</h1>
 							<img src='{$galleriesImgUrl}' alt='{$galleriesImgAlt}'>
@@ -228,7 +237,7 @@ class Subtemplate {
 			}
 		}
 
-		$result = "<section class='blog-features'>
+		$result = "<section class='subtemplate blog-features'>
 					<div class='centered-content'>
 						<div class='column-container'>
 						{$blogFeatures}
@@ -243,7 +252,7 @@ class Subtemplate {
 		$mediaImgUrl    = get_sub_field('media_feature_image')['url'];
 		$mediaImgAlt    = get_sub_field('media_feature_image')['alt'];
 
-		$result = "<section class='galleries-marketplaces'>
+		$result = "<section class='subtemplate galleries-marketplaces'>
 						<div class='centered-content'>
 							<h1>{$subtemplateTitle}</h1>
 							<img src='{$mediaImgUrl}' alt='{$mediaImgAlt}'>
@@ -270,26 +279,39 @@ class Subtemplate {
 				$name   = $teamMember->post_title;
 				$role   = get_field('role',$id);
 				$image  = get_field('image',$id)['url'];
-				$twitter    = get_field('twitter_link',$id);
-				if ($twitter) {
-					$twitter = "<a href='{$twitter}' target='_blank'>Twitter</a>";
+				$facebook   = get_field('facebook_link',$id);
+				if ($facebook) {
+					$facebook = "<a href='{$facebook}' target='_blank'>Facebook</a>";
 				}
+
+				$github     = get_field('github_link',$id);
+				if ($github) {
+					$github = "<a href='{$github}' target='_blank'>Github</a>";
+				}
+
 				$linkedin   = get_field('linkedin_link',$id);
 				if ($linkedin) {
 					$linkedin = "<a href='{$linkedin}' target='_blank'>Linkedin</a>";
+				}
+
+				$twitter    = get_field('twitter_link',$id);
+				if ($twitter) {
+					$twitter = "<a href='{$twitter}' target='_blank'>Twitter</a>";
 				}
 
 				$teamMemberMarkup .= "<article class='team-member'>
 										<img src='{$image}' alt='Picture of {$name}'>
 										<h1>{$name}</h1>
 										<h2>{$role}</h2>
-										{$twitter}
+										{$facebook}
+										{$github}
 										{$linkedin}
+										{$twitter}
 										</article>";
 			}
 		}
 
-		$result = "<section class='team'>
+		$result = "<section class='subtemplate team'>
 						<div class='centered-content'>
 							<div>{$content}</div>
 							<div class='column-container'>{$teamMemberMarkup}</div>
@@ -300,24 +322,163 @@ class Subtemplate {
 		return $result;
 	}
 	public function content($subtemplate,$subtemplateTitle) {
-		$result = '';
 
-		$result .= get_sub_field('content');
+		$content = get_sub_field('content');
+
+		$result = "<section class='subtemplate content'>
+						<div class='centered-content'>
+						<h1>{$subtemplateTitle}</h1>
+						<div>{$content}</div>
+						</div>
+					</section>";
+
+		return $result;
+	}
+	public function image($subtemplate,$subtemplateTitle) {
+
+		$image = get_sub_field('image')['url'];
+		$imageAlt = get_sub_field('image')['alt'];
+
+		$result = "<section class='subtemplate image'>
+						<div class='centered-content'>
+						<h1>{$subtemplateTitle}</h1>
+						<div><img src='{$image}' alt='{$imageAlt}'></div>
+						</div>
+					</section>";
 
 		return $result;
 	}
 	public function faq($subtemplate,$subtemplateTitle) {
-		$result = '';
+		$featuredFAQ = '<dl class="featured-faqs">';
+		if (have_rows('featured_faqs')) {
+			while (have_rows('featured_faqs')) {
+				the_row();
+
+				$question          = get_sub_field('question');
+				$answer          = get_sub_field('answer');
+
+				$featuredFAQ .= "<dt>{$question}</dt>
+								<dd>{$answer}</dd>";
+			}
+		}
+		$featuredFAQ .= "</dl>";
+
+		$regularFAQ = '<dl class="regular-faqs">';
+		if (have_rows('regular_faqs')) {
+			while (have_rows('regular_faqs')) {
+				the_row();
+
+				$question          = get_sub_field('question');
+				$answer          = get_sub_field('answer');
+
+				$regularFAQ .= "<dt>Q: {$question}</dt>
+								<dd>A: {$answer}</dd>";
+			}
+		}
+		$regularFAQ .= "</dl>";
+
+		$result = "<section class='subtemplate faq'>
+					<div class='centered-content'>
+						<h1>{$subtemplateTitle}</h1>
+						{$featuredFAQ}
+						{$regularFAQ}
+					</div>
+					</section>";
+
+		return $result;
+	}
+	public function values($subtemplate,$subtemplateTitle) {
+		$values = '';
+		if (have_rows('ascribe_values')) {
+			while (have_rows('ascribe_values')) {
+				the_row();
+
+				$title          = get_sub_field('value_title');
+				$description    = get_sub_field('value_description');
+
+				$values .= "<article class='value'>
+										<h1>{$title}</h1>
+										<div class='description'>{$description}</div>
+									</article>";
+			}
+		}
+
+		$result = "<section class='subtemplate values'><div class='centered-content'><div class='column-container'>{$values}</div></div></section>";
 
 		return $result;
 	}
 	public function careers($subtemplate,$subtemplateTitle) {
-		$result = '';
+		$args           = array(
+			'post_type' => 'career',
+			'order'     => 'ASC'
+		);
+
+		$careers = get_posts($args);
+		$careerMarkup = '';
+		if (!empty($careers)) {
+			foreach ($careers as $career) {
+				$id     = $career->ID;
+				$name   = $career->post_title;
+				$url    = get_permalink($id);
+
+				$careerMarkup .= "<li class='career'><a href='{$url}'>{$name}</a></li>";
+			}
+		}
+
+		$result = "<section class='subtemplate careers'>
+						<div class='centered-content'>
+							<h1>{$subtemplateTitle}</h1>
+							<ul class='careers'>{$careerMarkup}</ul>
+						</div>
+					</section>";
 
 		return $result;
 	}
 	public function mediaDetail($subtemplate,$subtemplateTitle) {
-		$result = '';
+		$args           = array(
+			'post_type' => 'presscoverage',
+			'order'     => 'ASC'
+		);
+
+		$pressItems = get_posts($args);
+		$pressMarkup = '';
+		if (!empty($pressItems)) {
+			foreach ($pressItems as $item) {
+				$id     = $item->ID;
+				$name   = $item->post_title;
+				$url    = get_field('link_to_article',$id);
+				$pubDate= get_field('date_published',$id);
+				$quote  = get_field('quote',$id);
+
+				$pressMarkup .= "<article class='press-article'>
+									<h1><a href='{$url}'>{$name}</a></h1>
+									<time>{$pubDate}</time>
+									<blockquote>{$quote}</blockquote>
+								</article>";
+			}
+		}
+
+		$result = "<section class='subtemplate press-articles'>
+						<div class='centered-content'>
+							<h1>{$subtemplateTitle}</h1>
+							<div>{$pressMarkup}</div>
+						</div>
+					</section>";
+
+		return $result;
+	}
+	public function download($subtemplate,$subtemplateTitle) {
+		$leftUrl = get_sub_field('left_button_url');
+		$leftText = get_sub_field('left_button_text');
+		$rightUrl = get_sub_field('right_button_url');
+		$rightText = get_sub_field('right_button_text');
+
+		$result = "<section class='subtemplate downloads'>
+						<div class='centered-content'>
+						<a href='{$leftUrl}' download class='left button blue'>{$leftText}</a>
+						<a href='{$rightUrl}' download class='right button blue'>{$rightText}</a>
+						</div>
+					</section>";
 
 		return $result;
 	}

@@ -5,7 +5,6 @@ Template Name: Landing Page / Product Tour
 require 'controller/init.php';
 
 get_header();
-$controller = new Controller();
 
 $bgImage        = get_field('header_background_image')['url'];
 $headerTagline  = get_field('header_tagline');
@@ -15,7 +14,7 @@ $buttonText     = get_field('create_account_button_text');
 
 <header style="background-image:url(<?php echo $bgImage; ?>)">
 	<div class="centered-header">
-		<img src="<?php echo WPTHEME_TEMPLATE_URL; ?>/images/logo/logo-white.png">
+		<img src="<?php echo WPTHEME_TEMPLATE_URL; ?>/images/logo/logo-white.png" class="logo">
 		<div class="app-links">
 			<a href="<?php echo $signInLink; ?>">Sign In</a> / <a href="<?php echo $signUpLink; ?>">Sign Up</a>
 		</div>

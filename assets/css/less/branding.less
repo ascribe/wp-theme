@@ -1,0 +1,173 @@
+//GLOBALS
+body,
+html {
+	.copyText;
+	font-smoothing: antialiased;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	background-color: @white;
+}
+
+//COLOURS
+@blueDeep: #121417;
+@blueMedium: #003C69;
+@blueBright: #67C4DA;
+@blueLight: #D3DEE4;
+@pink: #D8127D;
+
+@white: #fff;
+@greyBg: #fbfbfb;
+@greyHr: #979797;
+@greyFooter: #8c8c8c;
+@greyText: #595959;
+@blackish: #1e1e1e;
+@black: #000;
+
+//FONTS
+.fontLight {
+	font-family: "canada-type-gibson",sans-serif;
+	font-weight: 200;
+}
+.fontRegular {
+	font-family: "canada-type-gibson",sans-serif;
+	font-weight: 400;
+}
+
+// GENERAL TEXT STYLES
+.h1 {
+	&:extend(.fontLight);
+	font-size: 34px;
+	color: @blueBright;
+	line-height: 41px;
+}
+.copyText {
+	&:extend(.fontLight);
+	color: @blueDeep;
+	font-size: 18px;
+	line-height: 22px;
+}
+.copyTextSmall {
+	&:extend(.fontLight);
+	color: @blueDeep;
+	font-size: 14px;
+	line-height: 17px;
+}
+
+// SPECIALIZED TEXT STYLES
+.heroText {
+	&:extend(.fontLight);
+	font-size: 37px;
+	color: @white;
+	line-height: 44px;
+}
+.tourNavText {
+	&:extend(.fontLight);
+	font-size: 25px;
+	line-height: 30px;
+	color: @blueBright;
+}
+.signInUpText {
+	&:extend(.fontLight);
+	font-size: 17px;
+	line-height: 20px;
+	color: @white;
+	text-transform: uppercase;
+}
+.featureCircleH1 {
+	&:extend(.fontLight);
+	font-size: 20px;
+	color: @pink;
+	letter-spacing: 1.11px;
+	line-height: 24px;
+}
+.caseStudyText {
+	&:extend(.fontRegular);
+	font-size: 23px;
+	color: @white;
+	line-height: 28px;
+}
+.oldWayNewWayTH {
+	&:extend(.fontLight);
+	font-size: 24px;
+	color: @pink;
+	line-height: 29px;
+}
+.blueBoxTitle {
+	&:extend(.fontRegular);
+	font-size: 43px;
+	color: @white;
+	line-height: 52px;
+}
+.blueBoxCopy {
+	&:extend(.fontLight);
+	font-size: 43px;
+	color: @white;
+	line-height: 52px;
+}
+.galleriesPressTitle {
+	&:extend(.fontLight);
+	font-size: 30px;
+	color: @black;
+	line-height: 36px;
+}
+.featureBlogDesc {
+	&:extend(.fontLight);
+	font-size: 12px;
+	color: @blueBright;
+	line-height: 22.79px;
+}
+.featureBlogTitle {
+	&:extend(.fontLight);
+	font-size: 17px;
+	color: @greyText;
+	line-height: 22.79px;
+	text-transform: uppercase;
+}
+.footerText {
+	&:extend(.fontLight);
+	font-size: 14px;
+	color: @white;
+	line-height: 17px;
+}
+.subfooterText {
+	color: @blackish;
+}
+
+
+
+
+// DEVICES
+.button {
+	display: inline-block;
+	padding: 25px 40px;
+	&:extend(.fontRegular);
+	border: 1px solid;
+	font-size: 22px;
+	line-height: 26px;
+	text-decoration: none;
+
+	&.blue {
+		color: @white;
+		background-color: @blueBright;
+		border-color: @blueBright;
+	}
+
+	&.white-blue {
+		color: @blueBright;
+		background-color: @white;
+		border-color: @blueBright;
+	}
+
+	&.small {
+		&:extend(.fontLight);
+		padding: 10px 15px;
+		font-size: 14px;
+		color: @white;
+		background-color: transparent;
+		border-color: @white;
+	}
+}
+
+.chevron-divider {
+
+}

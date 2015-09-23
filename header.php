@@ -8,6 +8,10 @@
 require 'controller/header.php';
 $controller = new Controller();
 
+if (!isset($headColour)) {
+	$headColour = '';
+}
+
 ?>
 <!doctype html>
 <!--[if lt IE 7]> <html class="no-js  ie6 oldie" lang="en" itemscope itemtype="https://schema.org/Organization"> <![endif]-->
@@ -59,11 +63,11 @@ $controller = new Controller();
 	<meta name="msapplication-TileImage" content="<?php echo WPTHEME_TEMPLATE_URL; ?>/images/ico/mstile-144x144.png">
 	<meta name="theme-color" content="#ffffff">
 
-	<script src='https://api.mapbox.com/mapbox.js/v2.2.2/mapbox.js'></script>
-	<link href='https://api.mapbox.com/mapbox.js/v2.2.2/mapbox.css' rel='stylesheet' />
-	<link href='http://fonts.googleapis.com/css?family=Titillium+Web:400,600' rel='stylesheet' type='text/css'>
+	<script src="https://use.typekit.net/oex7mmg.js"></script>
+	<script>try{Typekit.load({ async: true });}catch(e){}</script>
+
 	<?php wp_head(); ?>
 </head>
-<body <?php body_class(); ?>>
+<body <?php body_class($headColour); ?> >
 <div class="wrapper">
 

@@ -1,11 +1,42 @@
-/**
- * ascribe
- * http://wordpress.org/themes
- *
- * Copyright (c) 2015 Territorial
- * Licensed under the GPLv2+ license.
- */
 @import "../vendor/normalize.less";
 @import "../vendor/print.less";
 @import "branding.less";
 @import "../helpers/helpers.less";
+
+
+.page-template-template-tour header {
+	height: 815px;
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center;
+
+	nav {
+		float: left;
+		margin-top: 30px;
+		margin-left: 20px;
+	}
+	ul {
+		list-style: none;
+	}
+	.description {
+		clear: both;
+		margin-top: 190px;
+		text-align: center;
+	}
+	h1 {
+		.heroText;
+	}
+
+	.chevron-divider {
+		position: absolute;
+		bottom: -60px;
+	}
+}
+.logo {
+	float:left;
+	margin-top: 25px;
+}
+.app-links {
+	float: right;
+	margin-top: 25px;
+}
