@@ -29,18 +29,28 @@
 
 // CENTERED
 // Apply this class to an element to center it responsively in a container
-@centeredpadding: 20px;
+@centeredpadding: 10px;
 
 .centered-header {
 	.clearfix;
-	max-width: 1120px;
+	max-width: 1120px + 2*@centeredpadding;
+	padding: 0 @centeredpadding;
+	width: 100%;
+	margin: 0 auto;
+}
+
+.centered-prodFeat {
+	.clearfix;
+	max-width: 930px + 2*@centeredpadding;
+	padding: 0 @centeredpadding;
 	width: 100%;
 	margin: 0 auto;
 }
 
 .centered-content {
 	.clearfix;
-	max-width: 770px;
+	max-width: 770px + 2*@centeredpadding;
+	padding: 0 @centeredpadding;
 	width: 100%;
 	margin: 0 auto;
 }
@@ -48,7 +58,8 @@
 
 .centered-footer {
 	.clearfix;
-	max-width: 650px;
+	max-width: 650px + 2*@centeredpadding;
+	padding: 0 @centeredpadding;
 	width: 100%;
 	margin: 0 auto;
 }
@@ -61,14 +72,21 @@ ul, ol {
 }
 
 //  COLUMN SECTIONS
+
+.wrapper {
+	position: relative;
+	overflow:hidden;
+}
+
+@paddingForCols: 30px;
 .ttl-columns {
 	font-size:0;
 	width:100%;
-	width: calc(~"100% + 28px");
+	width: calc(~"100% +"@paddingForCols);
 	.column {
 		display: inline-block;
 		vertical-align: top;
-		padding-right: 28px;
+		padding-right: @paddingForCols;
 		font-size: 15px;
 
 	}
@@ -124,6 +142,9 @@ ul, ol {
 		}
 	}
 
+}
+.column-container {
+	.ttl-columns;
 }
 
 // BORDER-BOX

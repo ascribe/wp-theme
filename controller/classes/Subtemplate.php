@@ -49,7 +49,7 @@ class Subtemplate {
 						$result .= $this->blogFeatures($subtemplate,$subtemplateTitle);
 						break;
 					case 'mediafeature':
-						$result .= $this->mediaFeature($subtemplate,$subtemplateTitle);
+						$result .= $this->galleries($subtemplate,$subtemplateTitle);
 						break;
 					case 'team':
 						$result .= $this->team($subtemplate,$subtemplateTitle);
@@ -101,7 +101,7 @@ class Subtemplate {
 			}
 		}
 
-		$result = "<section class='subtemplate feature-circles'><div class='centered-content'><div class='column-container'>{$featureCircles}</div></div></section>";
+		$result = "<section class='subtemplate feature-circles'><div class='centered-header'><div class='column-container'>{$featureCircles}</div></div></section>";
 
 		return $result;
 	}
@@ -115,14 +115,14 @@ class Subtemplate {
 				$bgImage          = get_sub_field('background_image')['url'];
 
 				$caseStudies .= "<article class='case-study' style='background-image:url({$bgImage})'>
-									<div class='centered-content'>
+									<div class='centered-header'>
 									<div class='description'>{$content}</div>
 									</div>
 								</article>";
 			}
 		}
 
-		$result = "<section class='subtemplate case-studies'>{$caseStudies}</section>";
+		$result = "<section class='subtemplate case-studies'><div class='slide-container'>{$caseStudies}</div><div class='slider-action' id='back'></div><div class='slider-action' id='forward'></div></section>";
 
 		return $result;
 	}
@@ -162,7 +162,7 @@ class Subtemplate {
 		$content    = get_sub_field('content');
 
 		$result = "<section class='subtemplate product-overview'>
-						<div class='centered-content'>
+						<div class='centered-prodFeat'>
 							<img src='{$imageUrl}' alt='{$imageAlt}'>
 							<div class='text-column'>
 								<h1>{$subtemplateTitle}</h1>
@@ -195,7 +195,7 @@ class Subtemplate {
 
 		$result = "<section class='subtemplate sign-up' style='background-image: url({$backgroundImg})'>
 						<div class='centered-content'>
-							<a href='{$signUpLink}' class='button blue'>{$buttonText}</a>
+							<a href='{$signUpLink}' class='button blue-overPic'>{$buttonText}</a>
 						</div>
 					</section>";
 
@@ -211,7 +211,7 @@ class Subtemplate {
 						<div class='centered-content'>
 							<h1>{$subtemplateTitle}</h1>
 							<img src='{$galleriesImgUrl}' alt='{$galleriesImgAlt}'>
-							<a href='{$galleryLink}' class='button blue'>Read more</a>
+							<a href='{$galleryLink}' class='button white-blue'>Read more</a>
 						</div>
 					</section>";
 
@@ -229,10 +229,10 @@ class Subtemplate {
 				$url            = get_permalink($feature->ID);
 				$image          = wp_get_attachment_image_src(get_post_thumbnail_id($feature->ID),'large')[0];
 
-				$blogFeatures .= "<a href='{$url}'><article class='case-study'>
+				$blogFeatures .= "<a href='{$url}'><article class='blog'><div>
 									<img src='{$image}' alt='{$postTitle} Image'>
 									<h2>{$title}</h2>
-									<h1>{$postTitle}</h1>
+									<h1>{$postTitle}</h1></div>
 								</article></a>";
 			}
 		}
@@ -243,21 +243,6 @@ class Subtemplate {
 						{$blogFeatures}
 						</div>
 					</div>
-					</section>";
-
-		return $result;
-	}
-	public function mediaFeature($subtemplate,$subtemplateTitle) {
-		$mediaLink        = get_sub_field('media_link');
-		$mediaImgUrl    = get_sub_field('media_feature_image')['url'];
-		$mediaImgAlt    = get_sub_field('media_feature_image')['alt'];
-
-		$result = "<section class='subtemplate galleries-marketplaces'>
-						<div class='centered-content'>
-							<h1>{$subtemplateTitle}</h1>
-							<img src='{$mediaImgUrl}' alt='{$mediaImgAlt}'>
-							<a href='{$mediaLink}' class='button blue'>Read more</a>
-						</div>
 					</section>";
 
 		return $result;
@@ -313,7 +298,7 @@ class Subtemplate {
 
 		$result = "<section class='subtemplate team'>
 						<div class='centered-content'>
-							<div>{$content}</div>
+							<div class='intro'>{$content}</div>
 							<div class='column-container'>{$teamMemberMarkup}</div>
 							<a href='{$meetTeamLink}' class='button white-blue'>Meet the Team</a>
 						</div>

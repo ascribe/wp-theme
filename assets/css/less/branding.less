@@ -8,11 +8,20 @@ html {
 	background-color: @white;
 }
 
+a {
+	text-decoration: none;
+	color: @blueBright;
+
+	&:hover {
+		color: @pink;
+	}
+}
+
 //COLOURS
 @blueDeep: #121417;
 @blueMedium: #003C69;
 @blueBright: #67C4DA;
-@blueLight: #D3DEE4;
+@blueLight: #d7e9ef;
 @pink: #D8127D;
 
 @white: #fff;
@@ -39,6 +48,8 @@ html {
 	font-size: 34px;
 	color: @blueBright;
 	line-height: 41px;
+	margin-bottom: 43px;
+	text-align: center;
 }
 .copyText {
 	&:extend(.fontLight);
@@ -49,8 +60,8 @@ html {
 .copyTextSmall {
 	&:extend(.fontLight);
 	color: @blueDeep;
-	font-size: 14px;
-	line-height: 17px;
+	font-size: 15px;
+	line-height: 19px;
 }
 
 // SPECIALIZED TEXT STYLES
@@ -65,6 +76,7 @@ html {
 	font-size: 25px;
 	line-height: 30px;
 	color: @blueBright;
+
 }
 .signInUpText {
 	&:extend(.fontLight);
@@ -72,6 +84,10 @@ html {
 	line-height: 20px;
 	color: @white;
 	text-transform: uppercase;
+
+	&:hover {
+		color: @pink;
+	}
 }
 .featureCircleH1 {
 	&:extend(.fontLight);
@@ -79,6 +95,7 @@ html {
 	color: @pink;
 	letter-spacing: 1.11px;
 	line-height: 24px;
+	margin-bottom: 22px;
 }
 .caseStudyText {
 	&:extend(.fontRegular);
@@ -97,6 +114,7 @@ html {
 	font-size: 43px;
 	color: @white;
 	line-height: 52px;
+	text-align: center;
 }
 .blueBoxCopy {
 	&:extend(.fontLight);
@@ -109,10 +127,11 @@ html {
 	font-size: 30px;
 	color: @black;
 	line-height: 36px;
+	margin-bottom: 50px;
 }
 .featureBlogDesc {
 	&:extend(.fontLight);
-	font-size: 12px;
+	font-size: 13px;
 	color: @blueBright;
 	line-height: 22.79px;
 }
@@ -122,6 +141,14 @@ html {
 	color: @greyText;
 	line-height: 22.79px;
 	text-transform: uppercase;
+}
+.teamName {
+	&:extend(.fontRegular);
+	color: @black;
+	font-size: 19px;
+}
+.teamPosition {
+
 }
 .footerText {
 	&:extend(.fontLight);
@@ -145,17 +172,41 @@ html {
 	font-size: 22px;
 	line-height: 26px;
 	text-decoration: none;
+	min-width: 265px;
+	text-align: center;
 
 	&.blue {
+		@bgColor: @blueBright;
 		color: @white;
-		background-color: @blueBright;
-		border-color: @blueBright;
+		background-color: @bgColor;
+		border-color: @bgColor;
+		&:hover {
+			background-color: fade(@bgColor,50);
+		}
+	}
+
+	&.blue-overPic {
+		@bgColor: @blueBright;
+		color: @white;
+		background-color: @bgColor;
+		border-color: @bgColor;
+
+		&:hover {
+			background-color: @white;
+			color: @bgColor;
+		}
 	}
 
 	&.white-blue {
+		@bgColor: @white;
 		color: @blueBright;
-		background-color: @white;
+		background-color: @bgColor;
 		border-color: @blueBright;
+
+		&:hover {
+			background-color: fade(@blueBright,50);
+			color: @white;
+		}
 	}
 
 	&.small {
@@ -169,5 +220,9 @@ html {
 }
 
 .chevron-divider {
-
+	background-image: url(../../images/svg/ascribe-chevron.svg);
+	background-position: bottom;
+	width: 100%;
+	background-size: 100%;
+	opacity: 0.35;
 }

@@ -19,11 +19,12 @@ $buttonText     = get_field('create_account_button_text');
 			<a href="<?php echo $signInLink; ?>">Sign In</a> / <a href="<?php echo $signUpLink; ?>">Sign Up</a>
 		</div>
 		<nav>
-			<?php wp_nav_menu( array( 'theme_location' => 'landing-menu', 'container' => false ) ); ?>
+			for Artists & Creators
+			<?php //wp_nav_menu( array( 'theme_location' => 'landing-menu', 'container' => false ) ); ?>
 		</nav>
 		<section class="description">
 			<h1><?php echo $headerTagline; ?></h1>
-			<a href="<?php echo $signUpLink; ?>" class="button blue"><?php echo $buttonText; ?></a>
+			<a href="<?php echo $signUpLink; ?>" class="button blue-overPic"><?php echo $buttonText; ?></a>
 		</section>
 	</div>
 	<div class="chevron-divider"></div>
