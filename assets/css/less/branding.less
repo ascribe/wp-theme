@@ -1,11 +1,15 @@
 //GLOBALS
 body,
 html {
-	.copyText;
+	.copyTextSmall;
 	font-smoothing: antialiased;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 	background-color: @white;
+
+	&.page-template-template-companyblue {
+		.copyText;
+	}
 }
 
 a {
@@ -26,6 +30,7 @@ a {
 
 @white: #fff;
 @greyBg: #fbfbfb;
+@greySocial: #b8b8b8;
 @greyHr: #979797;
 @greyFooter: #8c8c8c;
 @greyText: #595959;
@@ -43,19 +48,69 @@ a {
 }
 
 // GENERAL TEXT STYLES
-.h1 {
+.sectionHeader {
 	&:extend(.fontLight);
 	font-size: 34px;
 	color: @blueBright;
 	line-height: 41px;
-	margin-bottom: 43px;
+	margin: 35px 0;
 	text-align: center;
 }
+.subsectionHeader {
+	&:extend(.fontLight);
+	font-size: 31px;
+	color: @black;
+	line-height: 37px;
+	text-align: center;
+}
+.h1, h1 {
+	&:extend(.fontLight);
+	font-size: 36px;
+	color: @pink;
+	line-height: 1.2;
+}
+.h2, h2 {
+	&:extend(.fontRegular);
+	font-size: 26px;
+	color: @pink;
+	line-height: 1.2;
+}
+.h3, h3 {
+	&:extend(.fontLight);
+	font-size: 27px;
+	color: @pink;
+	line-height: 1.2;
+}
+.h4, h4 {
+	&:extend(.fontRegular);
+	font-size: 26px;
+	color: @black;
+	line-height: 1.2;
+}
+.h5, h5 {
+	&:extend(.fontLight);
+	font-size: 26px;
+	color: @black;
+	line-height: 1.2;
+}
+.h6, h6 {
+	&:extend(.fontRegular);
+	color: @pink;
+	font-size: 15px;
+	line-height: 19px;
+}
+
 .copyText {
 	&:extend(.fontLight);
 	color: @blueDeep;
 	font-size: 18px;
 	line-height: 22px;
+}
+.copyTextMedium {
+	&:extend(.fontLight);
+	color: @blueDeep;
+	font-size: 17px;
+	line-height: 21px;
 }
 .copyTextSmall {
 	&:extend(.fontLight);
@@ -84,10 +139,6 @@ a {
 	line-height: 20px;
 	color: @white;
 	text-transform: uppercase;
-
-	&:hover {
-		color: @pink;
-	}
 }
 .featureCircleH1 {
 	&:extend(.fontLight);
@@ -154,10 +205,12 @@ a {
 	&:extend(.fontLight);
 	font-size: 14px;
 	color: @white;
-	line-height: 17px;
+	line-height: 25px;
 }
 .subfooterText {
 	color: @blackish;
+	font-size: 13px;
+	line-height: 14px;
 }
 
 
@@ -211,11 +264,18 @@ a {
 
 	&.small {
 		&:extend(.fontLight);
-		padding: 10px 15px;
+		padding: 5px 15px;
 		font-size: 14px;
 		color: @white;
 		background-color: transparent;
 		border-color: @white;
+		min-width: auto;
+
+		&:hover {
+			background-color: fade(@white,40);
+			border-color: fade(@white,40);
+			color: @white;
+		}
 	}
 }
 
@@ -225,4 +285,25 @@ a {
 	width: 100%;
 	background-size: 100%;
 	opacity: 0.35;
+	height: 150px;
+}
+
+.social-icon {
+	width: 21px;
+	height: 21px;
+	padding: 1px;
+	fill: @white;
+	background-color: @greySocial;
+	border-radius: 5px;
+
+	&:hover {
+		background-color: fade(@greySocial,40);
+	}
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	background: @greyHr;
+	margin: 40px 0;
 }

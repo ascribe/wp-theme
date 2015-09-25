@@ -57,6 +57,13 @@ function scripts( $debug = false ) {
 		WPTHEME_VERSION,
 		true
 	);
+	wp_enqueue_script( 'ajax-pagination',  WPTHEME_TEMPLATE_URL . '/assets/js/ajax-pagination.js', array( 'jquery' ), '1.0', true );
+
+	// AJAX MORE POSTS
+	wp_localize_script( 'ajax-pagination', 'ajaxpagination', array(
+		'ajaxurl' => admin_url( 'admin-ajax.php' )
+	));
+
 }
 
 /**

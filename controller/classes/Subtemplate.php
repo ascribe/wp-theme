@@ -54,6 +54,9 @@ class Subtemplate {
 					case 'team':
 						$result .= $this->team($subtemplate,$subtemplateTitle);
 						break;
+					case 'teamGeneral':
+						$result .= $this->teamGeneral($subtemplate,$subtemplateTitle);
+						break;
 					case 'content':
 						$result .= $this->content($subtemplate,$subtemplateTitle);
 						break;
@@ -74,6 +77,12 @@ class Subtemplate {
 						break;
 					case 'download':
 						$result .= $this->download($subtemplate,$subtemplateTitle);
+						break;
+					case 'contact':
+						$result .= $this->contactPage($subtemplate,$subtemplateTitle);
+						break;
+					case 'events':
+						$result .= $this->eventPage($subtemplate,$subtemplateTitle);
 						break;
 				}
 			}
@@ -265,23 +274,31 @@ class Subtemplate {
 				$role   = get_field('role',$id);
 				$image  = get_field('image',$id)['url'];
 				$facebook   = get_field('facebook_link',$id);
+
+				$themeUrl   = WPTHEME_TEMPLATE_URL . '/';
+
 				if ($facebook) {
-					$facebook = "<a href='{$facebook}' target='_blank'>Facebook</a>";
+					$facebook = "<a href='{$facebook}' target='_blank' class='facebook'><img src='{$themeUrl}images/svg/facebook.svg' alt='Facebook' class='social-icon'></a>";
 				}
 
 				$github     = get_field('github_link',$id);
 				if ($github) {
-					$github = "<a href='{$github}' target='_blank'>Github</a>";
+					$github = "<a href='{$github}' target='_blank' class='github'><img src='{$themeUrl}images/svg/git.svg' alt='Github' class='social-icon'></a>";
 				}
 
 				$linkedin   = get_field('linkedin_link',$id);
 				if ($linkedin) {
-					$linkedin = "<a href='{$linkedin}' target='_blank'>Linkedin</a>";
+					$linkedin = "<a href='{$linkedin}' target='_blank' class='linkedin'><img src='{$themeUrl}images/svg/linkedin.svg' alt='Linkedin' class='social-icon'></a>";
 				}
 
 				$twitter    = get_field('twitter_link',$id);
 				if ($twitter) {
-					$twitter = "<a href='{$twitter}' target='_blank'>Twitter</a>";
+					$twitter = "<a href='{$twitter}' target='_blank' class='twitter'><img src='{$themeUrl}images/svg/twitter.svg' alt='Twitter' class='social-icon'></a>";
+				}
+
+				$website    = get_field('personal_website_link',$id);
+				if ($website) {
+					$website = "<a href='{$website}' target='_blank' class='twitter'><img src='{$themeUrl}images/svg/website.svg' alt='Website' class='social-icon'></a>";
 				}
 
 				$teamMemberMarkup .= "<article class='team-member'>
@@ -292,15 +309,85 @@ class Subtemplate {
 										{$github}
 										{$linkedin}
 										{$twitter}
+										{$website}
+										</article>";
+			}
+		}
+
+		$result = "<section class='subtemplate team tour-page'>
+						<div class='centered-content'>
+							<div class='intro'>{$content}</div>
+							<div class='column-container'>{$teamMemberMarkup}</div>
+							<a href='{$meetTeamLink}' class='button white-blue'>Meet the Team</a>
+						</div>
+					</section>";
+
+		return $result;
+	}
+	public function teamGeneral($subtemplate,$subtemplateTitle) {
+		$content        = get_sub_field('content');
+		$meetTeamLink   = get_sub_field('meet_the_team_link');
+
+		$args           = array(
+			'post_type' => 'team',
+			'order'     => 'ASC'
+		);
+
+		$teamMembers = get_posts($args);
+		$teamMemberMarkup = '';
+		if (!empty($teamMembers)) {
+			foreach ($teamMembers as $teamMember) {
+				$id     = $teamMember->ID;
+				$name   = $teamMember->post_title;
+				$role   = get_field('role',$id);
+				$image  = get_field('image',$id)['url'];
+				$facebook   = get_field('facebook_link',$id);
+
+				$themeUrl   = WPTHEME_TEMPLATE_URL . '/';
+
+				if ($facebook) {
+					$facebook = "<a href='{$facebook}' target='_blank' class='facebook'><img src='{$themeUrl}images/svg/facebook.svg' alt='Facebook' class='social-icon'></a>";
+				}
+
+				$github     = get_field('github_link',$id);
+				if ($github) {
+					$github = "<a href='{$github}' target='_blank' class='github'><img src='{$themeUrl}images/svg/git.svg' alt='Github' class='social-icon'></a>";
+				}
+
+				$linkedin   = get_field('linkedin_link',$id);
+				if ($linkedin) {
+					$linkedin = "<a href='{$linkedin}' target='_blank' class='linkedin'><img src='{$themeUrl}images/svg/linkedin.svg' alt='Linkedin' class='social-icon'></a>";
+				}
+
+				$twitter    = get_field('twitter_link',$id);
+				if ($twitter) {
+					$twitter = "<a href='{$twitter}' target='_blank' class='twitter'><img src='{$themeUrl}images/svg/twitter.svg' alt='Twitter' class='social-icon'></a>";
+				}
+
+				$website    = get_field('personal_website_link',$id);
+				if ($website) {
+					$website = "<a href='{$website}' target='_blank' class='twitter'><img src='{$themeUrl}images/svg/website.svg' alt='Website' class='social-icon'></a>";
+				}
+
+				$teamMemberMarkup .= "<article class='team-member'>
+										<img src='{$image}' alt='Picture of {$name}'>
+										<h1>{$name}</h1>
+										<h2>{$role}</h2>
+										{$facebook}
+										{$github}
+										{$linkedin}
+										{$twitter}
+										{$website}
 										</article>";
 			}
 		}
 
 		$result = "<section class='subtemplate team'>
+						<div class='centered-content-padding'>
 						<div class='centered-content'>
 							<div class='intro'>{$content}</div>
 							<div class='column-container'>{$teamMemberMarkup}</div>
-							<a href='{$meetTeamLink}' class='button white-blue'>Meet the Team</a>
+						</div>
 						</div>
 					</section>";
 
@@ -311,9 +398,11 @@ class Subtemplate {
 		$content = get_sub_field('content');
 
 		$result = "<section class='subtemplate content'>
+						<div class='centered-content-padding'>
 						<div class='centered-content'>
 						<h1>{$subtemplateTitle}</h1>
 						<div>{$content}</div>
+						</div>
 						</div>
 					</section>";
 
@@ -325,9 +414,11 @@ class Subtemplate {
 		$imageAlt = get_sub_field('image')['alt'];
 
 		$result = "<section class='subtemplate image'>
+						<div class='centered-content-padding'>
 						<div class='centered-content'>
 						<h1>{$subtemplateTitle}</h1>
 						<div><img src='{$image}' alt='{$imageAlt}'></div>
+						</div>
 						</div>
 					</section>";
 
@@ -363,10 +454,12 @@ class Subtemplate {
 		$regularFAQ .= "</dl>";
 
 		$result = "<section class='subtemplate faq'>
+					<div class='centered-content-padding'>
 					<div class='centered-content'>
 						<h1>{$subtemplateTitle}</h1>
 						{$featuredFAQ}
 						{$regularFAQ}
+						</div>
 					</div>
 					</section>";
 
@@ -388,7 +481,10 @@ class Subtemplate {
 			}
 		}
 
-		$result = "<section class='subtemplate values'><div class='centered-content'><div class='column-container'>{$values}</div></div></section>";
+		$result = "<section class='subtemplate values'><div class='centered-content-padding'><div class='centered-content'>
+					<h1>{$subtemplateTitle}</h1>
+					<div class='column-container'>{$values}</div>
+					</div></div></section>";
 
 		return $result;
 	}
@@ -413,17 +509,20 @@ class Subtemplate {
 		$result = "<section class='subtemplate careers'>
 						<div class='centered-content'>
 							<h1>{$subtemplateTitle}</h1>
-							<ul class='careers'>{$careerMarkup}</ul>
+							<ul>{$careerMarkup}</ul>
 						</div>
 					</section>";
 
 		return $result;
 	}
 	public function mediaDetail($subtemplate,$subtemplateTitle) {
+		$image = get_sub_field('image')['url'];
+
 		$args           = array(
 			'post_type' => 'presscoverage',
 			'order'     => 'ASC'
 		);
+
 
 		$pressItems = get_posts($args);
 		$pressMarkup = '';
@@ -444,9 +543,13 @@ class Subtemplate {
 		}
 
 		$result = "<section class='subtemplate press-articles'>
+						<div class='centered-content-padding'>
 						<div class='centered-content'>
 							<h1>{$subtemplateTitle}</h1>
+							<img src='{$image}' alt='Media Companies'>
 							<div>{$pressMarkup}</div>
+							<!--<a href='#' id='more-articles' class='button blue'>Show More</a>-->
+							</div>
 						</div>
 					</section>";
 
@@ -459,12 +562,140 @@ class Subtemplate {
 		$rightText = get_sub_field('right_button_text');
 
 		$result = "<section class='subtemplate downloads'>
+						<div class='centered-content-padding'>
 						<div class='centered-content'>
 						<a href='{$leftUrl}' download class='left button blue'>{$leftText}</a>
 						<a href='{$rightUrl}' download class='right button blue'>{$rightText}</a>
+						</div>
 						</div>
 					</section>";
 
 		return $result;
 	}
+	public function contactPage($subtemplate,$subtemplateTitle) {
+		$contactPoints  = '';
+
+		$content        = get_sub_field('content');
+
+		if (have_rows('contact_point')) {
+			while (have_rows('contact_point')) {
+				the_row();
+
+				$title          = get_sub_field('contact_description');
+				$contactInfo    = get_sub_field('contact_details');
+
+				$contactPoints .= "<article class='contact-point'>
+									<h1>{$title}</h1>
+									<div>{$contactInfo}</div>
+								</article>";
+			}
+		}
+
+		$result = "<section class='subtemplate contact'>
+					<div class='centered-content-padding'>
+					<div class='centered-content'>
+					<h1>{$subtemplateTitle}</h1>
+						<div class='column-container'>
+						<div class='form'>{$content}</div>
+						<aside class='contact-points'>{$contactPoints}</aside>
+						</div>
+					</div>
+					</div>
+					</section>";
+
+		return $result;
+	}
+	public function eventPage($subtemplate,$subtemplateTitle) {
+
+		$today = date('Ymd');
+		$args           = array(
+			'post_type' => 'event',
+			'order'     => 'ASC',
+			'orderby'   => 'meta_value',
+			'meta_key'  => 'date',
+			'posts_per_page' => 20,
+			'meta_query' => array(
+				array(
+					'key' => 'date',
+					'value' => $today, //array
+					'compare' => '>=',
+				)
+			)
+		);
+
+		$futureEvents = get_posts($args);
+		$futureMarkup = '';
+		if (!empty($futureEvents)) {
+			foreach ($futureEvents as $item) {
+				$id     = $item->ID;
+				$name   = $item->post_title;
+				$url    = get_field('link_to_event',$id);
+				$pubDate= get_field('date',$id);
+				$quote  = get_field('description',$id);
+
+				$futureMarkup .= "<article class='press-article'>
+									<h1><a href='{$url}'>{$name}</a></h1>
+									<time>{$pubDate}</time>
+									<blockquote>{$quote}</blockquote>
+								</article>";
+			}
+		}
+
+		$args           = array(
+			'post_type' => 'event',
+			'order'     => 'DESC',
+			'orderby'   => 'meta_value',
+			'meta_key'  => 'date',
+			'posts_per_page' => 20,
+			'meta_query' => array(
+				array(
+					'key' => 'date',
+					'value' => $today, //array
+					'compare' => '<',
+				)
+			)
+		);
+
+		$pastEvents = get_posts($args);
+		$pastMarkup = '';
+		if (!empty($pastEvents)) {
+			foreach ($pastEvents as $item) {
+				$id     = $item->ID;
+				$name   = $item->post_title;
+				$url    = get_field('link_to_event',$id);
+				$pubDate= get_field('date',$id);
+				$quote  = get_field('description',$id);
+
+				$pastMarkup .= "<article class='press-article'>
+									<h1><a href='{$url}'>{$name}</a></h1>
+									<time>{$pubDate}</time>
+									<blockquote>{$quote}</blockquote>
+								</article>";
+			}
+		}
+
+
+
+
+
+		$result = "<section class='subtemplate upcoming-events'>
+						<div class='centered-content-padding'>
+						<div class='centered-content'>
+							<h1>Upcoming Events</h1>
+							<div>{$futureMarkup}</div>
+						</div>
+						</div>
+					</section>
+					<section class='subtemplate past-events'>
+						<div class='centered-content-padding'>
+						<div class='centered-content'>
+							<h1>Past Events</h1>
+							<div>{$pastMarkup}</div>
+						</div>
+						</div>
+					</section>";
+
+		return $result;
+	}
+
 }

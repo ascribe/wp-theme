@@ -55,6 +55,15 @@
 	margin: 0 auto;
 }
 
+.centered-content-padding {
+	.clearfix;
+	max-width: 950px;
+	padding-bottom:50px;
+	width: 100%;
+	margin: 0 auto;
+	background-color: @white;
+}
+
 
 .centered-footer {
 	.clearfix;
@@ -137,6 +146,14 @@ ul, ol {
 	.columnTwoThirds {
 		.column;
 		width: 66.6%;
+		@media screen and (max-width: @tabletWidth) {
+			width: 100%;
+		}
+	}
+
+	.columnThreeQuarters {
+		.column;
+		width: 100 * 3/4%;
 		@media screen and (max-width: @tabletWidth) {
 			width: 100%;
 		}

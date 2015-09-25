@@ -1,4 +1,4 @@
 <?php $controller = new Controller(); ?>
-<main>
+<main class="above-chevron">
 	<?php echo $controller->loopSubtemplates(); ?>
 </main>

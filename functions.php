@@ -68,5 +68,15 @@ function register_primary_nav_menu() {
 }
 add_action( 'init', 'register_primary_nav_menu');
 
-
+// ADD THUMBNAILS TO POSTS
 add_theme_support( 'post-thumbnails' );
+
+
+// ENABLE HR IN WSYWIG
+function enable_more_buttons($buttons) {
+	$buttons[] = 'hr';
+
+	return $buttons;
+}
+add_filter("mce_buttons", "enable_more_buttons");
+

@@ -5,14 +5,22 @@
 
 // HEADER
 @chevronOffsetHeader: 60px;
+header {
+	overflow: hidden;
+	padding-bottom: 50px;
+}
+header ~ .chevron-divider {
+	height: 175px;
+}
 .page-template-template-tour header {
 	height: 815px;
+	padding:0;
 	margin-bottom: @chevronOffsetHeader;
 	position: relative;
 	background-size: cover;
 	background-repeat: no-repeat;
 	background-position: center;
-
+	overflow: visible;
 	nav {
 		float: left;
 		margin-top: 35px;
@@ -32,6 +40,14 @@
 		.heroText;
 		margin-bottom: 160px;
 	}
+	.app-links {
+		color: @white;
+		margin-top: 25px;
+
+		a {
+			color: @white;
+		}
+	}
 
 	.chevron-divider {
 		position: absolute;
@@ -39,22 +55,58 @@
 		height: 150px;
 	}
 }
+.page-template-template-companyblue header {
+	background-color: #529dae;
+
+	& ~ .chevron-divider {
+		background-color: #529dae;
+	}
+
+}
 .logo {
 	float:left;
 	margin-top: 25px;
 }
 .app-links {
 	float: right;
-	margin-top: 25px;
+	margin-top: 35px;
 	.signInUpText;
+	color: @black;
 
 	a {
 		.signInUpText;
+		color: @black;
+
+		&:hover {
+			color: @pink;
+		}
 	}
+}
+
+// MAIN
+.above-chevron {
+	margin-top: -100px;
+	margin-bottom: -80px;
+	position: relative;
+	z-index: 3;
 }
 
 
 // SUBTEMPLATES
+.four-oh-four {
+	font-size: 34px;
+	line-height: 41px;
+	text-align: center;
+	.centered-content-padding {
+		min-height: 500px;
+	}
+}
+.subtemplate {
+	position: relative;
+	h1 {
+		.sectionHeader;
+	}
+}
 .feature-circles {
 	padding: 75px 0 160px;
 
@@ -151,7 +203,7 @@
 	padding-bottom: 175px;
 
 	h1 {
-		.h1;
+		.sectionHeader;
 		text-align: center;
 	}
 
@@ -209,7 +261,7 @@
 	border-top: 1px solid @greyHr;
 
 	h1 {
-		.h1;
+		.sectionHeader;
 	}
 	p {
 		.copyTextSmall;
@@ -293,15 +345,16 @@
 	h1 {
 		.featureBlogTitle;
 		margin:0 10px;
+		text-align: left;
 	}
 }
 .team {
-	background-color: @greyBg;
-	padding: 70px 0;
 	.copyTextSmall;
+	text-align: center;
 
 	.intro {
 		margin-bottom: 60px;
+		text-align: left;
 	}
 	p {
 		margin:0;
@@ -309,14 +362,11 @@
 	.team-member {
 		.ttl-columns.column-3;
 		text-align: center;
+		margin-bottom: 40px;
 	}
 	img {
 		border-radius: 100%;
 		filter: grayscale(100%);
-
-		&:hover {
-			filter: none;
-		}
 	}
 	h1 {
 		.teamName;
@@ -326,5 +376,281 @@
 	h2 {
 		.copyText;
 		margin-top:2px;
+	}
+
+	&.tour-page {
+		padding: 70px 0;
+		background-color: @greyBg;
+	}
+}
+.faq {
+	.copyTextMedium;
+	dl,dt,dd {
+		margin:0;
+		padding:0;
+	}
+	.featured-faqs {
+		margin-bottom:75px;
+
+		dt {
+			&:extend(.fontRegular);
+			font-size: 25px;
+			line-height: 32px;
+			color: @pink;
+			cursor: pointer;
+		}
+		dd {
+			max-height:0;
+			overflow-y:hidden;
+			.transition();
+			margin-bottom: 5px;
+
+			&.open {
+				max-height: 800px;
+			}
+		}
+	}
+	.regular-faqs {
+		dt {
+			&:extend(.fontRegular);
+		}
+		dd {
+			margin-bottom: 60px;
+		}
+	}
+}
+.values {
+	padding-bottom: 150px;
+	.column-container {
+		width: calc(~"100% + 175px");
+	}
+	.value {
+		.ttl-columns.column-2;
+		.copyText;
+		padding-right: 175px;
+
+		h1 {
+			&:extend(.fontRegular);
+			color: @black;
+			font-size: 25px;
+			line-height: 15px;
+			margin-bottom:0;
+			text-align: left;
+		}
+
+	}
+}
+.careers {
+	background-color: @greyBg;
+	text-align: center;
+	padding: 90px 0 140px;
+	margin-bottom:75px;
+
+	a {
+		&:extend(.fontLight);
+		color: @black;
+		font-size: 27px;
+		line-height: 32px;
+
+		&:hover {
+			color: @pink;
+		}
+	}
+	li {
+		margin-bottom: 35px;
+
+	}
+	ul {
+		list-style: none;
+	}
+}
+.contact {
+	.form {
+		.ttl-columns.columnThreeQuarters;
+		.copyText;
+	}
+	.contact-points {
+		.ttl-columns.column-4;
+	}
+
+	label {
+		.copyTextSmall;
+
+		&.required {
+			&:after {
+				content: '*';
+				color: @pink;
+			}
+		}
+	}
+	input, textarea {
+		margin-bottom: 20px;
+		padding: 10px;
+		color: @greyText;
+		width: 80%;
+		margin-top: 5px;
+		border: 1px solid @greyHr;
+		outline: none;
+
+		&[aria-invalid=true] {
+			border: 1px solid @pink;
+		}
+	}
+	input[type=submit] {
+		.button;
+		.button.blue;
+		width: auto;
+	}
+	.contact-point {
+		.copyText;
+		h1 {
+			&:extend(.fontRegular);
+			font-size: 19px;
+			color: @pink;
+			text-align: left;
+			margin-bottom:0;
+		}
+	}
+	.required-info {
+		.copyTextSmall;
+		color: @pink;
+	}
+	.wpcf7-not-valid-tip {
+		.copyTextSmall;
+		color: @pink;
+		margin-top: -20px;
+		margin-bottom: 10px;
+	}
+	div.wpcf7-validation-errors {
+		border: none;
+		padding:0;
+		margin:0;
+	}
+}
+.press-articles {
+	.copyText;
+	text-align: center;
+	blockquote {
+		margin: 0;
+	}
+
+	.press-article {
+		text-align: left;
+		margin-bottom: 35px;
+		padding-bottom: 35px;
+		border-bottom: 1px solid @greyHr;
+		h1 {
+			.teamName;
+			margin-bottom:0;
+			text-align: left;
+			a {
+				color: @black;
+
+				&:hover {
+					color: @blueBright;
+				}
+			}
+		}
+	}
+}
+.downloads {
+	.left {
+		float: left;
+	}
+	.right {
+		float: right;
+	}
+}
+
+// BLUE TEMPLATE SILLINESS
+.page-template-template-companyblue .subtemplate:first-of-type {
+	background-color: @blueBright;
+	/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#519cad+0,67c4da+100 */
+	/* IE9 SVG, needs conditional override of 'filter' to 'none' */
+	background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzUxOWNhZCIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiM2N2M0ZGEiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
+	background: -moz-linear-gradient(top,  rgba(81,156,173,1) 0%, rgba(103,196,218,1) 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(81,156,173,1)), color-stop(100%,rgba(103,196,218,1))); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  rgba(81,156,173,1) 0%,rgba(103,196,218,1) 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  rgba(81,156,173,1) 0%,rgba(103,196,218,1) 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  rgba(81,156,173,1) 0%,rgba(103,196,218,1) 100%); /* IE10+ */
+	background: linear-gradient(to bottom,  rgba(81,156,173,1) 0%,rgba(103,196,218,1) 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#519cad', endColorstr='#67c4da',GradientType=0 ); /* IE6-8 */
+
+	.centered-content-padding {
+		background-color: transparent;
+	}
+}
+
+
+// FOOTER
+footer {
+	.footerText;
+
+	a {
+		.footerText;
+		width: 100%;
+		&:hover {
+			&:extend(.fontRegular);
+			color: @white;
+		}
+	}
+	.top-footer {
+		background-color: @greyFooter;
+		padding: 50px 0 40px;
+
+		ul {
+			columns: 3;
+			width: 75%;
+			float: left;
+		}
+	}
+	ul {
+		list-style: none;
+	}
+	.contact {
+		width: 25%;
+		float:right;
+	}
+	.bottom-footer {
+		.subfooterText;
+		padding: 20px 0 10px;
+
+		a {
+			.subfooterText;
+		}
+
+		.menu {
+			float: left;
+			margin-left: 15px;
+
+			li {
+				display: inline-block;
+				border-left: 1px solid @blueDeep;
+				padding: 0 15px;
+
+				&:nth-of-type(1) {
+					width: 60px;
+				}
+				&:nth-of-type(2) {
+					width: 130px;
+				}
+			}
+		}
+		.social {
+			float: right;
+			position: relative;
+			top: -2px;
+
+			li {
+				display: inline-block;
+
+			}
+		}
+	}
+	.copyright {
+		float: left;
+	}
+	.button {
+		margin-bottom: 10px;
 	}
 }
