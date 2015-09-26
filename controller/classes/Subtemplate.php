@@ -21,68 +21,67 @@ class Subtemplate {
 
 				$subtemplateTitle = get_sub_field('section_title');
 
-				$subtemplate = '';
 
 				switch ($subtemplateType) {
 					case 'featurecircles':
-						$result .= $this->featureCircles($subtemplate,$subtemplateTitle);
+						$result .= $this->featureCircles($subtemplateTitle);
 						break;
 					case 'casestudies':
-						$result .= $this->caseStudies($subtemplate,$subtemplateTitle);
+						$result .= $this->caseStudies($subtemplateTitle);
 						break;
 					case 'oldnew':
-						$result .= $this->oldNew($subtemplate,$subtemplateTitle);
+						$result .= $this->oldNew($subtemplateTitle);
 						break;
 					case 'productoverview':
-						$result .= $this->productOverview($subtemplate,$subtemplateTitle);
+						$result .= $this->productOverview($subtemplateTitle);
 						break;
 					case 'bluebox':
-						$result .= $this->blueBox($subtemplate,$subtemplateTitle);
+						$result .= $this->blueBox($subtemplateTitle);
 						break;
 					case 'createaccount':
-						$result .= $this->createAccount($subtemplate,$subtemplateTitle);
+						$result .= $this->createAccount($subtemplateTitle);
 						break;
 					case 'galleries':
-						$result .= $this->galleries($subtemplate,$subtemplateTitle);
+						$result .= $this->galleries($subtemplateTitle);
 						break;
 					case 'blogfeatures':
-						$result .= $this->blogFeatures($subtemplate,$subtemplateTitle);
+						$result .= $this->blogFeatures();
 						break;
 					case 'mediafeature':
-						$result .= $this->galleries($subtemplate,$subtemplateTitle);
+						$result .= $this->galleries($subtemplateTitle);
 						break;
 					case 'team':
-						$result .= $this->team($subtemplate,$subtemplateTitle);
+						$result .= $this->team($subtemplateTitle);
 						break;
 					case 'teamGeneral':
-						$result .= $this->teamGeneral($subtemplate,$subtemplateTitle);
+						$result .= $this->teamGeneral($subtemplateTitle);
 						break;
 					case 'content':
-						$result .= $this->content($subtemplate,$subtemplateTitle);
+						$result .= $this->content($subtemplateTitle);
 						break;
 					case 'image':
-						$result .= $this->image($subtemplate,$subtemplateTitle);
+						$result .= $this->image($subtemplateTitle);
 						break;
 					case 'faq':
-						$result .= $this->faq($subtemplate,$subtemplateTitle);
+						$result .= $this->faq($subtemplateTitle);
 						break;
 					case 'values':
-						$result .= $this->values($subtemplate,$subtemplateTitle);
+						$result .= $this->values($subtemplateTitle);
 						break;
 					case 'careers':
-						$result .= $this->careers($subtemplate,$subtemplateTitle);
+						$result .= $this->careers($subtemplateTitle);
 						break;
 					case 'mediadetail':
-						$result .= $this->mediaDetail($subtemplate,$subtemplateTitle);
+						$result .= $this->mediaDetail($subtemplateTitle);
 						break;
 					case 'download':
-						$result .= $this->download($subtemplate,$subtemplateTitle);
+						$result .= $this->download($subtemplateTitle);
 						break;
 					case 'contact':
-						$result .= $this->contactPage($subtemplate,$subtemplateTitle);
+						$result .= $this->contactPage($subtemplateTitle);
 						break;
 					case 'events':
-						$result .= $this->eventPage($subtemplate,$subtemplateTitle);
+						$result .= $this->eventPage($subtemplateTitle);
 						break;
 				}
 			}
@@ -91,7 +90,7 @@ class Subtemplate {
 		return $result;
 	}
 
-	public function featureCircles($subtemplate,$subtemplateTitle) {
+	public function featureCircles($subtemplateTitle) {
 
 		$featureCircles = '';
 		if (have_rows('feature_circles')) {
@@ -114,7 +113,7 @@ class Subtemplate {
 
 		return $result;
 	}
-	public function caseStudies($subtemplate,$subtemplateTitle) {
+	public function caseStudies($subtemplateTitle) {
 		$caseStudies = '';
 		if (have_rows('case_study')) {
 			while (have_rows('case_study')) {
@@ -135,7 +134,7 @@ class Subtemplate {
 
 		return $result;
 	}
-	public function oldNew($subtemplate,$subtemplateTitle) {
+	public function oldNew($subtemplateTitle) {
 		$oldNewRows = '';
 		if (have_rows('old_way__new_way')) {
 			while (have_rows('old_way__new_way')) {
@@ -163,7 +162,7 @@ class Subtemplate {
 
 		return $result;
 	}
-	public function productOverview($subtemplate,$subtemplateTitle) {
+	public function productOverview($subtemplateTitle) {
 
 		$imageUrl      = get_sub_field('image')['url'];
 		$imageAlt      = get_sub_field('image')['alt'];
@@ -181,7 +180,7 @@ class Subtemplate {
 					</section>";
 		return $result;
 	}
-	public function blueBox($subtemplate,$subtemplateTitle) {
+	public function blueBox($subtemplateTitle) {
 
 		$content    = get_sub_field('content');
 
@@ -196,7 +195,7 @@ class Subtemplate {
 
 		return $result;
 	}
-	public function createAccount($subtemplate,$subtemplateTitle) {
+	public function createAccount($subtemplateTitle) {
 		$buttonText     = get_sub_field('create_free_account_text');
 		$signUpLink     = get_field('sign_up_link','option');
 		$backgroundImg  = get_sub_field('image')['url'];
@@ -210,7 +209,7 @@ class Subtemplate {
 
 		return $result;
 	}
-	public function galleries($subtemplate,$subtemplateTitle) {
+	public function galleries($subtemplateTitle) {
 		$galleryLink        = get_sub_field('gallery_page');
 		$galleriesImgUrl    = get_sub_field('galleries_image')['url'];
 		$galleriesImgAlt    = get_sub_field('galleries_image')['alt'];
@@ -226,37 +225,57 @@ class Subtemplate {
 
 		return $result;
 	}
-	public function blogFeatures($subtemplate,$subtemplateTitle) {
+	public function blogFeatures($page = "home") {
 		$blogFeatures = '';
-		if (have_rows('blog_features')) {
-			while (have_rows('blog_features')) {
+		if (have_rows('blog_features','option')) {
+			while (have_rows('blog_features','option')) {
 				the_row();
 
 				$title          = get_sub_field('feature_title');
 				$feature        = get_sub_field('post');
 				$postTitle      = $feature->post_title;
 				$url            = get_permalink($feature->ID);
+				$content        = substr($feature->post_content, 144);
+				$date           = date('F Y',$feature->post_date);
 				$image          = wp_get_attachment_image_src(get_post_thumbnail_id($feature->ID),'large')[0];
 
-				$blogFeatures .= "<a href='{$url}'><article class='blog'><div>
+				if ($page == "home") {
+					$blogFeatures .= "<a href='{$url}'><article class='blog'><div>
 									<img src='{$image}' alt='{$postTitle} Image'>
 									<h2>{$title}</h2>
 									<h1>{$postTitle}</h1></div>
 								</article></a>";
+
+				}
+				else {
+					$blogFeatures .= "<a href='{$url}'><article class='blog'>
+									<h1>{$postTitle}</h1>
+									<time>{$date}</time>
+									<div>{$content}</div>
+								</article></a>";
+
+				}
 			}
 		}
 
-		$result = "<section class='subtemplate blog-features'>
+		if ($page == "home") {
+			$result = "<section class='subtemplate blog-features'>
 					<div class='centered-content'>
 						<div class='column-container'>
 						{$blogFeatures}
 						</div>
 					</div>
 					</section>";
+		}
+		else {
+			$result = "<section class='sidebar-blog-features'>
+						{$blogFeatures}
+						</section>";
+		}
 
 		return $result;
 	}
-	public function team($subtemplate,$subtemplateTitle) {
+	public function team($subtemplateTitle) {
 		$content        = get_sub_field('content');
 		$meetTeamLink   = get_sub_field('meet_the_team_link');
 
@@ -324,7 +343,7 @@ class Subtemplate {
 
 		return $result;
 	}
-	public function teamGeneral($subtemplate,$subtemplateTitle) {
+	public function teamGeneral($subtemplateTitle) {
 		$content        = get_sub_field('content');
 		$meetTeamLink   = get_sub_field('meet_the_team_link');
 
@@ -393,7 +412,7 @@ class Subtemplate {
 
 		return $result;
 	}
-	public function content($subtemplate,$subtemplateTitle) {
+	public function content($subtemplateTitle) {
 
 		$content = get_sub_field('content');
 
@@ -408,7 +427,7 @@ class Subtemplate {
 
 		return $result;
 	}
-	public function image($subtemplate,$subtemplateTitle) {
+	public function image($subtemplateTitle) {
 
 		$image = get_sub_field('image')['url'];
 		$imageAlt = get_sub_field('image')['alt'];
@@ -424,7 +443,7 @@ class Subtemplate {
 
 		return $result;
 	}
-	public function faq($subtemplate,$subtemplateTitle) {
+	public function faq($subtemplateTitle) {
 		$featuredFAQ = '<dl class="featured-faqs">';
 		if (have_rows('featured_faqs')) {
 			while (have_rows('featured_faqs')) {
@@ -465,7 +484,7 @@ class Subtemplate {
 
 		return $result;
 	}
-	public function values($subtemplate,$subtemplateTitle) {
+	public function values($subtemplateTitle) {
 		$values = '';
 		if (have_rows('ascribe_values')) {
 			while (have_rows('ascribe_values')) {
@@ -488,7 +507,7 @@ class Subtemplate {
 
 		return $result;
 	}
-	public function careers($subtemplate,$subtemplateTitle) {
+	public function careers($subtemplateTitle) {
 		$args           = array(
 			'post_type' => 'career',
 			'order'     => 'ASC'
@@ -515,7 +534,7 @@ class Subtemplate {
 
 		return $result;
 	}
-	public function mediaDetail($subtemplate,$subtemplateTitle) {
+	public function mediaDetail($subtemplateTitle) {
 		$image = get_sub_field('image')['url'];
 
 		$args           = array(
@@ -555,7 +574,7 @@ class Subtemplate {
 
 		return $result;
 	}
-	public function download($subtemplate,$subtemplateTitle) {
+	public function download($subtemplateTitle) {
 		$leftUrl = get_sub_field('left_button_url');
 		$leftText = get_sub_field('left_button_text');
 		$rightUrl = get_sub_field('right_button_url');
@@ -572,7 +591,7 @@ class Subtemplate {
 
 		return $result;
 	}
-	public function contactPage($subtemplate,$subtemplateTitle) {
+	public function contactPage($subtemplateTitle) {
 		$contactPoints  = '';
 
 		$content        = get_sub_field('content');
@@ -605,7 +624,7 @@ class Subtemplate {
 
 		return $result;
 	}
-	public function eventPage($subtemplate,$subtemplateTitle) {
+	public function eventPage($subtemplateTitle) {
 
 		$today = date('Ymd');
 		$args           = array(
@@ -625,6 +644,8 @@ class Subtemplate {
 
 		$futureEvents = get_posts($args);
 		$futureMarkup = '';
+		$dateInLoop = '';
+		$lastDate = '';
 		if (!empty($futureEvents)) {
 			foreach ($futureEvents as $item) {
 				$id     = $item->ID;
@@ -633,11 +654,21 @@ class Subtemplate {
 				$pubDate= get_field('date',$id);
 				$quote  = get_field('description',$id);
 
-				$futureMarkup .= "<article class='press-article'>
+				$dateInLoop = date_create_from_format('F j, Y', $pubDate);
+				$dateInLoop = date_format($dateInLoop, 'F Y');
+				$header = '';
+				if ($dateInLoop !== $lastDate) {
+					$header = "<h2><span>{$dateInLoop}</span></h2>";
+				}
+
+				$futureMarkup .= "{$header}
+									<article class='event'>
 									<h1><a href='{$url}'>{$name}</a></h1>
 									<time>{$pubDate}</time>
 									<blockquote>{$quote}</blockquote>
 								</article>";
+
+				$lastDate = $dateInLoop;
 			}
 		}
 
@@ -658,6 +689,7 @@ class Subtemplate {
 
 		$pastEvents = get_posts($args);
 		$pastMarkup = '';
+		$lastDate = '';
 		if (!empty($pastEvents)) {
 			foreach ($pastEvents as $item) {
 				$id     = $item->ID;
@@ -666,11 +698,22 @@ class Subtemplate {
 				$pubDate= get_field('date',$id);
 				$quote  = get_field('description',$id);
 
-				$pastMarkup .= "<article class='press-article'>
+				$dateInLoop = date_create_from_format('F j, Y', $pubDate);
+				$dateInLoop = date_format($dateInLoop, 'F Y');
+				$header = '';
+				if ($dateInLoop !== $lastDate) {
+
+					$header = "<h2><span>{$dateInLoop}</span></h2>";
+				}
+
+				$pastMarkup .= "{$header}
+									<article class='event'>
 									<h1><a href='{$url}'>{$name}</a></h1>
 									<time>{$pubDate}</time>
 									<blockquote>{$quote}</blockquote>
 								</article>";
+
+				$lastDate = $dateInLoop;
 			}
 		}
 
@@ -686,6 +729,7 @@ class Subtemplate {
 						</div>
 						</div>
 					</section>
+					<div class='chevron-divider'></div>
 					<section class='subtemplate past-events'>
 						<div class='centered-content-padding'>
 						<div class='centered-content'>

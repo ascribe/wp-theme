@@ -1,6 +1,7 @@
 // TERRITORIAL CSS HELPERS
-@tabletWidth: 780px;
-@phoneWidth: 480px;
+@tabletWidth: 768px;
+@middleWidth: 570px;
+@phoneWidth: 375px;
 
 // CLEARFIX
 // Apply .clearfix to a non-floated container element with floated elements in it
@@ -58,12 +59,18 @@
 .centered-content-padding {
 	.clearfix;
 	max-width: 950px;
-	padding-bottom:50px;
+	padding: 0 @centeredpadding 50px;
 	width: 100%;
 	margin: 0 auto;
 	background-color: @white;
 }
 
+.centered-categories {
+	.clearfix;
+	max-width: 1000px;
+	width: 100%;
+	margin: 0 auto;
+}
 
 .centered-footer {
 	.clearfix;
@@ -103,7 +110,7 @@ ul, ol {
 	.column-2 {
 		.column;
 		width: 50%;
-		@media screen and (max-width: 550px) {
+		@media screen and (max-width: @middleWidth) {
 			width: 100%;
 		}
 	}
@@ -111,7 +118,7 @@ ul, ol {
 	.column-3 {
 		.column;
 		width: 100/3%;
-		@media screen and (max-width: @tabletWidth) {
+		@media screen and (max-width: @middleWidth) {
 			width: 100%;
 		}
 	}
@@ -142,11 +149,18 @@ ul, ol {
 			width: 50%;
 		}
 	}
+	.column-7 {
+		.column;
+		width: 100/7%;
+		@media screen and (max-width: @tabletWidth) {
+			width: 33%;
+		}
+	}
 
 	.columnTwoThirds {
 		.column;
 		width: 66.6%;
-		@media screen and (max-width: @tabletWidth) {
+		@media screen and (max-width: @middleWidth) {
 			width: 100%;
 		}
 	}

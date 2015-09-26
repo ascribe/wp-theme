@@ -9,7 +9,7 @@ header {
 	overflow: hidden;
 	padding-bottom: 50px;
 }
-header ~ .chevron-divider {
+header + .chevron-divider {
 	height: 175px;
 }
 .page-template-template-tour header {
@@ -46,6 +46,10 @@ header ~ .chevron-divider {
 
 		a {
 			color: @white;
+
+			&:hover {
+				color: @pink;
+			}
 		}
 	}
 
@@ -54,14 +58,81 @@ header ~ .chevron-divider {
 		bottom: -@chevronOffsetHeader;
 		height: 150px;
 	}
+
+	@media screen and (max-width: @tabletWidth) {
+		height: 600px;
+
+		h1 {
+			margin-bottom: 80px;
+		}
+
+
+		.description {
+			margin: 160px auto 0;
+			font-size: 34px;
+			width: 100%;
+		}
+	}
 }
 .page-template-template-companyblue header {
 	background-color: #529dae;
 
-	& ~ .chevron-divider {
+	& + .chevron-divider {
 		background-color: #529dae;
 	}
 
+}
+.blog header, .archive header, .single-post header {
+	&:extend(.blueGradient);
+	padding-bottom:0;
+
+	.chevron-divider {
+		position: absolute;
+		top: 110px;
+		z-index: 1;
+	}
+	h1 {
+		color: @white;
+		font-size: 54px;
+		position: relative;
+		z-index: 2;
+		margin-top: 100px;
+		margin-bottom: 50px;
+		text-align: center;
+	}
+	.app-links {
+		color: @white;
+		a {
+			color: @white;
+
+			&:hover {
+				.fontRegular;
+			}
+		}
+	}
+	& + nav {
+		background-color: @blueBright;
+		border-top: 2px solid fade(@white,50);
+
+		ul {
+			.column-container;
+		}
+		li {
+			.ttl-columns.column-7;
+		}
+		a {
+			display: block;
+			text-align: center;
+			padding: 25px 0;
+			font-size: 16px;
+			color: @white;
+			&:extend(.fontRegular);
+
+			&:hover {
+				background-color: fade(@white,50);
+			}
+		}
+	}
 }
 .logo {
 	float:left;
@@ -90,7 +161,6 @@ header ~ .chevron-divider {
 	position: relative;
 	z-index: 3;
 }
-
 
 // SUBTEMPLATES
 .four-oh-four {
@@ -129,6 +199,17 @@ header ~ .chevron-divider {
 	}
 	.description {
 		.copyTextSmall;
+	}
+
+	@media screen and (max-width: @tabletWidth) {
+		padding: 75px 0 100px;
+		.column-container {
+			width: calc(~"100% + 50px");
+		}
+
+		.feature-circle {
+			padding-right: 50px;
+		}
 	}
 }
 .case-studies {
@@ -197,6 +278,25 @@ header ~ .chevron-divider {
 		background-image: url(../../images/right.png);
 		right:0;
 	}
+
+	@media screen and (max-width: @tabletWidth) {
+		height: 500px;
+
+		.description {
+			font-size: 17px;
+			line-height: 20px;
+			width: 70%;
+		}
+		.slider-action {
+			transform: scale(0.7);
+		}
+		#back {
+			transform-origin: left;
+		}
+		#forward {
+			transform-origin: right;
+		}
+	}
 }
 .old-new {
 	padding-top: 130px;
@@ -219,8 +319,6 @@ header ~ .chevron-divider {
 
 	td {
 		border: 1px solid @blueLight;
-	}
-	td {
 		vertical-align: middle;
 		.copyTextSmall;
 		width: 50%;
@@ -255,6 +353,16 @@ header ~ .chevron-divider {
 			}
 		}
 	}
+	@media screen and (max-width: @tabletWidth) {
+		padding-top: 20px;
+
+		td {
+			text-align: center;
+		}
+		.centered-content {
+			padding:0;
+		}
+	}
 }
 .product-overview {
 	padding: 175px 0;
@@ -283,6 +391,22 @@ header ~ .chevron-divider {
 	.text-column {
 		width: 45%;
 	}
+
+	@media screen and (max-width: @tabletWidth) {
+		padding: 100px 0;
+		&:first-of-type {
+			border-top: 0;
+		}
+
+		img {
+			max-width: 100%;
+			width: 45%;
+			margin-top: 10%;
+		}
+		.text-column {
+			text-align: center;
+		}
+	}
 }
 .blue-box {
 	padding: 175px 0;
@@ -301,6 +425,10 @@ header ~ .chevron-divider {
 	}
 	h1 {
 		.blueBoxTitle;
+	}
+
+	@media screen and (max-width: @tabletWidth) {
+		padding: 75px 0;
 	}
 }
 .sign-up {
@@ -321,6 +449,18 @@ header ~ .chevron-divider {
 	img {
 		display:block;
 		margin-bottom: 80px;
+	}
+
+	@media screen and (max-width: @tabletWidth) {
+		padding: 75px 0 30px;
+
+		h1 {
+			font-size: 27px;
+		}
+
+		a {
+			display:none;
+		}
 	}
 }
 .blog-features {
@@ -381,6 +521,15 @@ header ~ .chevron-divider {
 	&.tour-page {
 		padding: 70px 0;
 		background-color: @greyBg;
+	}
+	@media screen and (max-width: @tabletWidth) {
+		.intro {
+			text-align: center;
+		}
+
+		.button {
+			display: none;
+		}
 	}
 }
 .faq {
@@ -561,21 +710,172 @@ header ~ .chevron-divider {
 		float: right;
 	}
 }
+.upcoming-events, .past-events {
+	h2 {
+		text-align: center;
+		position:relative;
+		font-size: 19px;
+
+		span {
+			background-color: white;
+			position: relative;
+			z-index: 1;
+			padding: 0 20px;
+		}
+
+		&:after {
+			content: '';
+			display:block;
+			height: 1px;
+			background-color: @greyHr;
+			position: absolute;
+			top: 50%;
+			left: 0;
+			right: 0;
+		}
+	}
+
+	.event {
+		.copyText;
+
+		h1 {
+			.h4;
+			text-align:left;
+			margin-bottom:0;
+			font-size: 19px;
+			a {
+				color: @black;
+
+				&:hover {
+					color: @pink;
+				}
+			}
+		}
+		time {
+			.copyTextMedium;
+			margin-bottom: 5px;
+			display: block;
+		}
+		border-top: 1px solid @greyHr;
+		padding-bottom:30px;
+		margin-bottom:30px;
+	}
+	h2 + .event {
+		border-top: 0;
+	}
+	blockquote {
+		margin:0;
+		padding:0;
+	}
+
+	& + .chevron-divider {
+		height: 280px;
+		margin-top: -100px;
+		margin-bottom: -135px;
+		position: relative;
+		z-index:-1;
+	}
+}
+
+// BLOG
+.blog .column-container {
+	width: calc(~"100% + 70px");
+
+}
+article.post {
+	padding-top: 40px;
+	padding-bottom: 50px;
+	border-bottom: 2px solid #e5e5e5;
+	h2 {
+		margin:0;
+		font-size: 12px;
+		&:extend(.fontLight);
+	}
+	.post-categories {
+		list-style: none;
+		font-size: 12px;
+		&:extend(.fontLight);
+	}
+	h1 {
+		margin-top:0;
+	}
+	.image {
+		width: 100%;
+		img {
+			display: block;
+			max-width: 100%;
+			width: 100%;
+		}
+	}
+
+	.meta {
+		.chevron-divider;
+		opacity: 1;
+		line-height: 75px;
+		height: 75px;
+		padding-left: 15px;
+		margin-bottom: 35px;
+	}
+}
+.blog-column {
+	.ttl-columns.columnTwoThirds;
+	padding-right: 70px;
+
+}
+.blog-sidebar {
+	.ttl-columns.column-3;
+	padding-right: 70px;
+	padding-top: 40px;
+
+	img {
+		display:block;
+		margin-bottom: 60px;
+	}
+
+	.sidebar-blog-features {
+		.copyText;
+
+		h1 {
+			font-size: 19px;
+			&:extend(.fontRegular);
+			color: @pink;
+			margin-bottom:0;
+		}
+		time {
+			font-size:18px;
+			display:block;
+			margin-bottom: 5px;
+		}
+		a {
+			color: @black;
+			&:hover {
+				opacity: .3;
+			}
+		}
+		.blog {
+			margin-bottom: 70px;
+		}
+	}
+
+	@media screen and (max-width: @middleWidth) {
+		width: 50%;
+		margin:0 auto;
+	}
+}
+.single-post {
+	.entry {
+		.copyText;
+		width: 80%;
+	}
+	.article-post {
+		border-bottom:0;
+	}
+}
+
 
 // BLUE TEMPLATE SILLINESS
 .page-template-template-companyblue .subtemplate:first-of-type {
-	background-color: @blueBright;
-	/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#519cad+0,67c4da+100 */
-	/* IE9 SVG, needs conditional override of 'filter' to 'none' */
-	background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzUxOWNhZCIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiM2N2M0ZGEiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
-	background: -moz-linear-gradient(top,  rgba(81,156,173,1) 0%, rgba(103,196,218,1) 100%); /* FF3.6+ */
-	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(81,156,173,1)), color-stop(100%,rgba(103,196,218,1))); /* Chrome,Safari4+ */
-	background: -webkit-linear-gradient(top,  rgba(81,156,173,1) 0%,rgba(103,196,218,1) 100%); /* Chrome10+,Safari5.1+ */
-	background: -o-linear-gradient(top,  rgba(81,156,173,1) 0%,rgba(103,196,218,1) 100%); /* Opera 11.10+ */
-	background: -ms-linear-gradient(top,  rgba(81,156,173,1) 0%,rgba(103,196,218,1) 100%); /* IE10+ */
-	background: linear-gradient(to bottom,  rgba(81,156,173,1) 0%,rgba(103,196,218,1) 100%); /* W3C */
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#519cad', endColorstr='#67c4da',GradientType=0 ); /* IE6-8 */
-
+	&:extend(.blueGradient);
 	.centered-content-padding {
 		background-color: transparent;
 	}

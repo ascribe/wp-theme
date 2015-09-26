@@ -5,11 +5,15 @@
  * @package ascribe
  * @since 0.1.0
  */
-require 'controller/header.php';
+require 'controller/init.php';
 $controller = new Controller();
 
 if (!isset($headColour)) {
 	$headColour = '';
+}
+
+if (is_home()) {
+	$title = "Blog | ascribe";
 }
 
 ?>
@@ -59,8 +63,9 @@ if (!isset($headColour)) {
 	<link rel="icon" type="image/png" href="<?php echo WPTHEME_TEMPLATE_URL; ?>/images/ico/android-chrome-192x192.png" sizes="192x192">
 	<link rel="icon" type="image/png" href="<?php echo WPTHEME_TEMPLATE_URL; ?>/images/ico/favicon-16x16.png" sizes="16x16">
 	<link rel="manifest" href="<?php echo WPTHEME_TEMPLATE_URL; ?>/images/ico/manifest.json">
-	<meta name="msapplication-TileColor" content="#00a300">
+	<meta name="msapplication-TileColor" content="#d6137c">
 	<meta name="msapplication-TileImage" content="<?php echo WPTHEME_TEMPLATE_URL; ?>/images/ico/mstile-144x144.png">
+	<meta name="msapplication-config" content="<?php echo WPTHEME_TEMPLATE_URL; ?>/images/ico/browserconfig.xml">
 	<meta name="theme-color" content="#ffffff">
 
 	<script src="https://use.typekit.net/oex7mmg.js"></script>

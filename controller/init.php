@@ -22,6 +22,8 @@ else {
 	$title = get_the_title();
 }
 
+
+
 if (strpos($title, 'Home') !== false)
 {
 	$title = '';
