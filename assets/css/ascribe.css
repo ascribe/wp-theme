@@ -1408,13 +1408,20 @@ header + .chevron-divider {
   vertical-align: top;
   padding-right: 30px;
   font-size: 15px;
-  width: 14.28571429%;
+  width: 16.66666667%;
 }
 @media screen and (max-width: 768px) {
   .blog header + nav li,
   .archive header + nav li,
   .single-post header + nav li {
     width: 33%;
+  }
+}
+@media screen and (max-width: 375px) {
+  .blog header + nav li,
+  .archive header + nav li,
+  .single-post header + nav li {
+    width: 50%;
   }
 }
 .blog header + nav a,
@@ -1840,6 +1847,9 @@ header + .chevron-divider {
   line-height: 19px;
   text-align: center;
 }
+.team .column-container {
+  text-align: left;
+}
 .team .intro {
   margin-bottom: 60px;
   text-align: left;
@@ -1863,8 +1873,6 @@ header + .chevron-divider {
 }
 .team img {
   border-radius: 100%;
-  -webkit-filter: grayscale(100%);
-          filter: grayscale(100%);
 }
 .team h1 {
   color: #000000;
@@ -2313,6 +2321,9 @@ article.post .meta {
 }
 .blog-sidebar .sidebar-blog-features .blog {
   margin-bottom: 70px;
+}
+.blog-sidebar .sidebar-blog-features .blog:hover {
+  opacity: 0.3;
 }
 @media screen and (max-width: 570px) {
   .blog-sidebar {

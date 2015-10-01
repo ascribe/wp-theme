@@ -214,12 +214,17 @@ class Subtemplate {
 		$galleriesImgUrl    = get_sub_field('galleries_image')['url'];
 		$galleriesImgAlt    = get_sub_field('galleries_image')['alt'];
 
+		$galleryMarkup = '';
+		if ($galleryLink) {
+			$galleryMarkup = "<a href='{$galleryLink}' class='button white-blue'>Read more</a>";
+		}
+
 
 		$result = "<section class='subtemplate galleries-marketplaces'>
 						<div class='centered-content'>
 							<h1>{$subtemplateTitle}</h1>
 							<img src='{$galleriesImgUrl}' alt='{$galleriesImgAlt}'>
-							<a href='{$galleryLink}' class='button white-blue'>Read more</a>
+							{$galleryMarkup}
 						</div>
 					</section>";
 
@@ -235,7 +240,7 @@ class Subtemplate {
 				$feature        = get_sub_field('post');
 				$postTitle      = $feature->post_title;
 				$url            = get_permalink($feature->ID);
-				$content        = substr($feature->post_content, 144);
+				$content        = substr($feature->post_content, 0, 144) . '...';
 				$date           = date('F Y',$feature->post_date);
 				$image          = wp_get_attachment_image_src(get_post_thumbnail_id($feature->ID),'large')[0];
 
@@ -539,7 +544,8 @@ class Subtemplate {
 
 		$args           = array(
 			'post_type' => 'presscoverage',
-			'order'     => 'ASC'
+			'order'     => 'ASC',
+			'posts_per_page' => 50
 		);
 
 
@@ -677,7 +683,7 @@ class Subtemplate {
 			'order'     => 'DESC',
 			'orderby'   => 'meta_value',
 			'meta_key'  => 'date',
-			'posts_per_page' => 20,
+			'posts_per_page' => 10,
 			'meta_query' => array(
 				array(
 					'key' => 'date',
@@ -717,10 +723,6 @@ class Subtemplate {
 			}
 		}
 
-
-
-
-
 		$result = "<section class='subtemplate upcoming-events'>
 						<div class='centered-content-padding'>
 						<div class='centered-content'>
@@ -732,7 +734,7 @@ class Subtemplate {
 					<div class='chevron-divider'></div>
 					<section class='subtemplate past-events'>
 						<div class='centered-content-padding'>
-						<div class='centered-content'>
+						<div class='centered-content' id='content'>
 							<h1>Past Events</h1>
 							<div>{$pastMarkup}</div>
 						</div>

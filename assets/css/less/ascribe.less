@@ -118,7 +118,7 @@ header + .chevron-divider {
 			.column-container;
 		}
 		li {
-			.ttl-columns.column-7;
+			.ttl-columns.column-6;
 		}
 		a {
 			display: block;
@@ -492,6 +492,10 @@ header + .chevron-divider {
 	.copyTextSmall;
 	text-align: center;
 
+	.column-container {
+		text-align: left;
+	}
+
 	.intro {
 		margin-bottom: 60px;
 		text-align: left;
@@ -506,7 +510,6 @@ header + .chevron-divider {
 	}
 	img {
 		border-radius: 100%;
-		filter: grayscale(100%);
 	}
 	h1 {
 		.teamName;
@@ -854,6 +857,10 @@ article.post {
 		}
 		.blog {
 			margin-bottom: 70px;
+
+			&:hover {
+				opacity: 0.3;
+			}
 		}
 	}
 

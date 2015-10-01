@@ -88,3 +88,12 @@ function new_excerpt_more($more) {
 	return '... <a class="moretag" href="'. get_permalink($post->ID) . '"> Read More</a>';
 }
 add_filter('excerpt_more', 'new_excerpt_more');
+
+
+
+
+// THUMBNAIL ADD CUSTOM SIZE
+add_action( 'after_setup_theme', 'ttl_image_setup' );
+function ttl_image_setup() {
+	add_image_size( 'blog-crop', 600, 350, true ); //(cropped)
+}

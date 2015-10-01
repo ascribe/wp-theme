@@ -16,6 +16,10 @@ if( empty($fname)){
 	$full_name = "{$fname} {$lname}";
 }
 
+if (strlen($full_name) <= 0) {
+	$full_name = 'ascribe';
+}
+
 ?>
 
 <article <?php post_class(); ?>>
@@ -26,9 +30,8 @@ if( empty($fname)){
 		<?php
 		if ( has_post_thumbnail() ) { // check if the post has a Post Thumbnail assigned to it.
 
-			$thumb = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'post');
+			$thumb = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'blog-crop');
 			echo "<img src='{$thumb[0]}' alt='{$title} image'>";
-
 
 		}
 		?>
