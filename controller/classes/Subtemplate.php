@@ -23,8 +23,8 @@ class Subtemplate {
 
 
 				switch ($subtemplateType) {
-					case 'featurecircles':
-						$result .= $this->featureCircles($subtemplateTitle);
+					case 'featurecirclesicons':
+						$result .= $this->featureCirclesIcons($subtemplateTitle);
 						break;
 					case 'casestudies':
 						$result .= $this->caseStudies($subtemplateTitle);
@@ -90,11 +90,11 @@ class Subtemplate {
 		return $result;
 	}
 
-	public function featureCircles($subtemplateTitle) {
+	public function featureCirclesIcons($subtemplateTitle) {
 
 		$featureCircles = '';
-		if (have_rows('feature_circles')) {
-			while (have_rows('feature_circles')) {
+		if (have_rows('feature_circles_w_icon')) {
+			while (have_rows('feature_circles_w_icon')) {
 				the_row();
 
 				$title          = get_sub_field('title');
