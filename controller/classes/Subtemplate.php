@@ -26,15 +26,32 @@ class Subtemplate {
 					case 'featurecirclesicons':
 						$result .= $this->featureCirclesIcons($subtemplateTitle);
 						break;
+					case 'featurecircles':
+						$result .= $this->featureCircles($subtemplateTitle);
+						break;
 					case 'casestudies':
 						$result .= $this->caseStudies($subtemplateTitle);
+						break;
+					case 'slides':
+						$result .= $this->slides($subtemplateTitle);
 						break;
 					case 'oldnew':
 						$result .= $this->oldNew($subtemplateTitle);
 						break;
+					case 'existingnew':
+						$result .= $this->existingNew($subtemplateTitle);
+						break;
+					case 'threecolumn':
+						$result .= $this->columns($subtemplateTitle);
+						break;
+
 					case 'productoverview':
 						$result .= $this->productOverview($subtemplateTitle);
 						break;
+					case 'getstartedfast':
+						$result .= $this->startedFast($subtemplateTitle);
+						break;
+
 					case 'bluebox':
 						$result .= $this->blueBox($subtemplateTitle);
 						break;
@@ -50,14 +67,21 @@ class Subtemplate {
 					case 'mediafeature':
 						$result .= $this->galleries($subtemplateTitle);
 						break;
+					case 'content':
+						$result .= $this->content($subtemplateTitle);
+						break;
+					case 'contentBoxed':
+						$result .= $this->contentBoxed($subtemplateTitle);
+						break;
 					case 'team':
 						$result .= $this->team($subtemplateTitle);
 						break;
+					case 'pricing':
+						$result .= $this->pricing($subtemplateTitle);
+						break;
+
 					case 'teamGeneral':
 						$result .= $this->teamGeneral($subtemplateTitle);
-						break;
-					case 'content':
-						$result .= $this->content($subtemplateTitle);
 						break;
 					case 'image':
 						$result .= $this->image($subtemplateTitle);
@@ -113,6 +137,48 @@ class Subtemplate {
 
 		return $result;
 	}
+	public function featureCircles($subtemplateTitle) {
+
+		$featureCircles = '';
+		if (have_rows('feature_circles_w_icon')) {
+			while (have_rows('feature_circles_w_icon')) {
+				the_row();
+
+				$title          = get_sub_field('title');
+				$description    = get_sub_field('description');
+
+				$featureCircles .= "<article class='surround-circle'>
+										<h1>{$title}</h1>
+										<div class='description'>{$description}</div>
+									</article>";
+			}
+		}
+
+		$result = "<section class='subtemplate feature-circles'><div class='centered-header'><div class='column-container'>{$featureCircles}</div></div></section>";
+
+		return $result;
+	}
+	public function columns($subtemplateTitle) {
+
+		$descriptiveColumns = '';
+		if (have_rows('short_description')) {
+			while (have_rows('short_description')) {
+				the_row();
+
+				$title          = get_sub_field('title');
+				$content        = get_sub_field('content');
+
+				$descriptiveColumns .= "<article class='short-description'>
+										<h1>{$title}</h1>
+										<div class='description'>{$content}</div>
+									</article>";
+			}
+		}
+
+		$result = "<section class='subtemplate short-descriptions'><div class='centered-content'><div class='column-container'>{$descriptiveColumns}</div></div></section>";
+
+		return $result;
+	}
 	public function caseStudies($subtemplateTitle) {
 		$caseStudies = '';
 		if (have_rows('case_study')) {
@@ -131,6 +197,29 @@ class Subtemplate {
 		}
 
 		$result = "<section class='subtemplate case-studies'><div class='slide-container'>{$caseStudies}</div><div class='slider-action' id='back'></div><div class='slider-action' id='forward'></div></section>";
+
+		return $result;
+	}
+	public function slides($subtemplateTitle) {
+		$caseStudies = '';
+		if (have_rows('slides')) {
+			while (have_rows('slides')) {
+				the_row();
+
+				$content          = get_sub_field('content');
+				$image          = get_sub_field('image')['url'];
+				$imageAlt       = get_sub_field('image')['alt'];
+
+				$caseStudies .= "<article class='case-study'>
+									<div class='centered-header'>
+									<img src='{$image}' alt='{$imageAlt}'>
+									<div class='description'>{$content}</div>
+									</div>
+								</article>";
+			}
+		}
+
+		$result = "<section class='subtemplate slides'><div class='slide-container'>{$caseStudies}</div><div class='slider-action' id='back'></div><div class='slider-action' id='forward'></div></section>";
 
 		return $result;
 	}
@@ -164,16 +253,17 @@ class Subtemplate {
 	}
 	public function productOverview($subtemplateTitle) {
 
-		$imageUrl      = get_sub_field('image')['url'];
-		$imageAlt      = get_sub_field('image')['alt'];
+		$imageUrl       = get_sub_field('image')['url'];
+		$imageAlt       = get_sub_field('image')['alt'];
+		$headingSize    = get_sub_field('heading_size');
 
 		$content    = get_sub_field('content');
 
-		$result = "<section class='subtemplate product-overview'>
+		$result = "<section class='subtemplate product-overview {$headingSize}'>
 						<div class='centered-prodFeat'>
 							<img src='{$imageUrl}' alt='{$imageAlt}'>
 							<div class='text-column'>
-								<h1>{$subtemplateTitle}</h1>
+								<h1 class='{$headingSize}'>{$subtemplateTitle}</h1>
 								<div>{$content}</div>
 							</div>
 						</div>
@@ -422,6 +512,21 @@ class Subtemplate {
 		$content = get_sub_field('content');
 
 		$result = "<section class='subtemplate content'>
+						<div class='centered-content-padding'>
+						<div class='centered-content'>
+						<h1>{$subtemplateTitle}</h1>
+						<div>{$content}</div>
+						</div>
+						</div>
+					</section>";
+
+		return $result;
+	}
+	public function contentBoxed($subtemplateTitle) {
+
+		$content = get_sub_field('content');
+
+		$result = "<section class='subtemplate content-boxed'>
 						<div class='centered-content-padding'>
 						<div class='centered-content'>
 						<h1>{$subtemplateTitle}</h1>
@@ -743,5 +848,60 @@ class Subtemplate {
 
 		return $result;
 	}
+	public function existingNew($subtemplateTitle) {
 
+		$existing   = get_sub_field('existing_marketplace_content');
+		$new        = get_sub_field('new_marketplace_content');
+
+		$result = "<section class='subtemplate existing-new'>
+						<div class='centered-content'>
+						<h1>{$subtemplateTitle}</h1>
+						<div id='existing-tab'>Existing Marketplace</div>
+						<div id='new-tab'>New Marketplace</div>
+						<div id='existing'>{$existing}</div>
+						<div id='new'>{$new}</div>
+						</div>
+					</section>";
+
+		return $result;
+	}
+	public function startedFast($subtemplateTitle) {
+
+		$content   = get_sub_field('content');
+		$apiImg    = get_sub_field('api_image')['url'];
+		$whiteImg  = get_sub_field('white_label_marketplace_image')['url'];
+
+		$result = "<section class='subtemplate get-started'>
+						<div class='centered-content'>
+						<h1>{$subtemplateTitle}</h1>
+						<div class='description'>{$content}</div>
+						<div class='api'>
+							<h1>API</h1>
+							<img src='{$apiImg}' alt='API'>
+						</div>
+						<div class='white-label'>
+							<h1>White Label Marketplace</h1>
+							<img src='{$whiteImg}' alt='White Label Marketplace'>
+						</div>
+						</div>
+					</section>";
+
+		return $result;
+	}
+	public function pricing($subtemplateTitle) {
+
+		$bgImg      = get_sub_field('background_image')['url'];
+		$rightPricing   = get_sub_field('right_pricing_text');
+		$leftPricing    = get_sub_field('left_pricing_text');
+
+		$result = "<section class='subtemplate pricing' style='background-image:url({$bgImg})'>
+						<div class='centered-content'>
+						<h1>{$subtemplateTitle}</h1>
+							<div class='left-pricing'>{$leftPricing}</div>
+							<div class='right-pricing'>{$rightPricing}</div>
+						</div>
+					</section>";
+
+		return $result;
+	}
 }

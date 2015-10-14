@@ -2223,6 +2223,18 @@ header + .chevron-divider {
   position: relative;
   z-index: -1;
 }
+.short-descriptions .short-description {
+  display: inline-block;
+  vertical-align: top;
+  padding-right: 30px;
+  font-size: 15px;
+  width: 33.33333333%;
+}
+@media screen and (max-width: 570px) {
+  .short-descriptions .short-description {
+    width: 100%;
+  }
+}
 .blog .column-container {
   width: calc(100% + 70px);
 }
