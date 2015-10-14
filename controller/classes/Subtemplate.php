@@ -513,10 +513,10 @@ class Subtemplate {
 
 		$result = "<section class='subtemplate content'>
 						<div class='centered-content-padding'>
-						<div class='centered-content'>
-						<h1>{$subtemplateTitle}</h1>
-						<div>{$content}</div>
-						</div>
+							<div class='centered-content'>
+								<h1>{$subtemplateTitle}</h1>
+								<div>{$content}</div>
+							</div>
 						</div>
 					</section>";
 
@@ -528,10 +528,10 @@ class Subtemplate {
 
 		$result = "<section class='subtemplate content-boxed'>
 						<div class='centered-content-padding'>
-						<div class='centered-content'>
-						<h1>{$subtemplateTitle}</h1>
-						<div>{$content}</div>
-						</div>
+							<div class='centered-content'>
+								<h1>{$subtemplateTitle}</h1>
+								<div>{$content}</div>
+							</div>
 						</div>
 					</section>";
 
@@ -539,15 +539,15 @@ class Subtemplate {
 	}
 	public function image($subtemplateTitle) {
 
-		$image = get_sub_field('image')['url'];
+		$image    = get_sub_field('image')['url'];
 		$imageAlt = get_sub_field('image')['alt'];
 
 		$result = "<section class='subtemplate image'>
 						<div class='centered-content-padding'>
-						<div class='centered-content'>
-						<h1>{$subtemplateTitle}</h1>
-						<div><img src='{$image}' alt='{$imageAlt}'></div>
-						</div>
+							<div class='centered-content'>
+								<h1>{$subtemplateTitle}</h1>
+								<div><img src='{$image}' alt='{$imageAlt}'></div>
+							</div>
 						</div>
 					</section>";
 
@@ -686,17 +686,17 @@ class Subtemplate {
 		return $result;
 	}
 	public function download($subtemplateTitle) {
-		$leftUrl = get_sub_field('left_button_url');
-		$leftText = get_sub_field('left_button_text');
-		$rightUrl = get_sub_field('right_button_url');
+		$leftUrl   = get_sub_field('left_button_url');
+		$leftText  = get_sub_field('left_button_text');
+		$rightUrl  = get_sub_field('right_button_url');
 		$rightText = get_sub_field('right_button_text');
 
 		$result = "<section class='subtemplate downloads'>
 						<div class='centered-content-padding'>
-						<div class='centered-content'>
-						<a href='{$leftUrl}' download class='left button blue'>{$leftText}</a>
-						<a href='{$rightUrl}' download class='right button blue'>{$rightText}</a>
-						</div>
+							<div class='centered-content'>
+								<a href='{$leftUrl}' download class='left button blue'>{$leftText}</a>
+								<a href='{$rightUrl}' download class='right button blue'>{$rightText}</a>
+							</div>
 						</div>
 					</section>";
 
@@ -722,15 +722,15 @@ class Subtemplate {
 		}
 
 		$result = "<section class='subtemplate contact'>
-					<div class='centered-content-padding'>
-					<div class='centered-content'>
-					<h1>{$subtemplateTitle}</h1>
-						<div class='column-container'>
-						<div class='form'>{$content}</div>
-						<aside class='contact-points'>{$contactPoints}</aside>
+				        <div class='centered-content-padding'>
+							<div class='centered-content'>
+								<h1>{$subtemplateTitle}</h1>
+								<div class='column-container'>
+									<div class='form'>{$content}</div>
+									<aside class='contact-points'>{$contactPoints}</aside>
+								</div>
+							</div>
 						</div>
-					</div>
-					</div>
 					</section>";
 
 		return $result;
@@ -855,11 +855,11 @@ class Subtemplate {
 
 		$result = "<section class='subtemplate existing-new'>
 						<div class='centered-content'>
-						<h1>{$subtemplateTitle}</h1>
-						<div id='existing-tab'>Existing Marketplace</div>
-						<div id='new-tab'>New Marketplace</div>
-						<div id='existing'>{$existing}</div>
-						<div id='new'>{$new}</div>
+							<h1>{$subtemplateTitle}</h1>
+							<div id='existing-tab'>Existing Marketplace</div>
+							<div id='new-tab'>New Marketplace</div>
+							<div id='existing'>{$existing}</div>
+							<div id='new'>{$new}</div>
 						</div>
 					</section>";
 
@@ -873,16 +873,16 @@ class Subtemplate {
 
 		$result = "<section class='subtemplate get-started'>
 						<div class='centered-content'>
-						<h1>{$subtemplateTitle}</h1>
-						<div class='description'>{$content}</div>
-						<div class='api'>
-							<h1>API</h1>
-							<img src='{$apiImg}' alt='API'>
-						</div>
-						<div class='white-label'>
-							<h1>White Label Marketplace</h1>
-							<img src='{$whiteImg}' alt='White Label Marketplace'>
-						</div>
+							<h1>{$subtemplateTitle}</h1>
+							<div class='description'>{$content}</div>
+							<div class='api'>
+								<h1>API</h1>
+								<img src='{$apiImg}' alt='API'>
+							</div>
+							<div class='white-label'>
+								<h1>White Label Marketplace</h1>
+								<img src='{$whiteImg}' alt='White Label Marketplace'>
+							</div>
 						</div>
 					</section>";
 
@@ -890,13 +890,13 @@ class Subtemplate {
 	}
 	public function pricing($subtemplateTitle) {
 
-		$bgImg      = get_sub_field('background_image')['url'];
-		$rightPricing   = get_sub_field('right_pricing_text');
-		$leftPricing    = get_sub_field('left_pricing_text');
+		$bgImg        = get_sub_field('background_image')['url'];
+		$rightPricing = get_sub_field('right_pricing_text');
+		$leftPricing  = get_sub_field('left_pricing_text');
 
 		$result = "<section class='subtemplate pricing' style='background-image:url({$bgImg})'>
 						<div class='centered-content'>
-						<h1>{$subtemplateTitle}</h1>
+							<h1>{$subtemplateTitle}</h1>
 							<div class='left-pricing'>{$leftPricing}</div>
 							<div class='right-pricing'>{$rightPricing}</div>
 						</div>
