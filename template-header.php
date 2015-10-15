@@ -5,6 +5,9 @@
  * Date: 15-09-24
  * Time: 5:32 PM
  */
+
+require 'controller/init.php';
+
 ?>
 <header>
 	<div class="centered-header">

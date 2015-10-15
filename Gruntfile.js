@@ -108,65 +108,6 @@ module.exports = function( grunt ) {
                     debounceDelay: 500
                 }
             }
-        },
-        'sftp-deploy': {
-            css: {
-                auth: {
-                    host: 'server.territorial.ca',
-                    port: 22,
-                    authKey: 'key1'
-                },
-                cache: 'sftpCache.json',
-                src: '/Users/sarahetter/Dropbox/_shared/sarahetter/ascribe/assets/css/',
-                dest: '/home/ascribe/public_html/wp-content/themes/ascribe/assets/css',
-                exclusions: ['/Users/sarahetter/Dropbox/_shared/sarahetter/ascribe/node_modules',
-                    '/Users/sarahetter/Dropbox/_shared/sarahetter/ascribe/release',
-                    '/Users/sarahetter/Dropbox/_shared/sarahetter/ascribe/vendor',
-                    '/Users/sarahetter/Dropbox/_shared/sarahetter/ascribe/.git',
-                    '/Users/sarahetter/Dropbox/_shared/sarahetter/ascribe/.idea',
-                    '/Users/sarahetter/Dropbox/_shared/sarahetter/ascribe/**/.DS_Store'],
-                serverSep: '/',
-                concurrency: 4,
-                progress: true
-            },
-            js: {
-                auth: {
-                    host: 'server.territorial.ca',
-                    port: 22,
-                    authKey: 'key1'
-                },
-                cache: 'sftpCache.json',
-                src: '/Users/sarahetter/Dropbox/_shared/sarahetter/ascribe/assets/js/',
-                dest: '/home/ascribe/public_html/wp-content/themes/ascribe/assets/js',
-                exclusions: ['/Users/sarahetter/Dropbox/_shared/sarahetter/ascribe/node_modules',
-                    '/Users/sarahetter/Dropbox/_shared/sarahetter/ascribe/release',
-                    '/Users/sarahetter/Dropbox/_shared/sarahetter/ascribe/vendor',
-                    '/Users/sarahetter/Dropbox/_shared/sarahetter/ascribe/.git',
-                    '/Users/sarahetter/Dropbox/_shared/sarahetter/ascribe/.idea',
-                    '/Users/sarahetter/Dropbox/_shared/sarahetter/ascribe/**/.DS_Store'],
-                serverSep: '/',
-                concurrency: 4,
-                progress: true
-            },
-            controller: {
-                auth: {
-                    host: 'server.territorial.ca',
-                    port: 22,
-                    authKey: 'key1'
-                },
-                cache: 'sftpCache.json',
-                src: '/Users/sarahetter/Dropbox/_shared/sarahetter/ascribe/controller/',
-                dest: '/home/ascribe/public_html/wp-content/themes/ascribe/controller/',
-                exclusions: ['/Users/sarahetter/Dropbox/_shared/sarahetter/ascribe/node_modules',
-                    '/Users/sarahetter/Dropbox/_shared/sarahetter/ascribe/release',
-                    '/Users/sarahetter/Dropbox/_shared/sarahetter/ascribe/vendor',
-                    '/Users/sarahetter/Dropbox/_shared/sarahetter/ascribe/.git',
-                    '/Users/sarahetter/Dropbox/_shared/sarahetter/ascribe/.idea',
-                    '/Users/sarahetter/Dropbox/_shared/sarahetter/ascribe/**/.DS_Store'],
-                serverSep: '/',
-                concurrency: 4,
-                progress: true
-            }
         }
     } );
 
@@ -175,13 +116,13 @@ module.exports = function( grunt ) {
 
     // Register tasks
 
-    grunt.registerTask( 'css', ['less', 'postcss', 'cssmin', 'sftp-deploy:css'] );
+    grunt.registerTask( 'css', ['less', 'postcss', 'cssmin'] );
 
-    grunt.registerTask( 'js', ['jshint', 'concat', 'uglify', 'sftp-deploy:js'] );
+    //grunt.registerTask( 'js', ['jshint', 'concat', 'uglify'] );
 
-    grunt.registerTask( 'controller', ['sftp-deploy:controller'] );
+    grunt.registerTask( 'controller', [] );
 
-    grunt.registerTask( 'default', ['css', 'js', 'controller'] );
+    grunt.registerTask( 'default', ['css', 'controller'] );
 
     grunt.util.linefeed = '\n';
 };

@@ -3,71 +3,87 @@
  * Copyright (c) 2015; * Licensed GPLv2+ */
 $(document).ready(function(){
 
-    slider();
-    socialAsSvg();
-    featuredFAQ();
+	slider();
+	socialAsSvg();
+	featuredFAQ();
+	headerNavigation();
 
+	function slider() {
+		$('.case-study:gt(0)').addClass('hidden');
 
+		$('.slider-action').click(function(){
 
+			var direction = $(this).attr('id');
 
-    function slider() {
-        $('.case-study:gt(0)').addClass('hidden');
+			if (direction === 'back') {
+				$('.case-study').addClass('hidden');
+				$('.case-study').last().prependTo('.slide-container').removeClass('hidden');
+			}
+			else {
+				displayed = $('.case-study').first();
+				displayed.addClass('hidden');
+				$('.case-study').eq(1).removeClass('hidden');
+				displayed.appendTo('.slide-container');
+			}
 
-        $('.slider-action').click(function(){
+		});
+	}
 
-            var direction = $(this).attr('id');
+	function socialAsSvg() {
+		/*
+		 * Replace all social icon images with inline SVG
+		 */
+		jQuery('img.social-icon').each(function(){
+			var $img = jQuery(this);
+			var imgID = $img.attr('id');
+			var imgClass = $img.attr('class');
+			var imgURL = $img.attr('src');
 
-            if (direction === 'back') {
-                $('.case-study').addClass('hidden');
-                $('.case-study').last().prependTo('.slide-container').removeClass('hidden');
-            }
-            else {
-                displayed = $('.case-study').first();
-                displayed.addClass('hidden');
-                $('.case-study').eq(1).removeClass('hidden');
-                displayed.appendTo('.slide-container');
-            }
+			jQuery.get(imgURL, function(data) {
+				// Get the SVG tag, ignore the rest
+				var $svg = jQuery(data).find('svg');
 
-        });
-    }
-    function socialAsSvg() {
-        /*
-         * Replace all social icon images with inline SVG
-         */
-        jQuery('img.social-icon').each(function(){
-            var $img = jQuery(this);
-            var imgID = $img.attr('id');
-            var imgClass = $img.attr('class');
-            var imgURL = $img.attr('src');
+				// Add replaced image's ID to the new SVG
+				if(typeof imgID !== 'undefined') {
+					$svg = $svg.attr('id', imgID);
+				}
+				// Add replaced image's classes to the new SVG
+				if(typeof imgClass !== 'undefined') {
+					$svg = $svg.attr('class', imgClass+' replaced-svg');
+				}
 
-            jQuery.get(imgURL, function(data) {
-                // Get the SVG tag, ignore the rest
-                var $svg = jQuery(data).find('svg');
+				// Remove any invalid XML tags as per http://validator.w3.org
+				$svg = $svg.removeAttr('xmlns:a');
 
-                // Add replaced image's ID to the new SVG
-                if(typeof imgID !== 'undefined') {
-                    $svg = $svg.attr('id', imgID);
-                }
-                // Add replaced image's classes to the new SVG
-                if(typeof imgClass !== 'undefined') {
-                    $svg = $svg.attr('class', imgClass+' replaced-svg');
-                }
+				// Replace image with new SVG
+				$img.replaceWith($svg);
 
-                // Remove any invalid XML tags as per http://validator.w3.org
-                $svg = $svg.removeAttr('xmlns:a');
+			}, 'xml');
 
-                // Replace image with new SVG
-                $img.replaceWith($svg);
+		});
+	}
 
-            }, 'xml');
+	function featuredFAQ() {
+		$('.featured-faqs dt').click(function() {
+			$(this).next('dd').toggleClass('open');
+		});
+	}
 
-        });
-    }
-    function featuredFAQ() {
-        $('.featured-faqs dt').click(function() {
-            $(this).next('dd').toggleClass('open');
-        });
-    }
+	function headerNavigation() {
+		$('.current-menu-item').on( 'click', function(e) {
+			e.preventDefault();
+		});
+
+		$('.tour-switcher ul').on( 'click', function(e) {
+
+			// OPEN SWITCHER
+			if ( false === $(this).hasClass('active') ) {
+				e.preventDefault();
+			}
+
+			$(this).toggleClass('active');
+		});
+	}
 
 });
 

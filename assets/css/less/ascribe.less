@@ -26,6 +26,67 @@ header + .chevron-divider {
 		margin-top: 35px;
 		margin-left: 20px;
 		.tourNavText;
+
+		&:hover {
+			cursor: pointer;
+
+			a {
+				color: @pink;
+			}
+			ul {
+				&:before,
+				li a:after {
+					color: @pink;
+				}
+			}
+		}
+
+		ul {
+			display: flex;
+			flex-wrap: wrap;
+			padding: 0 35px;
+			position: relative;
+			-webkit-flex-direction: column;
+
+			&:hover {
+				cursor: pointer;
+			}
+
+			&.active {
+				li {
+					display: flex;
+				}
+			}
+			li {
+				flex-grow: 1;
+				order: 2;
+				display: none;
+
+				&.current-menu-item {
+					order: 1;
+					display: flex;
+
+					a {
+						position: relative;
+						&:after {
+							content: '▼';
+							display: inline-block;
+							position: absolute;
+							top: 3px;
+							right: -34px;
+						}
+					}
+				}
+			}
+			&:before {
+				content: 'for ';
+				display: inline-block;
+				position: absolute;
+				top: 0;
+				left: 0;
+			}
+
+		}
 	}
 	ul {
 		list-style: none;
@@ -187,6 +248,24 @@ header + .chevron-divider {
 	.feature-circle {
 		.ttl-columns.column-3;
 		padding-right: 100px;
+	}
+	.surround-circle {
+		.ttl-columns.column-3;
+		text-align: center;
+		position: relative;
+		width: 30%;
+		padding: 80px 50px 170px;
+
+		&:before {
+			top: 0;
+			left: 5%;
+			width: 90%;
+			background: transparent url('../img/circle.png') no-repeat center top;
+			background-size: 100%;
+			height: 100%;
+			content: '';
+			position: absolute;
+		}
 	}
 	img {
 		width: 105px;
@@ -713,7 +792,8 @@ header + .chevron-divider {
 		float: right;
 	}
 }
-.upcoming-events, .past-events {
+.upcoming-events,
+.past-events {
 	h2 {
 		text-align: center;
 		position:relative;
@@ -782,6 +862,45 @@ header + .chevron-divider {
 .short-descriptions {
 	.short-description {
 		.ttl-columns.column-3;
+	}
+}
+.content-boxed {
+	background-color: @greyBg;
+
+	.centered-content-padding {
+		background-color: @greyBg;
+	}
+
+	.centered-content {
+		& > div {
+			border: 1px solid @pink;
+			background-color: @white;
+			padding: 30px;
+
+			& > ul {
+				margin: 30px;
+				overflow: hidden;
+
+				& > li {
+					float: left;
+					clear: left;
+					width: 100%;
+					text-align: right;
+				}
+				ul {
+					width: 70%;
+					float: right;
+					text-align: left;
+				}
+			}
+		}
+
+		p {
+			max-width: 640px;
+		}
+		img {
+			margin: 30px 0;
+		}
 	}
 }
 

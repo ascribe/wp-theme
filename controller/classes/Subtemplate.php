@@ -206,7 +206,7 @@ class Subtemplate {
 			while (have_rows('slides')) {
 				the_row();
 
-				$content          = get_sub_field('content');
+				$content        = get_sub_field('content');
 				$image          = get_sub_field('image')['url'];
 				$imageAlt       = get_sub_field('image')['alt'];
 
@@ -219,7 +219,7 @@ class Subtemplate {
 			}
 		}
 
-		$result = "<section class='subtemplate slides'><div class='slide-container'>{$caseStudies}</div><div class='slider-action' id='back'></div><div class='slider-action' id='forward'></div></section>";
+		$result = "<section class='subtemplate slides case-studies'><div class='slide-container'>{$caseStudies}</div><div class='slider-action' id='back'></div><div class='slider-action' id='forward'></div></section>";
 
 		return $result;
 	}
