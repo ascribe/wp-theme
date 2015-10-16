@@ -12,6 +12,11 @@
 		<div class="app-links">
 			<a href="<?php echo $signInLink; ?>">Sign In</a> / <a href="<?php echo $signUpLink; ?>">Sign Up</a>
 		</div>
+		<nav class="tour-switcher"><?php wp_nav_menu( array(
+				'theme_location' => 'landing-menu',
+				'container'      => false
+			)); ?>
+		</nav>
 	</div>
 	<div class="chevron-divider"></div>
 	<h1>ascribe blog</h1>

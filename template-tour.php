@@ -9,6 +9,7 @@ get_header();
 $bgImage        = get_field('header_background_image')['url'];
 $headerTagline  = get_field('header_tagline');
 $buttonText     = get_field('create_account_button_text');
+$buttonColour   = get_field('header_button_colour');
 $controller     = new Controller();
 
 ?>
@@ -26,7 +27,7 @@ $controller     = new Controller();
 		</nav>
 		<section class="description">
 			<h1><?php echo $headerTagline; ?></h1>
-			<a href="<?php echo $signUpLink; ?>" class="button blue-overPic"><?php echo $buttonText; ?></a>
+			<a href="<?php echo $signUpLink; ?>" class="button <?php echo $buttonColour; ?>-overPic"><?php echo $buttonText; ?></a>
 		</section>
 	</div>
 	<div class="chevron-divider"></div>

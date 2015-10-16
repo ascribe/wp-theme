@@ -161,21 +161,23 @@ class Subtemplate {
 	public function columns($subtemplateTitle) {
 
 		$descriptiveColumns = '';
+		$content        = get_sub_field('content');
+
 		if (have_rows('short_description')) {
 			while (have_rows('short_description')) {
 				the_row();
 
-				$title          = get_sub_field('title');
-				$content        = get_sub_field('content');
+				$colTitle          = get_sub_field('title');
+				$colContent        = get_sub_field('content');
 
 				$descriptiveColumns .= "<article class='short-description'>
-										<h1>{$title}</h1>
-										<div class='description'>{$content}</div>
+										<h1>{$colTitle}</h1>
+										<div class='description'>{$colContent}</div>
 									</article>";
 			}
 		}
 
-		$result = "<section class='subtemplate short-descriptions'><div class='centered-content'><div class='column-container'>{$descriptiveColumns}</div></div></section>";
+		$result = "<section class='subtemplate short-descriptions'><div class='centered-content'><h1>{$subtemplateTitle}</h1><div>{$content}</div><div class='column-container'>{$descriptiveColumns}</div></div></section>";
 
 		return $result;
 	}
@@ -511,7 +513,9 @@ class Subtemplate {
 
 		$content = get_sub_field('content');
 
-		$result = "<section class='subtemplate content'>
+		$bgColor        = get_sub_field('background_color');
+
+		$result = "<section class='subtemplate content {$bgColor}'>
 						<div class='centered-content-padding'>
 							<div class='centered-content'>
 								<h1>{$subtemplateTitle}</h1>
@@ -856,10 +860,12 @@ class Subtemplate {
 		$result = "<section class='subtemplate existing-new'>
 						<div class='centered-content'>
 							<h1>{$subtemplateTitle}</h1>
-							<div id='existing-tab'>Existing Marketplace</div>
-							<div id='new-tab'>New Marketplace</div>
-							<div id='existing'>{$existing}</div>
-							<div id='new'>{$new}</div>
+							<div class='column-container'>
+							<div data-tab='existing' class='top-tab active'><div>Existing Marketplace</div></div>
+							<div data-tab='new' class='top-tab'><div>New Marketplace</div></div>
+						</div>
+							<div id='existing' class='content marketplace-info active'>{$existing}</div>
+							<div id='new' class='content marketplace-info'>{$new}</div>
 						</div>
 					</section>";
 
@@ -870,19 +876,26 @@ class Subtemplate {
 		$content   = get_sub_field('content');
 		$apiImg    = get_sub_field('api_image')['url'];
 		$whiteImg  = get_sub_field('white_label_marketplace_image')['url'];
+		$apiText    = get_sub_field('api_text');
+		$whiteText  = get_sub_field('white_label_text');
 
 		$result = "<section class='subtemplate get-started'>
 						<div class='centered-content'>
 							<h1>{$subtemplateTitle}</h1>
 							<div class='description'>{$content}</div>
-							<div class='api'>
-								<h1>API</h1>
-								<img src='{$apiImg}' alt='API'>
+							<div class='column-container'>
+								<div class='api methods-of-use'>
+									<h1>API</h1>
+									<img src='{$apiImg}' alt='API'>
+									{$apiText}
+								</div>
+								<div class='white-label methods-of-use'>
+									<h1>White Label Marketplace</h1>
+									<img src='{$whiteImg}' alt='White Label Marketplace'>
+									{$whiteText}
+								</div>
 							</div>
-							<div class='white-label'>
-								<h1>White Label Marketplace</h1>
-								<img src='{$whiteImg}' alt='White Label Marketplace'>
-							</div>
+
 						</div>
 					</section>";
 
@@ -895,10 +908,13 @@ class Subtemplate {
 		$leftPricing  = get_sub_field('left_pricing_text');
 
 		$result = "<section class='subtemplate pricing' style='background-image:url({$bgImg})'>
-						<div class='centered-content'>
+						<div class='centered-pricing'>
 							<h1>{$subtemplateTitle}</h1>
-							<div class='left-pricing'>{$leftPricing}</div>
-							<div class='right-pricing'>{$rightPricing}</div>
+							<div class='column-container'>
+							<div class='pricing-detail'><div>{$leftPricing}</div></div>
+							<div class='pricing-detail'><div>{$rightPricing}</div></div>
+						</div>
+						Contact us to discuss custom pricing
 						</div>
 					</section>";
 

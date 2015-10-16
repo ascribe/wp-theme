@@ -202,9 +202,6 @@ a {
 	color: @black;
 	font-size: 19px;
 }
-.teamPosition {
-
-}
 .footerText {
 	&:extend(.fontLight);
 	font-size: 14px;
@@ -242,8 +239,30 @@ a {
 		}
 	}
 
+	&.pink {
+		@bgColor: @pink;
+		color: @white;
+		background-color: @bgColor;
+		border-color: @bgColor;
+		&:hover {
+			background-color: fade(@bgColor,50);
+		}
+	}
+
 	&.blue-overPic {
 		@bgColor: @blueBright;
+		color: @white;
+		background-color: @bgColor;
+		border-color: @bgColor;
+
+		&:hover {
+			background-color: @white;
+			color: @bgColor;
+		}
+	}
+
+	&.pink-overPic {
+		@bgColor: @pink;
 		color: @white;
 		background-color: @bgColor;
 		border-color: @bgColor;

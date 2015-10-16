@@ -3,10 +3,15 @@ $(document).ready(function(){
     slider();
     socialAsSvg();
     featuredFAQ();
+    marketplaces();
+    tourNav();
 
-
-
-
+    function tourNav() {
+        $('.current-menu-item a').click(function(e){
+            e.preventDefault();
+            $('#menu-landing-page-menu').toggleClass('active');
+        });
+    }
     function slider() {
         $('.case-study:gt(0)').addClass('hidden');
 
@@ -63,6 +68,16 @@ $(document).ready(function(){
     function featuredFAQ() {
         $('.featured-faqs dt').click(function() {
             $(this).next('dd').toggleClass('open');
+        });
+    }
+    function marketplaces() {
+        $('.top-tab').click(function(){
+            $('.top-tab').removeClass('active');
+            $(this).addClass('active');
+            var contentToShow = $(this).data('tab');
+            $('.marketplace-info').removeClass('active');
+            $('#'+contentToShow).addClass('active');
+
         });
     }
 

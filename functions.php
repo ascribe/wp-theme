@@ -40,7 +40,7 @@ remove_action( 'wp_print_styles', 'print_emoji_styles' );
 remove_action( 'admin_print_styles', 'print_emoji_styles' );
 //
 ////ACF Collapser temp fix
-add_filter('acf/compatibility/field_wrapper_class', '__return_true');
+//add_filter('acf/compatibility/field_wrapper_class', '__return_true');
 
 // TURN ON ACF SETTINGS PAGE
 if( function_exists('acf_add_options_page') ) {
