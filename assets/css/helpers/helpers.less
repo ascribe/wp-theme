@@ -1,7 +1,8 @@
 // TERRITORIAL CSS HELPERS
 @tabletWidth: 768px;
 @middleWidth: 570px;
-@phoneWidth: 375px;
+@phoneWidth: 600px;
+@smallWidth: 400px;
 
 // CLEARFIX
 // Apply .clearfix to a non-floated container element with floated elements in it
@@ -211,6 +212,14 @@ video {
 // MOBILE-ONLY
 // Use this to only display something on mobile- and tablet-width devices.
 // Depending on project specs, you may wish to override this breakpoint.
+.phone-only {
+	display: none;
+
+	@media screen and (max-width: @phoneWidth) {
+		display: inherit;
+	}
+}
+
 .mobile-only {
 	display: none;
 
@@ -218,12 +227,14 @@ video {
 		display: inherit;
 	}
 }
-
-// MOBILE-ONLY
-// Use this to only display something on desktop-width devices.
-// Depending on project specs, you may wish to override this breakpoint.
 .desktop-only {
 	@media screen and (max-width: @tabletWidth) {
+		display: none;
+	}
+}
+
+.phone-and-up {
+	@media screen and (max-width: @phoneWidth) {
 		display: none;
 	}
 }

@@ -181,7 +181,7 @@ module.exports = function( grunt ) {
 
     grunt.registerTask( 'controller', ['sftp-deploy:controller'] );
 
-    grunt.registerTask( 'default', ['watch','css', 'js', 'controller'] );
+    grunt.registerTask( 'default', ['css', 'js', 'controller'] );
 
     grunt.util.linefeed = '\n';
 };

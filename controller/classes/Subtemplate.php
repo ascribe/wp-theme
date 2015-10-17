@@ -148,13 +148,21 @@ class Subtemplate {
 				$description    = get_sub_field('description');
 
 				$featureCircles .= "<article class='surround-circle'>
+									<div class='circle'>
+									<div class='container'>
+									<div class='wrapper'>
+									<div class='inner'>
 										<h1>{$title}</h1>
 										<div class='description'>{$description}</div>
+									</div>
+									</div>
+									</div>
+									</div>
 									</article>";
 			}
 		}
 
-		$result = "<section class='subtemplate feature-circles'><div class='centered-header'><div class='column-container'>{$featureCircles}</div></div></section>";
+		$result = "<section class='subtemplate feature-circles'><div class='centered-header'>{$featureCircles}</div></section>";
 
 		return $result;
 	}
@@ -334,7 +342,7 @@ class Subtemplate {
 				$url            = get_permalink($feature->ID);
 				$content        = substr($feature->post_content, 0, 144) . '...';
 				$date           = date('F Y',$feature->post_date);
-				$image          = wp_get_attachment_image_src(get_post_thumbnail_id($feature->ID),'large')[0];
+				$image          = wp_get_attachment_image_src(get_post_thumbnail_id($feature->ID),'blog-crop')[0];
 
 				if ($page == "home") {
 					$blogFeatures .= "<a href='{$url}'><article class='blog'><div>
@@ -375,10 +383,12 @@ class Subtemplate {
 	public function team($subtemplateTitle) {
 		$content        = get_sub_field('content');
 		$meetTeamLink   = get_sub_field('meet_the_team_link');
+		$numberOfPeople = get_sub_field('number_of_people_to_display');
 
 		$args           = array(
 			'post_type' => 'team',
-			'order'     => 'ASC'
+			'order'     => 'DESC',
+			'posts_per_page' => $numberOfPeople
 		);
 
 		$teamMembers = get_posts($args);
@@ -389,6 +399,10 @@ class Subtemplate {
 				$name   = $teamMember->post_title;
 				$role   = get_field('role',$id);
 				$image  = get_field('image',$id)['url'];
+				$hoverimage  = get_field('hover_image',$id)['url'];
+				if (!$hoverimage) {
+					$hoverimage = $image;
+				}
 				$facebook   = get_field('facebook_link',$id);
 
 				$themeUrl   = WPTHEME_TEMPLATE_URL . '/';
@@ -418,7 +432,7 @@ class Subtemplate {
 				}
 
 				$teamMemberMarkup .= "<article class='team-member'>
-										<img src='{$image}' alt='Picture of {$name}'>
+										<img src='{$image}' alt='Picture of {$name}' data-hover='{$hoverimage}' data-regular='{$image}'>
 										<h1>{$name}</h1>
 										<h2>{$role}</h2>
 										{$facebook}
@@ -442,11 +456,11 @@ class Subtemplate {
 	}
 	public function teamGeneral($subtemplateTitle) {
 		$content        = get_sub_field('content');
-		$meetTeamLink   = get_sub_field('meet_the_team_link');
 
 		$args           = array(
 			'post_type' => 'team',
-			'order'     => 'ASC'
+			'order'     => 'DESC',
+			'posts_per_page' => -1
 		);
 
 		$teamMembers = get_posts($args);
@@ -864,8 +878,8 @@ class Subtemplate {
 							<div data-tab='existing' class='top-tab active'><div>Existing Marketplace</div></div>
 							<div data-tab='new' class='top-tab'><div>New Marketplace</div></div>
 						</div>
-							<div id='existing' class='content marketplace-info active'>{$existing}</div>
-							<div id='new' class='content marketplace-info'>{$new}</div>
+							<div id='existing' class='content marketplace-info active'><h1 class='phone-only'>Existing Marketplace</h1>{$existing}</div>
+							<div id='new' class='content marketplace-info'><h1 class='phone-only'>New Marketplace</h1>{$new}</div>
 						</div>
 					</section>";
 
