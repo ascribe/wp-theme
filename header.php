@@ -69,7 +69,7 @@ if (is_home()) {
 	<meta name="theme-color" content="#ffffff">
 
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
-	<script src="https://use.typekit.net/oex7mmg.js"></script>
+	<script src="https://use.typekit.net/gma2yhj.js"></script>
 	<script>try{Typekit.load({ async: true });}catch(e){}</script>
 
 
