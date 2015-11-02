@@ -15,28 +15,11 @@ function setup() {
 		return __NAMESPACE__ . "\\$function";
 	};
 
-	add_action( 'after_setup_theme',  $n( 'i18n' )        );
-	add_action( 'wp_head',            $n( 'header_meta' ) );
 	add_action( 'wp_enqueue_scripts', $n( 'scripts' )     );
-	add_action( 'wp_enqueue_scripts', $n( 'styles' )      );
-}
 
-/**
- * Makes WP Theme available for translation.
- *
- * Translations can be added to the /lang directory.
- * If you're building a theme based on WP Theme, use a find and replace
- * to change 'wptheme' to the name of your theme in all template files.
- *
- * @uses load_theme_textdomain() For translation/localization support.
- *
- * @since 0.1.0
- *
- * @return void.
- */
-function i18n() {
-	load_theme_textdomain( 'wptheme', WPTHEME_PATH . '/languages' );
- }
+	add_action( 'wp_enqueue_scripts', $n( 'styles' )      );
+
+}
 
 /**
  * Enqueue scripts for front-end.
@@ -48,21 +31,27 @@ function i18n() {
  * @return void.
  */
 function scripts( $debug = false ) {
-	$min = ( $debug || defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) ? '' : '.min';
+
+	wp_deregister_script('jquery');
+	wp_register_script('jquery', ("https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"), false, '1.3.2',true);
+	wp_enqueue_script('jquery');
 
 	wp_enqueue_script(
 		'wptheme',
-		WPTHEME_TEMPLATE_URL . "/assets/js/ascribe{$min}.js",
+		WPTHEME_TEMPLATE_URL . "/assets/js/ascribe.min.js",
 		array(),
 		WPTHEME_VERSION,
 		true
 	);
-	wp_enqueue_script( 'ajax-pagination',  WPTHEME_TEMPLATE_URL . '/assets/js/ajax-pagination.js', array( 'jquery' ), '1.0', true );
 
-	// AJAX MORE POSTS
-	wp_localize_script( 'ajax-pagination', 'ajaxpagination', array(
-		'ajaxurl' => admin_url( 'admin-ajax.php' )
-	));
+	wp_enqueue_script(
+		'modernizr',
+		"https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js",
+		array(),
+		'2.8.3',
+		false
+	);
+
 
 }
 
@@ -84,19 +73,4 @@ function styles( $debug = false ) {
 		array(),
 		WPTHEME_VERSION
 	);
-}
-
-/**
- * Add humans.txt to the <head> element.
- *
- * @uses apply_filters()
- *
- * @since 0.1.0
- *
- * @return void.
- */
-function header_meta() {
-	$humans = '<link type="text/plain" rel="author" href="' . WPTHEME_TEMPLATE_URL . '/humans.txt" />';
-
-	echo apply_filters( 'wptheme_humans', $humans );
 }

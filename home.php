@@ -20,7 +20,7 @@ else {
 <div class="nav-next alignright"><?php previous_posts_link( 'Newer posts' ); ?></div>
 <?php
 echo '</div>';
-get_sidebar('blog');
+//get_sidebar('blog');
 
 echo '</div>';
 echo '</div>';

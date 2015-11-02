@@ -68,8 +68,10 @@ if (is_home()) {
 	<meta name="msapplication-config" content="<?php echo WPTHEME_TEMPLATE_URL; ?>/images/ico/browserconfig.xml">
 	<meta name="theme-color" content="#ffffff">
 
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
 	<script src="https://use.typekit.net/oex7mmg.js"></script>
 	<script>try{Typekit.load({ async: true });}catch(e){}</script>
+
 
 	<?php wp_head(); ?>
 </head>

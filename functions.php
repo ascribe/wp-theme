@@ -31,7 +31,13 @@ TenUp\ascribe\Core\setup();
 
 
 // REMOVE WIDTH AND HEIGHT ATTRIBUTES ON THUMBNAILS
-add_filter( 'post_thumbnail_html', 'remove_thumbnail_dimensions', 10, 3 );
+add_filter( 'post_thumbnail_html', 'remove_thumbnail_dimensions', 10 );
+add_filter( 'image_send_to_editor', 'remove_thumbnail_dimensions', 10 );
+
+function remove_thumbnail_dimensions( $html ) {
+	$html = preg_replace( '/(width|height)=\"\d*\"\s/', "", $html );
+	return $html;
+}
 
 //remove emoji script
 remove_action( 'wp_head', 'print_emoji_detection_script', 7 );
@@ -82,18 +88,17 @@ add_filter("mce_buttons", "enable_more_buttons");
 
 
 
-// Replaces the excerpt "more" text by a link
-function new_excerpt_more($more) {
-	global $post;
-	return '... <a class="moretag" href="'. get_permalink($post->ID) . '"> Read More</a>';
-}
-add_filter('excerpt_more', 'new_excerpt_more');
-
-
-
-
 // THUMBNAIL ADD CUSTOM SIZE
 add_action( 'after_setup_theme', 'ttl_image_setup' );
 function ttl_image_setup() {
 	add_image_size( 'blog-crop', 600, 350, true ); //(cropped)
+	add_image_size( 'blog-feature-crop', 300, 175, true ); //(cropped)
+}
+
+
+// ADD QUERY VAR FOR EVENT PAGINATION
+add_filter('query_vars', 'add_my_var');
+function add_my_var($public_query_vars) {
+	$public_query_vars[] = 'date';
+	return $public_query_vars;
 }

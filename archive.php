@@ -17,7 +17,7 @@ else {
 }
 
 echo '</div>';
-get_sidebar('blog');
+//get_sidebar('blog');
 
 echo '</div>';
 echo '</div>';

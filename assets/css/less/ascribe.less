@@ -48,21 +48,17 @@ header + .chevron-divider {
 		.tourNavText;
 
 		ul {
-			display: flex;
-			flex-wrap: wrap;
 			padding: 0 35px;
-			-webkit-flex-direction: column;
 			list-style: none;
 			position: absolute;
 
 			&.active {
 				li {
-					display: flex;
-
+					display: block;
 					&.current-menu-item {
 						a {
 							&:after {
-								transform: rotate(180deg) scale(1,0.75);
+								transform: rotate(180deg);
 							}
 						}
 					}
@@ -70,14 +66,11 @@ header + .chevron-divider {
 			}
 
 			li {
-				flex-grow: 1;
-				order: 2;
 				display: none;
 				text-align: right;
 
 				&.current-menu-item {
-					order: 1;
-					display: flex;
+					display: block;
 
 					a {
 						position: relative;
@@ -89,13 +82,16 @@ header + .chevron-divider {
 							margin-right: 6px;
 						}
 						&:after {
-							content: '▼';
+							content: '';
+							background-image: url(../img/arrow.png);
+							background-repeat: no-repeat;
+							width: 10px;
+							height: 8px;
 							display: inline-block;
 							position: absolute;
-							top: 3px;
+							top: 10px;
 							right: -25px;
 							font-size: 15px;
-							transform: scale(1,0.75);
 						}
 					}
 				}
@@ -184,26 +180,33 @@ header + .chevron-divider {
 .page-template-template-general header,
 .page-template-default header,
 .blog header,
+.single-career header,
+.error404 header,
 .archive header,
 .single-post header {
+
 	.logo {
 		margin-top: 30px;
+		position:relative;
+		z-index:10;
 	}
 	nav {
-		float: left;
-		margin-top: 17px;
-		margin-left: 30px;
+		position: relative;
+		width: 100%;
+		text-align: center;
+		margin: 0;
+		top: 20px;
 
 		ul {
 			li {
-				display: block;
-				float: left;
+				display: inline-block;
 				border: 1px solid #b8b9b9;
-				margin-right: 30px;
+				margin: 0 15px 0 15px;
 				height: 60px;
 				padding: 0 30px;
 				width: 160px;
 				text-align: center;
+				vertical-align: top;
 
 				a {
 					color: #000;
@@ -240,7 +243,7 @@ header + .chevron-divider {
 			}
 		}
 	}
-	@media screen and (max-width: 730px) {
+	@media screen and (max-width: 750px) {
 		.tour-switcher {
 			display: none;
 		}
@@ -269,8 +272,6 @@ header + .chevron-divider {
 
 		ul {
 			li {
-				display: block;
-				float: left;
 				border: 1px solid fade(@white,30);
 
 				a {
@@ -302,6 +303,13 @@ header + .chevron-divider {
 		margin-top: 100px;
 		margin-bottom: 50px;
 		text-align: center;
+		a {
+			color: @white;
+
+			&:hover {
+				color: @pink;
+			}
+		}
 	}
 	.app-links {
 		color: @white;
@@ -309,7 +317,7 @@ header + .chevron-divider {
 			color: @white;
 
 			&:hover {
-				.fontRegular;
+				color: @pink;
 			}
 		}
 	}
@@ -318,21 +326,37 @@ header + .chevron-divider {
 		border-top: 2px solid fade(@white,50);
 
 		ul {
-			.column-container;
+			display:table;
+			padding: 0 10px;
+			width: 100%;
 		}
 		li {
-			.ttl-columns.column-6;
-		}
-		a {
-			display: block;
+			width: 20%;
+			display: table;
 			text-align: center;
-			padding: 25px 0;
-			font-size: 16px;
-			color: @white;
-			&:extend(.fontRegular);
+			vertical-align: middle;
+			padding: 0;
+			height: 88px;
+			float: left;
 
 			&:hover {
 				background-color: fade(@white,50);
+			}
+		}
+		a {
+			display: table-cell;
+			text-align: center;
+			font-size: 16px;
+			color: #fff;
+			height: 88px;
+			width: 100%;
+			vertical-align: middle;
+			padding: 0 10px;
+		}
+
+		@media screen and (max-width: 450px) {
+			li {
+				width: 50%;
 			}
 		}
 	}
@@ -353,6 +377,8 @@ header + .chevron-divider {
 	margin-top: 35px;
 	.signInUpText;
 	color: @black;
+	position:relative;
+	z-index:3;
 
 	a {
 		.signInUpText;
@@ -613,20 +639,34 @@ header + .chevron-divider {
 		width: 80px;
 		height: 80px;
 		background-color: @white;
-		background-position: center;
-		background-repeat: no-repeat;
 		cursor: pointer;
 		position: absolute;
 		top: calc(~"50% - 40px");
 		z-index: 2;
+
+		span {
+			background-repeat: no-repeat;
+			display: block;
+			position:relative;
+			top:15px;
+			margin:0 auto;
+			background-image: url(../../images/leftright.png);
+			width: 25px;
+			height: 50px;
+		}
 	}
 	#back {
-		background-image: url(../../images/left.png);
 		left:0;
+
+		span {
+			background-position: 0 0;
+		}
 	}
 	#forward {
-		background-image: url(../../images/right.png);
 		right:0;
+		span {
+			background-position: 0 -50px;
+		}
 	}
 
 	@media screen and (max-width: @tabletWidth) {
@@ -833,7 +873,17 @@ header + .chevron-divider {
 		padding: 75px 0;
 	}
 	@media screen and (max-width: @phoneWidth) {
-		display: none;
+		h1 {
+			font-size: 30px;
+		}
+		.blue-copy {
+			padding: 40px 0 60px;
+			font-size: 24px;
+
+			div {
+				line-height: 31px;
+			}
+		}
 	}
 }
 .sign-up {
@@ -870,12 +920,6 @@ header + .chevron-divider {
 			font-size: 27px;
 		}
 
-		a {
-			display:none;
-		}
-	}
-	@media screen and (max-width: @phoneWidth) {
-		display: none;
 	}
 }
 .blog-features {
@@ -896,11 +940,14 @@ header + .chevron-divider {
 	h2 {
 		.featureBlogDesc;
 		margin:10px 10px 0;
+		padding: 0 10px;
+
 	}
 	h1 {
 		.featureBlogTitle;
 		margin:0 10px;
 		text-align: left;
+		padding: 0 10px;
 	}
 	@media screen and (max-width: @phoneWidth) {
 		.blog {
@@ -967,8 +1014,12 @@ header + .chevron-divider {
 		.team-member {
 			width: 50%;
 		}
-		.button {
-			display: none;
+	}
+}
+.page-template-template-companywhite .team {
+	@media screen and (max-width: @tabletWidth) {
+		.intro {
+			text-align: left;
 		}
 	}
 }
@@ -1022,7 +1073,7 @@ header + .chevron-divider {
 			&:extend(.fontRegular);
 			color: @black;
 			font-size: 25px;
-			line-height: 15px;
+			line-height: 1;
 			margin-bottom:0;
 			text-align: left;
 		}
@@ -1115,6 +1166,9 @@ header + .chevron-divider {
 		padding:0;
 		margin:0;
 	}
+	div.wpcf7-response-output, div.wpcf7-display-none, div.wpcf7-mail-sent-ok {
+		border: 0!important;
+	}
 }
 .press-articles {
 	.copyText;
@@ -1152,6 +1206,50 @@ header + .chevron-divider {
 }
 .upcoming-events,
 .past-events {
+	.event-container {
+		width: 70%;
+		float:left;
+	}
+	.event-archives {
+		width: 30%;
+		float: right;
+		padding-left: 10%;
+		padding-top: 50px;
+
+		h1 {
+			text-align: left;
+			font-size: 19px;
+			color: @pink;
+			font-weight: 400;
+
+			a {
+				color:@pink;
+
+				&:hover {
+					color: @black;
+				}
+			}
+		}
+		ul {
+			list-style: none;
+			margin:0;
+			margin-bottom: 40px;
+			padding:0;
+
+			li {
+				font-size: 18px;
+				line-height: 1.2;
+			}
+
+			a {
+				color: @black;
+
+				&:hover {
+					color: @pink;
+				}
+			}
+		}
+	}
 	h2 {
 		text-align: center;
 		position:relative;
@@ -1216,6 +1314,17 @@ header + .chevron-divider {
 		position: relative;
 		z-index:-1;
 	}
+
+
+	@media screen and (max-width: 550px) {
+		.event-container, .event-archives {
+			width: 100%;
+			float: none;
+		}
+		.event-archives {
+			padding: 0;
+		}
+	}
 }
 .short-descriptions {
 	padding-top: 35px;
@@ -1247,6 +1356,7 @@ header + .chevron-divider {
 }
 .content-boxed {
 	background-color: @greyBg;
+	padding-top: 50px;
 
 	.centered-content-padding {
 		background-color: @greyBg;
@@ -1260,7 +1370,7 @@ header + .chevron-divider {
 			text-align: center;
 			.copyText;
 
-			ul {
+			& > ul {
 				text-align: left;
 				list-style: none;
 
@@ -1268,16 +1378,12 @@ header + .chevron-divider {
 					margin-bottom: 35px;
 				}
 				ul {
-					list-style: none;
-					margin-left: 20%;
+					margin-left: 10%;
+					text-align: left;
+					list-style-type: disc;
 
 					li {
 						margin-bottom:0;
-						&:before {
-							content: '-';
-							display: inline-block;
-							margin-right: 5px;
-						}
 					}
 				}
 			}
@@ -1290,6 +1396,11 @@ header + .chevron-divider {
 		img {
 			margin: 30px 0;
 		}
+	}
+
+	.centered-content > div,
+	.existing-new .content {
+		font-size: 14px;
 	}
 	@media screen and (max-width: @phoneWidth) {
 
@@ -1347,19 +1458,16 @@ header + .chevron-divider {
 		text-align: left;
 		list-style: none;
 
-		& > li {
+		li {
 			margin-bottom: 35px;
 		}
 		ul {
-			list-style: none;
-			margin-left: 20%;
+			margin-left: 10%;
+			text-align: left;
+			list-style-type: disc;
 
 			li {
-				&:before {
-					content: '-';
-					display: inline-block;
-					margin-right: 5px;
-				}
+				margin-bottom:0;
 			}
 		}
 	}
@@ -1464,6 +1572,12 @@ header + .chevron-divider {
 			margin-top: 7px;
 		}
 	}
+	a {
+		color: @white;
+		&:hover {
+			color:@pink;
+		}
+	}
 
 	@media screen and (max-width: @phoneWidth) {
 		padding-top:0;
@@ -1515,6 +1629,8 @@ article.post {
 		height: 75px;
 		padding-left: 15px;
 		margin-bottom: 35px;
+		font-weight: 500;
+		font-size: 16px;
 	}
 }
 .blog-column {
@@ -1593,7 +1709,7 @@ footer {
 		.footerText;
 		width: 100%;
 		&:hover {
-			&:extend(.fontRegular);
+			.fontRegular;
 			color: @white;
 		}
 	}
@@ -1655,6 +1771,10 @@ footer {
 	}
 	.button {
 		margin-bottom: 10px;
+
+		&:hover {
+			text-decoration: none;
+		}
 	}
 	
 	@media screen and (max-width: @middleWidth) {
@@ -1692,3 +1812,105 @@ footer {
 		}
 	}
 }
+
+
+
+
+// ASCRIBE CHANGES
+.page-template-template-tour header .sticky.stuck {
+	top: 0;
+}
+
+.page-template-template-tour header .sticky {
+	top: 30px;
+}
+
+.case-studies #forward, .case-studies #back {
+	display: none;
+}
+
+.home.page .feature-circles p,
+.old-new p,
+.centered-prodFeat p,
+.get-started .description p {
+	text-align: center;
+}
+
+.feature-circles .surround-circle .inner {
+	padding: 2em;
+}
+
+.short-descriptions .short-description h1 {
+	font-size: 20px;
+}
+
+.short-descriptions .short-description {
+	font-size: 15px;
+}
+
+.subtemplate h1 {
+	margin: 20px 0;
+}
+
+.centered-footer {
+	max-width: 900px;
+}
+
+footer .bottom-footer .menu li:nth-of-type(2) {
+	width: 150px;
+}
+
+.blog-column {
+	width: auto;
+}
+
+footer .top-footer ul {
+	width: 60%;
+}
+
+footer .bottom-footer .menu li {
+	text-align: center;
+	width: auto !important;
+}
+
+h1 > a,
+.press-articles .press-article h1 a {
+	color: #d8127d;
+}
+
+.press-articles .press-article h1 a {
+	font-size: 20px;
+}
+
+.press-articles .press-article h1 {
+	margin-bottom: 10px;
+}
+
+.press-articles .press-article time {
+	font-size: 14px;
+	margin-bottom: 6px;
+	display: block;
+}
+
+.press-articles blockquote {
+	line-height: 1.4em;
+}
+
+.subtemplate.press-articles > div > div > img {
+	margin-bottom: 70px;
+}
+
+.subtemplate.downloads a[href=''] {
+	display: none;
+}
+
+.subtemplate.downloads a[href=''] + a:not([href='']) {
+	float: none;
+	display: inline-block;
+	margin: 0 auto;
+}
+
+.subtemplate.downloads .centered-content {
+	text-align: center;
+}
+
