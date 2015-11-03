@@ -2227,6 +2227,8 @@ header + .chevron-divider {
   color: #000000;
   line-height: 36px;
   margin-bottom: 50px;
+  text-align: center;
+  text-transform: none;
 }
 .blog-features .blog {
   display: inline-block;
