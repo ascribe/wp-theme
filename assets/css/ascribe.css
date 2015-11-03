@@ -2767,7 +2767,7 @@ header + .chevron-divider {
   color: #121417;
   font-size: 18px;
   line-height: 22px;
-  margin-bottom: 100px;
+  margin-bottom: 40px;
 }
 @media screen and (max-width: 570px) {
   .short-descriptions .short-description {
