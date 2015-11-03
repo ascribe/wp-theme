@@ -348,9 +348,7 @@ class Subtemplate {
 					$blogFeatures .= "<a href='{$url}'><article class='blog'><div>
 									<img src='{$image}' alt='{$postTitle} Image'>
 									<h2>{$title}</h2>
-                                                                        <h1>{$postTitle}</h1>
-									<div class='excerpt'>{$content}</div>
-                                                                        </div>
+									<h1>{$postTitle}</h1></div>
 								</article></a>";
 
 				}

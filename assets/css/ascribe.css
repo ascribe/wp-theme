@@ -2234,10 +2234,6 @@ header + .chevron-divider {
     width: 100%;
   }
 }
-.blog-features .blog .excerpt {
-  margin: 0 10px;
-  min-height: auto;
-}
 .blog-features .blog div {
   background-color: white;
   padding-bottom: 15px;
