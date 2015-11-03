@@ -59,5 +59,9 @@ if (empty($image)) {
 //<editor-fold desc="Get Links">
 $signInLink = get_field('sign_in_link','option');
 $signUpLink = get_field('sign_up_link','option');
+
+// FIXME:
+$signInLink = '/app/login';
+$signUpLink = '/app/signup';
 //</editor-fold>
 
