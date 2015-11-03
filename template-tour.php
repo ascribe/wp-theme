@@ -12,6 +12,10 @@ $buttonText     = get_field('create_account_button_text');
 $buttonColour   = get_field('header_button_colour');
 $controller     = new Controller();
 
+// FIXME:
+$signInLink = '/app/login';
+$signUpLink = '/app/signup';
+
 ?>
 
 <header style="background-image:url(<?php echo $bgImage; ?>)">

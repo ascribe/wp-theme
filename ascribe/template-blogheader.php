@@ -5,6 +5,11 @@
  * Date: 15-09-24
  * Time: 5:32 PM
  */
+
+// FIXME:
+$signInLink = '/app/login';
+$signUpLink = '/app/signup';
+
 ?>
 <header class="blog">
 	<div class="centered-header">

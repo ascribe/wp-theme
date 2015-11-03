@@ -8,6 +8,10 @@
 
 require 'controller/init.php';
 
+// FIXME:
+$signInLink = '/app/login';
+$signUpLink = '/app/signup';
+
 ?>
 <header>
 	<div class="sticky">
