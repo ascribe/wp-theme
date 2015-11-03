@@ -464,6 +464,7 @@ h5,
 .product-overview.small p,
 .blue-box,
 .galleries-marketplaces h1,
+.blog-features .centered-content > h1,
 .blog-features h2,
 .blog-features h1,
 .team,
@@ -2220,6 +2221,12 @@ header + .chevron-divider {
 .blog-features {
   background-color: #fbfbfb;
   padding: 75px 0;
+}
+.blog-features .centered-content > h1 {
+  font-size: 30px;
+  color: #000000;
+  line-height: 36px;
+  margin-bottom: 50px;
 }
 .blog-features .blog {
   display: inline-block;

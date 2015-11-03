@@ -332,6 +332,7 @@ class Subtemplate {
 	}
 	public function blogFeatures($page = "home") {
 		$blogFeatures = '';
+                $subtemplateTitle = get_sub_field('section_title');
 		if (have_rows('blog_features','option')) {
 			while (have_rows('blog_features','option')) {
 				the_row();
@@ -366,6 +367,7 @@ class Subtemplate {
 		if ($page == "home") {
 			$result = "<section class='subtemplate blog-features'>
 					<div class='centered-content'>
+                                                <h1>{$subtemplateTitle}</h1>
 						<div class='column-container'>
 						{$blogFeatures}
 						</div>
