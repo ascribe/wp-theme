@@ -2236,6 +2236,7 @@ header + .chevron-divider {
 }
 .blog-features .blog .excerpt {
   margin: 0 10px;
+  min-height: auto;
 }
 .blog-features .blog div {
   background-color: white;
