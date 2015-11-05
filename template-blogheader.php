@@ -6,9 +6,7 @@
  * Time: 5:32 PM
  */
 
-// FIXME:
-$signInLink = '/app/login';
-$signUpLink = '/app/signup';
+require 'controller/init.php';
 
 ?>
 <header class="blog">
