@@ -3,6 +3,8 @@ release
 composer.lock
 phpunit.xml
 .idea
+.DS_Store
+
 ### JetBrains template
 # Covers JetBrains IDEs: IntelliJ, RubyMine, PhpStorm, AppCode, PyCharm, CLion
 
