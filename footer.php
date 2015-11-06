@@ -166,7 +166,7 @@ if ($twitter) {
 		<div class="centered-footer">
 			<?php wp_nav_menu( array( 'theme_location' => 'main-footer-menu', 'container' => false ) ); ?>
 			<div class="contact">
-				<a href="<?php echo $consultLink; ?>" class="button small">Request a consultation</a>
+				<a href="<?php echo $consultLink; ?>" class="button small">Request information</a>
 				<div><?php echo $address; ?></div>
 				<div><a href="mailto:<?php echo $email; ?>"><?php echo $email; ?></a></div>
 			</div>
