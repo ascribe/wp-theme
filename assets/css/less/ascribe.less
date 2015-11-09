@@ -1737,6 +1737,9 @@ footer {
 		float:right;
 	}
 	.bottom-footer {
+                .centered-footer {
+                    line-height: 40px;
+                }
 		.subfooterText;
 		padding: 20px 0 10px;
 
@@ -1762,15 +1765,20 @@ footer {
 			}
 		}
 		.social {
-			float: right;
-			position: relative;
-			top: -2px;
+                        clear: both;
+                        text-align: center;
+                        padding: 10px;
 
 			li {
 				display: inline-block;
 
 			}
 		}
+	}
+	.eu-fund {
+		float: left;
+                width: 150px;
+                margin: -15px 10px 0 0;
 	}
 	.copyright {
 		float: left;
@@ -1812,6 +1820,10 @@ footer {
 				float: none;
 			}
 		}
+                .eu-fund {
+                    float: none;
+                    margin: -15px auto 10px auto;
+                }
 		.copyright {
 			float:none;
 			margin-bottom:10px;

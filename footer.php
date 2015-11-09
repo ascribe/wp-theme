@@ -174,6 +174,7 @@ if ($twitter) {
 	</section>
 	<section class="bottom-footer">
 		<div class="centered-footer">
+			<div class="eu-fund"><img src="https://www.ascribe.io/wp-content/uploads/2015/11/eu-dev-fund.png" /></div>
 			<div class="copyright"><?php echo $year; ?> © ascribe GmbH</div>
 			<?php wp_nav_menu( array( 'theme_location' => 'lower-footer-menu', 'container' => false ) ); ?>
 			<ul class="social">
