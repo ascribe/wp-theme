@@ -3232,8 +3232,7 @@ footer .bottom-footer .menu li:nth-of-type(2) {
   width: 130px;
 }
 footer .bottom-footer .social {
-  clear: both;
-  text-align: center;
+  float: right;
   padding: 10px;
 }
 footer .bottom-footer .social li {
@@ -3252,6 +3251,29 @@ footer .button {
 }
 footer .button:hover {
   text-decoration: none;
+}
+@media screen and (max-width: 850px) {
+  footer .eu-fund {
+    float: none;
+    margin: -15px auto 10px auto;
+  }
+  footer .copyright {
+    float: none;
+    margin-bottom: 10px;
+  }
+  footer .menu {
+    float: none;
+    margin-bottom: 15px;
+    text-align: center;
+  }
+  footer .menu li:first-of-type {
+    border-left: 0;
+  }
+  footer .social {
+    margin-bottom: 15px;
+    float: none;
+    text-align: center;
+  }
 }
 @media screen and (max-width: 570px) {
   footer .top-footer ul {
@@ -3277,14 +3299,6 @@ footer .button:hover {
   }
   footer .bottom-footer .social {
     float: none;
-  }
-  footer .eu-fund {
-    float: none;
-    margin: -15px auto 10px auto;
-  }
-  footer .copyright {
-    float: none;
-    margin-bottom: 10px;
   }
 }
 .page-template-template-tour header .sticky.stuck {

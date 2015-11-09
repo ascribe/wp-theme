@@ -1762,13 +1762,10 @@ footer {
 			}
 		}
 		.social {
-                        clear: both;
-                        text-align: center;
+                        float: right;
                         padding: 10px;
-
 			li {
 				display: inline-block;
-
 			}
 		}
 	}
@@ -1788,6 +1785,32 @@ footer {
 		}
 	}
 	
+        // FIXME
+	@media screen and (max-width: 850px) {
+                .eu-fund {
+                    float: none;
+                    margin: -15px auto 10px auto;
+                }
+		.copyright {
+			float: none;
+			margin-bottom: 10px;
+		}
+                .menu {
+                        float: none;
+                        margin-bottom: 15px;
+                        text-align: center;
+
+                        li:first-of-type {
+                                border-left:0;
+                        }
+                }
+                .social {
+                        margin-bottom: 15px;
+                        float: none;
+                        text-align: center;
+                }
+        }
+
 	@media screen and (max-width: @middleWidth) {
 		.top-footer {
 			ul {
@@ -1816,14 +1839,6 @@ footer {
 			.social {
 				float: none;
 			}
-		}
-                .eu-fund {
-                    float: none;
-                    margin: -15px auto 10px auto;
-                }
-		.copyright {
-			float:none;
-			margin-bottom:10px;
 		}
 	}
 }
