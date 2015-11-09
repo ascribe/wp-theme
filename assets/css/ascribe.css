@@ -3233,7 +3233,7 @@ footer .bottom-footer .menu li:nth-of-type(2) {
 }
 footer .bottom-footer .social {
   float: right;
-  padding: 10px;
+  margin-top: -10px;
 }
 footer .bottom-footer .social li {
   display: inline-block;
@@ -3261,6 +3261,7 @@ footer .button:hover {
   footer .copyright {
     float: none;
     margin-bottom: 10px;
+    text-align: center;
   }
   footer .bottom-footer .menu {
     float: none;
