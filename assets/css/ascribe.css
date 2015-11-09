@@ -3211,6 +3211,9 @@ footer .bottom-footer {
   line-height: 14px;
   padding: 20px 0 10px;
 }
+footer .bottom-footer .centered-footer {
+  line-height: 40px;
+}
 footer .bottom-footer a {
   color: #1e1e1e;
   font-size: 13px;
@@ -3232,12 +3235,17 @@ footer .bottom-footer .menu li:nth-of-type(2) {
   width: 130px;
 }
 footer .bottom-footer .social {
-  float: right;
-  position: relative;
-  top: -2px;
+  clear: both;
+  text-align: center;
+  padding: 10px;
 }
 footer .bottom-footer .social li {
   display: inline-block;
+}
+footer .eu-fund {
+  float: left;
+  width: 150px;
+  margin: -15px 10px 0 0;
 }
 footer .copyright {
   float: left;
@@ -3272,6 +3280,10 @@ footer .button:hover {
   }
   footer .bottom-footer .social {
     float: none;
+  }
+  footer .eu-fund {
+    float: none;
+    margin: -15px auto 10px auto;
   }
   footer .copyright {
     float: none;
