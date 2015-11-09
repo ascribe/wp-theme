@@ -3256,20 +3256,21 @@ footer .button:hover {
   footer .eu-fund {
     float: none;
     margin: -15px auto 10px auto;
+    text-align: center;
   }
   footer .copyright {
     float: none;
     margin-bottom: 10px;
   }
-  footer .menu {
+  footer .bottom-footer .menu {
     float: none;
     margin-bottom: 15px;
     text-align: center;
   }
-  footer .menu li:first-of-type {
+  footer .bottom-footer .menu li:first-of-type {
     border-left: 0;
   }
-  footer .social {
+  footer .bottom-footer .social {
     margin-bottom: 15px;
     float: none;
     text-align: center;
