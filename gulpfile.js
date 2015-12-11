@@ -34,7 +34,7 @@ console.log("");
 // ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 // Browsers to target when prefixing CSS.
-var COMPATIBILITY = ['last 2 versions', 'ie >= 10'];
+var COMPATIBILITY = ['Chrome >= 30', 'Safari >= 6.1', 'Firefox >= 35', 'Opera >= 32', 'iOS >= 8', 'Android >= 4', 'ie >= 10'];
 
 // paths
 var SRC           = './',
