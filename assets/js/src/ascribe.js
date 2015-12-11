@@ -1,3 +1,6 @@
+
+//=include ajax-pagination.js
+
 $(document).ready(function(){
 
     imgAttrRemover();
@@ -101,5 +104,3 @@ $(document).ready(function(){
     }
 
 });
-
-
