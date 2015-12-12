@@ -55,8 +55,8 @@ class Subtemplate {
 					case 'bluebox':
 						$result .= $this->blueBox($subtemplateTitle);
 						break;
-					case 'createaccount':
-						$result .= $this->createAccount($subtemplateTitle);
+					case 'calltoaction':
+						$result .= $this->callToAction($subtemplateTitle);
 						break;
 					case 'galleries':
 						$result .= $this->galleries($subtemplateTitle);
@@ -295,7 +295,7 @@ class Subtemplate {
 
 		return $result;
 	}
-	public function createAccount($subtemplateTitle) {
+	public function callToAction($subtemplateTitle) {
 		$buttonText     = get_sub_field('create_free_account_text');
 		$signUpLink     = get_field('sign_up_link','option');
 		$backgroundImg  = get_sub_field('image')['url'];
