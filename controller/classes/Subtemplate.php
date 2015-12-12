@@ -296,7 +296,10 @@ class Subtemplate {
 		return $result;
 	}
 	public function callToAction($subtemplateTitle) {
-        $ctaTitle       = $subtemplateTitle;
+
+        if ($subtemplateTitle) {
+            $ctaTitle = "<h1 class='cta__title'>$subtemplateTitle</h1>";
+        }
 		$ctaText        = get_sub_field('cta_button_text');
 		$ctaLink        = get_sub_field('cta_button_link');
 		$backgroundImg  = get_sub_field('image')['url'];
@@ -304,7 +307,7 @@ class Subtemplate {
 
 		$result = "<section class='subtemplate cta' style='background-image: url({$backgroundImg})'>
 						<div class='centered-content'>
-                            <h1 class='cta__title'>{$ctaTitle}</h1>
+                            {$ctaTitle}
 							<a href='{$ctaLink}' class='cta__button button blue-overPic'>{$ctaText}</a>
 						</div>
 					</section>";
