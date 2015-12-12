@@ -296,14 +296,16 @@ class Subtemplate {
 		return $result;
 	}
 	public function callToAction($subtemplateTitle) {
-		$buttonText     = get_sub_field('create_free_account_text');
-		$signUpLink     = get_field('sign_up_link','option');
+        $ctaTitle       = $subtemplateTitle;
+		$ctaText        = get_sub_field('cta_button_text');
+		$ctaLink        = get_sub_field('cta_button_link');
 		$backgroundImg  = get_sub_field('image')['url'];
 
 
 		$result = "<section class='subtemplate sign-up' style='background-image: url({$backgroundImg})'>
 						<div class='centered-content'>
-							<a href='{$signUpLink}' class='button blue-overPic'>{$buttonText}</a>
+                            <h1>{$ctaTitle}</h1>
+							<div><a href='{$ctaLink}' class='button blue-overPic'>{$ctaText}</a></div>
 						</div>
 					</section>";
 
