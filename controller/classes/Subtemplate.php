@@ -799,7 +799,7 @@ class Subtemplate {
 				the_row();
 
 				$title          = get_sub_field('contact_description');
-				$contactInfo    = get_sub_field('contact_details');
+				$contactInfo    = make_clickable(get_sub_field('contact_details'));
 
 				$contactPoints .= "<article class='contact-point'>
 									<h1>{$title}</h1>
