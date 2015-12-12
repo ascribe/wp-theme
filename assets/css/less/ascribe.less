@@ -904,21 +904,32 @@ header + .chevron-divider {
     // centering from the future
     display: flex;
     align-items: center;
+    justify-content: center;
+
+    @media screen and (min-width: @phoneWidth) {
+        padding: 40px 0;
+        min-height: 520px;
+        background-position: center;
+	}
+
+    // TODO: this should be the generic layout container for everything
+    .cta__container {
+        padding: 0 4%;
+        margin: auto;
+        max-width: 960px;
+    }
 
     .cta__title {
         color: #fff;
         margin: 0 0 48px 0;
+        text-align: center;
     }
 
 	.cta__button {
 		margin: 0 auto;
 	}
 
-	@media screen and (min-width: @phoneWidth) {
-        padding: 40px 0;
-        min-height: 520px;
-        background-position: center;
-	}
+
 }
 
 
