@@ -306,11 +306,9 @@ class Subtemplate {
 
 
 		$result = "<section class='subtemplate cta' style='background-image: url({$backgroundImg})'>
-						<div class='centered-content'>
-                            {$ctaTitle}
-							<a href='{$ctaLink}' class='cta__button button blue-overPic'>{$ctaText}</a>
-						</div>
-					</section>";
+                        {$ctaTitle}
+				        <a href='{$ctaLink}' class='cta__button button blue-overPic'>{$ctaText}</a>
+				   </section>";
 
 		return $result;
 	}
