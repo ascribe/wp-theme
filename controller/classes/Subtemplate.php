@@ -55,8 +55,8 @@ class Subtemplate {
 					case 'bluebox':
 						$result .= $this->blueBox($subtemplateTitle);
 						break;
-					case 'createaccount':
-						$result .= $this->createAccount($subtemplateTitle);
+					case 'calltoaction':
+						$result .= $this->callToAction($subtemplateTitle);
 						break;
 					case 'galleries':
 						$result .= $this->galleries($subtemplateTitle);
@@ -75,9 +75,6 @@ class Subtemplate {
 						break;
 					case 'team':
 						$result .= $this->team($subtemplateTitle);
-						break;
-					case 'pricing':
-						$result .= $this->pricing($subtemplateTitle);
 						break;
 
 					case 'teamGeneral':
@@ -298,17 +295,22 @@ class Subtemplate {
 
 		return $result;
 	}
-	public function createAccount($subtemplateTitle) {
-		$buttonText     = get_sub_field('create_free_account_text');
-		$signUpLink     = get_field('sign_up_link','option');
+	public function callToAction($subtemplateTitle) {
+
+        if ($subtemplateTitle) {
+            $ctaTitle = "<h1 class='cta__title'>$subtemplateTitle</h1>";
+        }
+		$ctaText        = get_sub_field('cta_button_text');
+		$ctaLink        = get_sub_field('cta_button_link');
 		$backgroundImg  = get_sub_field('image')['url'];
 
 
-		$result = "<section class='subtemplate sign-up' style='background-image: url({$backgroundImg})'>
-						<div class='centered-content'>
-							<a href='{$signUpLink}' class='button blue-overPic'>{$buttonText}</a>
-						</div>
-					</section>";
+		$result = "<section class='subtemplate cta' style='background-image: url({$backgroundImg})'>
+                        <div class='cta__container'>
+                            {$ctaTitle}
+				            <a href='{$ctaLink}' class='cta__button button blue-overPic'>{$ctaText}</a>
+                        </div>
+				   </section>";
 
 		return $result;
 	}
@@ -978,26 +980,6 @@ class Subtemplate {
 								</div>
 							</div>
 
-						</div>
-					</section>";
-
-		return $result;
-	}
-	public function pricing($subtemplateTitle) {
-
-		$bgImg        = get_sub_field('background_image')['url'];
-		$rightPricing = get_sub_field('right_pricing_text');
-		$leftPricing  = get_sub_field('left_pricing_text');
-		$contactPage    = get_field('contact_page','option');
-
-		$result = "<section class='subtemplate pricing' style='background-image:url({$bgImg})'>
-						<div class='centered-pricing'>
-							<h1>{$subtemplateTitle}</h1>
-							<div class='column-container'>
-							<div class='pricing-detail'><div>{$leftPricing}</div></div>
-							<div class='pricing-detail'><div>{$rightPricing}</div></div>
-						</div>
-						<a href='{$contactPage}'>Contact us to discuss custom pricing</a>
 						</div>
 					</section>";
 

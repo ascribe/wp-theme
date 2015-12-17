@@ -2182,20 +2182,42 @@ header + .chevron-divider {
     line-height: 31px;
   }
 }
-.sign-up {
-  padding: 240px 0 210px;
+.cta {
+  padding: 20px 0;
+  min-height: 300px;
   text-align: center;
   background-size: cover;
   background-repeat: no-repeat;
+  background-position: 55% 50%;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
-.sign-up a {
-  margin: 0 auto;
-}
-@media screen and (max-width: 600px) {
-  .sign-up {
-    background-position: 55% 50%;
-    padding: 180px 0 140px;
+@media screen and (min-width: 600px) {
+  .cta {
+    padding: 40px 0;
+    min-height: 520px;
+    background-position: center;
   }
+}
+.cta .cta__container {
+  padding: 0 4%;
+  margin: auto;
+  max-width: 960px;
+}
+.cta .cta__title {
+  color: #fff;
+  margin: 0 0 48px 0;
+  text-align: center;
+}
+.cta .cta__button {
+  margin: 0 auto;
 }
 .galleries-marketplaces {
   padding: 145px 0 130px;
