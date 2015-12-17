@@ -35,8 +35,8 @@ add_filter( 'post_thumbnail_html', 'remove_thumbnail_dimensions', 10 );
 add_filter( 'image_send_to_editor', 'remove_thumbnail_dimensions', 10 );
 
 function remove_thumbnail_dimensions( $html ) {
-	$html = preg_replace( '/(width|height)=\"\d*\"\s/', "", $html );
-	return $html;
+    $html = preg_replace( '/(width|height)=\"\d*\"\s/', "", $html );
+    return $html;
 }
 
 //remove emoji script
@@ -50,27 +50,27 @@ remove_action( 'admin_print_styles', 'print_emoji_styles' );
 
 // TURN ON ACF SETTINGS PAGE
 if( function_exists('acf_add_options_page') ) {
-	acf_add_options_page(array(
-		'page_title' 	=> 'Theme General Settings',
-		'menu_title'	=> 'Theme Settings',
-		'menu_slug' 	=> 'theme-general-settings',
-		'capability'	=> 'edit_posts',
-		'redirect'		=> false
-	));
+    acf_add_options_page(array(
+        'page_title'     => 'Theme General Settings',
+        'menu_title'    => 'Theme Settings',
+        'menu_slug'     => 'theme-general-settings',
+        'capability'    => 'edit_posts',
+        'redirect'        => false
+    ));
 }
 
 //add excerpt to page
 function wpcodex_add_excerpt_support_for_pages() {
-	add_post_type_support( 'page', 'excerpt' );
+    add_post_type_support( 'page', 'excerpt' );
 }
 add_action( 'init', 'wpcodex_add_excerpt_support_for_pages' );
 
 
 //Register Navigation
 function register_primary_nav_menu() {
-	register_nav_menu('landing-menu',__( 'Product Tour Navigation Menu' ));
-	register_nav_menu('main-footer-menu',__( 'Main Footer Navigation Menu' ));
-	register_nav_menu('lower-footer-menu',__( 'Lower Footer Navigation Menu' ));
+    register_nav_menu('landing-menu',__( 'Product Tour Navigation Menu' ));
+    register_nav_menu('main-footer-menu',__( 'Main Footer Navigation Menu' ));
+    register_nav_menu('lower-footer-menu',__( 'Lower Footer Navigation Menu' ));
 }
 add_action( 'init', 'register_primary_nav_menu');
 
@@ -80,9 +80,9 @@ add_theme_support( 'post-thumbnails' );
 
 // ENABLE HR IN WSYWIG
 function enable_more_buttons($buttons) {
-	$buttons[] = 'hr';
+    $buttons[] = 'hr';
 
-	return $buttons;
+    return $buttons;
 }
 add_filter("mce_buttons", "enable_more_buttons");
 
@@ -91,14 +91,14 @@ add_filter("mce_buttons", "enable_more_buttons");
 // THUMBNAIL ADD CUSTOM SIZE
 add_action( 'after_setup_theme', 'ttl_image_setup' );
 function ttl_image_setup() {
-	add_image_size( 'blog-crop', 600, 350, true ); //(cropped)
-	add_image_size( 'blog-feature-crop', 300, 175, true ); //(cropped)
+    add_image_size( 'blog-crop', 600, 350, true ); //(cropped)
+    add_image_size( 'blog-feature-crop', 300, 175, true ); //(cropped)
 }
 
 
 // ADD QUERY VAR FOR EVENT PAGINATION
 add_filter('query_vars', 'add_my_var');
 function add_my_var($public_query_vars) {
-	$public_query_vars[] = 'date';
-	return $public_query_vars;
+    $public_query_vars[] = 'date';
+    return $public_query_vars;
 }

@@ -5,15 +5,15 @@ echo '<div class="centered-content-padding">';
 echo '<div class="column-container">';
 echo '<div class="blog-column">';
 if ( have_posts() ) {
-	while ( have_posts() ) {
-		the_post();
+    while ( have_posts() ) {
+        the_post();
 
-		get_template_part( 'content', 'blog' );
+        get_template_part( 'content', 'blog' );
 
-	}
+    }
 }
 else {
-	get_template_part( 'content', 'noposts' );
+    get_template_part( 'content', 'noposts' );
 }
 ?>
 <div class="nav-previous alignleft"><?php next_posts_link( 'Older posts' ); ?></div>
