@@ -9,24 +9,24 @@
 // to ensure the container has a height. Use .no-clearfix to reset a clearfix
 // when in a dicey spot
 .clearfix {
-	zoom: 1;
-	&:before, &:after {
-		content: "";
-		display: table;
-	}
-	&:after {
-		clear: both;
-	}
+    zoom: 1;
+    &:before, &:after {
+        content: "";
+        display: table;
+    }
+    &:after {
+        clear: both;
+    }
 }
 .no-clearfix {
-	zoom: 0;
-	&:before,
-	&:after {
-		display: none;
-	}
-	&:after {
-		clear:  none;
-	}
+    zoom: 0;
+    &:before,
+    &:after {
+        display: none;
+    }
+    &:after {
+        clear:  none;
+    }
 }
 
 // CENTERED
@@ -34,157 +34,157 @@
 @centeredpadding: 10px;
 
 .centered-header {
-	.clearfix;
-	max-width: 1120px + 2*@centeredpadding;
-	padding: 0 @centeredpadding;
-	width: 100%;
-	margin: 0 auto;
+    .clearfix;
+    max-width: 1120px + 2*@centeredpadding;
+    padding: 0 @centeredpadding;
+    width: 100%;
+    margin: 0 auto;
 }
 
 .centered-prodFeat {
-	.clearfix;
-	max-width: 930px + 2*@centeredpadding;
-	padding: 0 @centeredpadding;
-	width: 100%;
-	margin: 0 auto;
+    .clearfix;
+    max-width: 930px + 2*@centeredpadding;
+    padding: 0 @centeredpadding;
+    width: 100%;
+    margin: 0 auto;
 }
 
 .centered-content {
-	.clearfix;
-	max-width: 770px + 2*@centeredpadding;
-	padding: 0 @centeredpadding;
-	width: 100%;
-	margin: 0 auto;
+    .clearfix;
+    max-width: 770px + 2*@centeredpadding;
+    padding: 0 @centeredpadding;
+    width: 100%;
+    margin: 0 auto;
 }
 
 .centered-pricing {
-	.clearfix;
-	max-width: 880px + 2*@centeredpadding;
-	padding: 0 @centeredpadding;
-	width: 100%;
-	margin: 0 auto;
+    .clearfix;
+    max-width: 880px + 2*@centeredpadding;
+    padding: 0 @centeredpadding;
+    width: 100%;
+    margin: 0 auto;
 }
 
 .centered-content-padding {
-	.clearfix;
-	max-width: 950px;
-	padding: 0 @centeredpadding 50px;
-	width: 100%;
-	margin: 0 auto;
-	background-color: @white;
+    .clearfix;
+    max-width: 950px;
+    padding: 0 @centeredpadding 50px;
+    width: 100%;
+    margin: 0 auto;
+    background-color: @white;
 }
 
 .centered-categories {
-	.clearfix;
-	max-width: 1000px;
-	width: 100%;
-	margin: 0 auto;
+    .clearfix;
+    max-width: 1000px;
+    width: 100%;
+    margin: 0 auto;
 }
 
 .centered-footer {
-	.clearfix;
-	max-width: 650px + 2*@centeredpadding;
-	padding: 0 @centeredpadding;
-	width: 100%;
-	margin: 0 auto;
+    .clearfix;
+    max-width: 650px + 2*@centeredpadding;
+    padding: 0 @centeredpadding;
+    width: 100%;
+    margin: 0 auto;
 }
 
 // GENERAL LIST
 // TAKES AWAY PADDING AND LIST STYLE
 ul, ol {
-	padding:0;
-	margin:0;
+    padding:0;
+    margin:0;
 }
 
 //  COLUMN SECTIONS
 
 .wrapper {
-	position: relative;
-	overflow:hidden;
+    position: relative;
+    overflow:hidden;
 }
 
 @paddingForCols: 30px;
 .ttl-columns {
-	font-size:0;
-	width:100%;
-	width: calc(~"100% +"@paddingForCols);
-	.column {
-		display: inline-block;
-		vertical-align: top;
-		padding-right: @paddingForCols;
-		font-size: 15px;
+    font-size:0;
+    width:100%;
+    width: calc(~"100% +"@paddingForCols);
+    .column {
+        display: inline-block;
+        vertical-align: top;
+        padding-right: @paddingForCols;
+        font-size: 15px;
 
-	}
+    }
 
-	.column-2 {
-		.column;
-		width: 50%;
-		@media screen and (max-width: @middleWidth) {
-			width: 100%;
-		}
-	}
+    .column-2 {
+        .column;
+        width: 50%;
+        @media screen and (max-width: @middleWidth) {
+            width: 100%;
+        }
+    }
 
-	.column-3 {
-		.column;
-		width: 100/3%;
-		@media screen and (max-width: @middleWidth) {
-			width: 100%;
-		}
-	}
+    .column-3 {
+        .column;
+        width: 100/3%;
+        @media screen and (max-width: @middleWidth) {
+            width: 100%;
+        }
+    }
 
-	.column-4 {
-		.column;
-		width: 25%;
-		@media screen and (max-width: @tabletWidth) {
-			width: 50%;
-		}
-	}
+    .column-4 {
+        .column;
+        width: 25%;
+        @media screen and (max-width: @tabletWidth) {
+            width: 50%;
+        }
+    }
 
-	.column-5 {
-		.column;
-		width: 20%;
-		@media screen and (max-width: @tabletWidth) {
-			width: 50%;
-		}
-	}
+    .column-5 {
+        .column;
+        width: 20%;
+        @media screen and (max-width: @tabletWidth) {
+            width: 50%;
+        }
+    }
 
-	.column-6 {
-		.column;
-		width: 100/6%;
-		@media screen and (max-width: @tabletWidth) {
-			width: 33%;
-		}
-		@media screen and (max-width: @phoneWidth) {
-			width: 50%;
-		}
-	}
-	.column-7 {
-		.column;
-		width: 100/7%;
-		@media screen and (max-width: @tabletWidth) {
-			width: 33%;
-		}
-	}
+    .column-6 {
+        .column;
+        width: 100/6%;
+        @media screen and (max-width: @tabletWidth) {
+            width: 33%;
+        }
+        @media screen and (max-width: @phoneWidth) {
+            width: 50%;
+        }
+    }
+    .column-7 {
+        .column;
+        width: 100/7%;
+        @media screen and (max-width: @tabletWidth) {
+            width: 33%;
+        }
+    }
 
-	.columnTwoThirds {
-		.column;
-		width: 66.6%;
-		@media screen and (max-width: @middleWidth) {
-			width: 100%;
-		}
-	}
+    .columnTwoThirds {
+        .column;
+        width: 66.6%;
+        @media screen and (max-width: @middleWidth) {
+            width: 100%;
+        }
+    }
 
-	.columnThreeQuarters {
-		.column;
-		width: 100 * 3/4%;
-		@media screen and (max-width: @tabletWidth) {
-			width: 100%;
-		}
-	}
+    .columnThreeQuarters {
+        .column;
+        width: 100 * 3/4%;
+        @media screen and (max-width: @tabletWidth) {
+            width: 100%;
+        }
+    }
 
 }
 .column-container {
-	.ttl-columns;
+    .ttl-columns;
 }
 
 // BORDER-BOX
@@ -193,9 +193,9 @@ ul, ol {
 *,
 *:before,
 *:after {
-	-moz-box-sizing: border-box;
-	-webkit-box-sizing: border-box;
-	box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 // EMBED OBJECTS
@@ -204,39 +204,39 @@ img,
 embed,
 object,
 video {
-	max-width: 100%;
-	border: 0;
-	padding: 0;
+    max-width: 100%;
+    border: 0;
+    padding: 0;
 }
 
 // MOBILE-ONLY
 // Use this to only display something on mobile- and tablet-width devices.
 // Depending on project specs, you may wish to override this breakpoint.
 .phone-only {
-	display: none;
+    display: none;
 
-	@media screen and (max-width: @phoneWidth) {
-		display: inherit;
-	}
+    @media screen and (max-width: @phoneWidth) {
+        display: inherit;
+    }
 }
 
 .mobile-only {
-	display: none;
+    display: none;
 
-	@media screen and (max-width: @tabletWidth) {
-		display: inherit;
-	}
+    @media screen and (max-width: @tabletWidth) {
+        display: inherit;
+    }
 }
 .desktop-only {
-	@media screen and (max-width: @tabletWidth) {
-		display: none;
-	}
+    @media screen and (max-width: @tabletWidth) {
+        display: none;
+    }
 }
 
 .phone-and-up {
-	@media screen and (max-width: @phoneWidth) {
-		display: none;
-	}
+    @media screen and (max-width: @phoneWidth) {
+        display: none;
+    }
 }
 
 // MIXINS
@@ -244,11 +244,11 @@ video {
 // TRANSITION
 // Applies a CSS transition between properties
 .transition(@property: all, @speed: 0.15s, @easing: ease-in-out) {
-	-webkit-transition: @property @speed @easing;
-	-moz-transition: @property @speed @easing;
-	-ms-transition: @property @speed @easing;
-	-o-transition: @property @speed @easing;
-	transition: @property @speed @easing;
+    -webkit-transition: @property @speed @easing;
+    -moz-transition: @property @speed @easing;
+    -ms-transition: @property @speed @easing;
+    -o-transition: @property @speed @easing;
+    transition: @property @speed @easing;
 }
 
 ///**
@@ -268,8 +268,8 @@ video {
 // **/
 
 .selection(@text-color, @background-color) {
-	&::-moz-selection {color: @text-color; background-color: @background-color;}
-	&::selection {color: @text-color; background-color: @background-color;}
+    &::-moz-selection {color: @text-color; background-color: @background-color;}
+    &::selection {color: @text-color; background-color: @background-color;}
 }
 
 //  * =========================================================== *
@@ -284,33 +284,33 @@ video {
 
 
 .placeholder(@color:#aaa, @element: 08121991) {
-	.inception (@arguments) when not (@element = 08121991) {
-		@{element}::-webkit-input-placeholder {
-			color: @color;
-		}
-		@{element}:-moz-placeholder {
-			color: @color;
-		}
-		@{element}::-moz-placeholder {
-			color: @color;
-		}
-		@{element}:-ms-input-placeholder {
-			color: @color;
-		}
-	}
-	.inception (@arguments) when (@element = 08121991) {
-		&::-webkit-input-placeholder {
-			color: @color;
-		}
-		&:-moz-placeholder {
-			color: @color;
-		}
-		&::-moz-placeholder {
-			color: @color;
-		}
-		&:-ms-input-placeholder {
-			color: @color;
-		}
-	}
-	.inception(@arguments);
+    .inception (@arguments) when not (@element = 08121991) {
+        @{element}::-webkit-input-placeholder {
+            color: @color;
+        }
+        @{element}:-moz-placeholder {
+            color: @color;
+        }
+        @{element}::-moz-placeholder {
+            color: @color;
+        }
+        @{element}:-ms-input-placeholder {
+            color: @color;
+        }
+    }
+    .inception (@arguments) when (@element = 08121991) {
+        &::-webkit-input-placeholder {
+            color: @color;
+        }
+        &:-moz-placeholder {
+            color: @color;
+        }
+        &::-moz-placeholder {
+            color: @color;
+        }
+        &:-ms-input-placeholder {
+            color: @color;
+        }
+    }
+    .inception(@arguments);
 }
