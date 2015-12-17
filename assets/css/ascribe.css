@@ -468,7 +468,7 @@ h5,
 .blog-features h2,
 .blog-features h1,
 .team,
-.team h2,
+.team-member h2,
 .faq,
 .values .value,
 .careers a,
@@ -514,7 +514,7 @@ h6,
 .button,
 .case-studies .description,
 .blue-box h1,
-.team h1,
+.team-member h1,
 .faq .featured-faqs dt,
 .faq .regular-faqs dt,
 .values .value h1,
@@ -2298,35 +2298,6 @@ header + .chevron-divider {
 .team p {
   margin: 0;
 }
-.team .team-member {
-  display: inline-block;
-  vertical-align: top;
-  padding-right: 30px;
-  font-size: 15px;
-  width: 33.33333333%;
-  text-align: center;
-  margin-bottom: 40px;
-}
-@media screen and (max-width: 570px) {
-  .team .team-member {
-    width: 100%;
-  }
-}
-.team img {
-  border-radius: 100%;
-}
-.team h1 {
-  color: #000;
-  font-size: 19px;
-  margin-top: 20px;
-  margin-bottom: 0;
-}
-.team h2 {
-  color: #121417;
-  font-size: 18px;
-  line-height: 22px;
-  margin-top: 2px;
-}
 .team.tour-page {
   padding: 70px 0;
   background-color: #fbfbfb;
@@ -2336,8 +2307,37 @@ header + .chevron-divider {
     text-align: center;
   }
 }
+.team-member {
+  display: inline-block;
+  vertical-align: top;
+  padding-right: 30px;
+  font-size: 15px;
+  width: 33.33333333%;
+  text-align: center;
+  margin-bottom: 40px;
+}
+@media screen and (max-width: 570px) {
+  .team-member {
+    width: 100%;
+  }
+}
+.team-member img {
+  border-radius: 100%;
+}
+.team-member h1 {
+  color: #000;
+  font-size: 19px;
+  margin-top: 20px;
+  margin-bottom: 0;
+}
+.team-member h2 {
+  color: #121417;
+  font-size: 18px;
+  line-height: 22px;
+  margin-top: 2px;
+}
 @media screen and (max-width: 600px) {
-  .team .team-member {
+  .team-member {
     width: 50%;
   }
 }

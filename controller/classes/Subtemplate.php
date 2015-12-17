@@ -518,6 +518,7 @@ class Subtemplate {
 
 		$result = "<section class='subtemplate team tour-page'>
 						<div class='centered-content'>
+                            <h1>{$subtemplateTitle}</h1>
 							<div class='intro'>{$content}</div>
 							<div class='column-container'>{$teamMemberMarkup}</div>
 							<a href='{$meetTeamLink}' class='button white-blue'>Meet the Team</a>
@@ -587,6 +588,7 @@ class Subtemplate {
 		$result = "<section class='subtemplate team'>
 						<div class='centered-content-padding'>
 						<div class='centered-content'>
+                            <h1>{$subtemplateTitle}</h1>
 							<div class='intro'>{$content}</div>
 							<div class='column-container'>{$teamMemberMarkup}</div>
 						</div>

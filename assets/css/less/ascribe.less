@@ -990,24 +990,6 @@ header + .chevron-divider {
 	p {
 		margin:0;
 	}
-	.team-member {
-		.ttl-columns.column-3;
-		text-align: center;
-		margin-bottom: 40px;
-	}
-	img {
-		border-radius: 100%;
-	}
-	h1 {
-		.teamName;
-		margin-top: 20px;
-		margin-bottom:0;
-	}
-	h2 {
-		.copyText;
-		margin-top:2px;
-	}
-
 	&.tour-page {
 		padding: 70px 0;
 		background-color: @greyBg;
@@ -1017,12 +999,35 @@ header + .chevron-divider {
 			text-align: center;
 		}
 	}
-	@media screen and (max-width: @phoneWidth) {
-		.team-member {
-			width: 50%;
-		}
+}
+
+
+//
+// Component: Team Member
+//
+.team-member {
+    .ttl-columns.column-3;
+    text-align: center;
+    margin-bottom: 40px;
+    img {
+        border-radius: 100%;
+    }
+    h1 {
+        .teamName;
+        margin-top: 20px;
+        margin-bottom:0;
+    }
+    h2 {
+        .copyText;
+        margin-top:2px;
+    }
+
+    @media screen and (max-width: @phoneWidth) {
+		width: 50%;
 	}
 }
+
+
 .page-template-template-companywhite .team {
 	@media screen and (max-width: @tabletWidth) {
 		.intro {
