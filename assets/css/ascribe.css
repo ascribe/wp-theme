@@ -2301,8 +2301,8 @@ header + .chevron-divider {
 .team.tour-page {
   padding: 70px 0;
   background-color: #fbfbfb;
-@media screen and (max-width: 768px) {
 }
+@media screen and (max-width: 768px) {
   .team .intro {
     text-align: center;
   }
