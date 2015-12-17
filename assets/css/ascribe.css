@@ -2358,10 +2358,6 @@ header + .chevron-divider {
   line-height: 22px;
   margin-top: 2px;
 }
-.team.tour-page {
-  padding: 70px 0;
-  background-color: #fbfbfb;
-}
 @media screen and (max-width: 600px) {
   .team-member {
     width: 50%;
