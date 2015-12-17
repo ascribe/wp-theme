@@ -282,13 +282,16 @@ class Subtemplate {
 	}
 	public function blueBox($subtemplateTitle) {
 
-		$content    = get_sub_field('content');
+		$content        = get_sub_field('content');
+        $blueBoxCtaText = get_sub_field('bluebox_cta_text');
+        $blueBoxCtaLink = get_sub_field('bluebox_cta_link');
 
 		$result = "<section class='subtemplate blue-box'>
 						<div class='centered-content'>
 						<article class='blue-copy'>
 							<h1>{$subtemplateTitle}</h1>
 							<div>{$content}</div>
+                            <a href='{$blueBoxCtaLink}' class='button pink-overPic'>{$blueBoxCtaText}</a>
 						</article>
 						</div>
 					</section>";
