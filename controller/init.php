@@ -12,6 +12,17 @@ $description    = '';
 $image          = '';
 $title          = '';
 $url            = get_bloginfo('wpurl');
+$permalink      = ( is_ssl() ? 'https://' : 'http://' ) . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
+$twitter        = '@ascribeio';
+
+if ( has_post_thumbnail() ) {
+    $large_image_url = wp_get_attachment_image_src( get_post_thumbnail_id(), 'large' );
+    $shareimage = $large_image_url[0];
+} else if ( get_field('header_background_image') != '' ) {
+    $shareimage = get_field('header_background_image')['url'];
+} else {
+    $shareimage = WPTHEME_TEMPLATE_URL . '/images/ico/apple-touch-icon-180x180.png';
+}
 //</editor-fold>
 
 //<editor-fold desc="Get Title">
@@ -35,7 +46,15 @@ $title .= get_bloginfo();
 //</editor-fold>
 
 //<editor-fold desc="Get Description">
+
+// Heads Up! This doesn't work cause it's outside of loop.
+// But the following functions should handle all other use cases.
 $description = get_the_excerpt();
+
+if ( get_field('header_tagline') != '' ) {
+    $description = strip_tags(get_field('header_tagline'));
+}
+
 if (empty($description)) {
 
     $content = get_field('subtemplate')[0]['content'];

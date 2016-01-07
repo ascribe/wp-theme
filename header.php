@@ -15,6 +15,9 @@ if (!isset($headColour)) {
 if (is_home()) {
     $title = "Blog | ascribe";
 }
+if ( is_category() || is_tag() ) {
+    $title = single_term_title( '', false ) . ' | Blog | ascribe';
+}
 
 ?>
 <!doctype html>
@@ -32,21 +35,22 @@ if (is_home()) {
     <base href="<?php echo $url; ?>">
     <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0">
     <meta name="description" content="<?php echo $description ?>">
+
     <meta property="og:title" content="<?php echo $title; ?>" />
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="<?php echo $url; ?>" />
-    <meta property="og:image" content="<?php echo $image; ?>" />
+    <meta property="og:url" content="<?php echo $permalink; ?>" />
+    <meta property="og:image" content="<?php echo $shareimage; ?>" />
     <meta property="og:site_name" content="<?php echo get_bloginfo(); ?>" />
 
-    <meta name="twitter:card" content="summary">
+    <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="<?php echo $title; ?>">
     <meta name="twitter:description" content="<?php echo $description ?>">
-    <meta name="twitter:image:src" content="<?php echo $image; ?>">
-    <meta name="twitter:domain" content="<?php echo $url; ?>">
+    <meta name="twitter:image" content="<?php echo $shareimage; ?>">
+    <meta name="twitter:site" content="<?php echo $twitter; ?>">
 
     <meta itemprop="name" content="<?php echo $title; ?>">
     <meta itemprop="description" content="<?php echo $description ?>">
-    <meta itemprop="image" content="<?php echo $image; ?>">
+    <meta itemprop="image" content="<?php echo $shareimage; ?>">
 
     <link rel="apple-touch-icon" sizes="57x57" href="<?php echo WPTHEME_TEMPLATE_URL; ?>/images/ico/apple-touch-icon-57x57.png">
     <link rel="apple-touch-icon" sizes="60x60" href="<?php echo WPTHEME_TEMPLATE_URL; ?>/images/ico/apple-touch-icon-60x60.png">
