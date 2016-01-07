@@ -12,6 +12,17 @@ $description    = '';
 $image          = '';
 $title          = '';
 $url            = get_bloginfo('wpurl');
+$permalink      = esc_url( get_permalink($post->ID) );
+$twitter        = '@ascribeio';
+
+if ( has_post_thumbnail() ) {
+    $large_image_url = wp_get_attachment_image_src( get_post_thumbnail_id(), 'large' );
+    $shareimage = $large_image_url[0];
+} else if ( get_field('header_background_image') != '' ) {
+    $shareimage = get_field('header_background_image')['url'];
+} else {
+    $shareimage = WPTHEME_TEMPLATE_URL . '/images/ico/apple-touch-icon-180x180.png';
+}
 //</editor-fold>
 
 //<editor-fold desc="Get Title">
