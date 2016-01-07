@@ -15,6 +15,9 @@ if (!isset($headColour)) {
 if (is_home()) {
     $title = "Blog | ascribe";
 }
+if ( is_category() || is_tag() ) {
+    $title = single_term_title( '', false ) . '| Blog | ascribe';
+}
 
 ?>
 <!doctype html>
