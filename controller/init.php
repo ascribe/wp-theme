@@ -12,7 +12,7 @@ $description    = '';
 $image          = '';
 $title          = '';
 $url            = get_bloginfo('wpurl');
-$permalink      = esc_url( get_permalink() );
+$permalink      = esc_url( get_permalink(get_queried_object()->ID) );
 $twitter        = '@ascribeio';
 
 if ( has_post_thumbnail() ) {
