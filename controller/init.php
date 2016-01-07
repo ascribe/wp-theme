@@ -12,7 +12,7 @@ $description    = '';
 $image          = '';
 $title          = '';
 $url            = get_bloginfo('wpurl');
-$permalink      = esc_url( get_permalink($post->ID) );
+$permalink      = esc_url( get_permalink() );
 $twitter        = '@ascribeio';
 
 if ( has_post_thumbnail() ) {
@@ -46,7 +46,15 @@ $title .= get_bloginfo();
 //</editor-fold>
 
 //<editor-fold desc="Get Description">
+
+// Heads Up! This doesn't work cause it's outside of loop.
+// But the following functions should handle all other use cases.
 $description = get_the_excerpt();
+
+if ( get_field('header_tagline') != '' ) {
+    $description = strip_tags(get_field('header_tagline'));
+}
+
 if (empty($description)) {
 
     $content = get_field('subtemplate')[0]['content'];
