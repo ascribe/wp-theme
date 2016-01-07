@@ -148,19 +148,30 @@ a {
     color: @pink;
     line-height: 29px;
 }
+
 .blueBoxTitle {
     &:extend(.fontRegular);
-    font-size: 43px;
+    font-size: 30px;
     color: @white;
     line-height: 52px;
     text-align: center;
+
+    @media (min-width: @phoneWidth) {
+        font-size: 43px;
+    }
 }
 .blueBoxCopy {
     &:extend(.fontLight);
-    font-size: 43px;
+    font-size: 24px;
+    line-height: 31px;
     color: @white;
-    line-height: 52px;
+
+    @media (min-width: @phoneWidth) {
+        font-size: 43px;
+        line-height: 52px;
+    }
 }
+
 .galleriesPressTitle {
     &:extend(.fontLight);
     font-size: 30px;
