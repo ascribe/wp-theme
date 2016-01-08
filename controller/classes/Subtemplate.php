@@ -782,16 +782,13 @@ class Subtemplate {
         return $result;
     }
     public function download($subtemplateTitle) {
-        $leftUrl   = get_sub_field('left_button_url');
-        $leftText  = get_sub_field('left_button_text');
-        $rightUrl  = get_sub_field('right_button_url');
-        $rightText = get_sub_field('right_button_text');
+        $buttonUrl  = get_sub_field('button_url');
+        $buttonText = get_sub_field('button_text');
 
         $result = "<section class='subtemplate downloads'>
                         <div class='centered-content-padding'>
                             <div class='centered-content'>
-                                <a href='{$leftUrl}' download class='left button blue'>{$leftText}</a>
-                                <a href='{$rightUrl}' download class='right button blue'>{$rightText}</a>
+                                <a href='{$buttonUrl}' download class='button blue'>{$buttonText}</a>
                             </div>
                         </div>
                     </section>";
