@@ -743,8 +743,10 @@ class Subtemplate {
 
         $args           = array(
             'post_type' => 'presscoverage',
-            'order'     => 'ASC',
-            'posts_per_page' => 50
+            'order'     => 'DESC',
+            'meta_key'	=> 'date_published',
+            'orderby'	=> 'meta_value_num',
+            'posts_per_page' => -1
         );
 
 
