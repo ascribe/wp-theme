@@ -72,7 +72,7 @@
 //
 .footer__bottom {
     .subfooterText;
-    padding: @spacer 0;
+    padding: (@spacer / 2) 15px;
 
     .menu {
         margin-bottom: (@spacer/2);
@@ -115,14 +115,23 @@
     li { display: inline-block; }
 }
 
+.footer__social,
+.footer__copyright,
+.footer__bottom .menu {
+    @media (@screen-sm) {
+        margin-top: 10px
+    }
+}
+
 
 .footer__eu {
     width: 150px;
+    height: auto;
     margin: 0 auto (@spacer/2) auto;
 
     @media (@screen-sm) {
         float: left;
-        margin: -15px 10px 0 0;
+        margin: 0 10px 0 0;
     }
 }
 

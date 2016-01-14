@@ -5,10 +5,12 @@
  * @package ascribe
  * @since 0.1.0
  */
-$year       = date("Y");
-$address    = get_field('address','option');
-$email      = get_field('email','option');
-$consultLink= get_field('request_consultation_link','option');
+
+$year        = date("Y");
+$address     = get_field('address', 'option');
+$email       = get_field('email', 'option');
+$consultLink = get_field('request_consultation_link', 'option');
+$euLink      = get_field('eu_logo_link', 'option');
 
 $themeUrl = WPTHEME_TEMPLATE_URL . '/';
 
@@ -186,7 +188,13 @@ if ($twitter) {
         <div class="row">
 
             <div class="footer__eu">
-                <img width="150" src="https://www.ascribe.io/wp-content/uploads/2015/11/eu-dev-fund.png" />
+                <?php if ($euLink) { ?>
+                    <a href="<?php echo $euLink ?>">
+                        <img width="150" src="https://www.ascribe.io/wp-content/uploads/2015/11/eu-dev-fund.png" />
+                    </a>
+                <?php } else { ?>
+                    <img width="150" src="https://www.ascribe.io/wp-content/uploads/2015/11/eu-dev-fund.png" />
+                <?php } ?>
             </div>
 
             <div class="footer__copyright"><?php echo $year; ?> © ascribe GmbH</div>
@@ -207,7 +215,7 @@ if ($twitter) {
         </div>
     </section>
 
-<footer>
+</footer>
 
 
 </div>
