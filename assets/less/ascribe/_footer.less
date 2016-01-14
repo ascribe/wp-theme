@@ -1,0 +1,137 @@
+//
+// FOOTER
+//
+.footer {
+    .footerText;
+    text-align: center;
+
+    @media (@screen-sm) {
+        text-align: left;
+    }
+
+    .menu {
+        list-style: none;
+    }
+
+    .menu-item {
+        display: inline;
+
+        a {
+            .footerText;
+            display: inline-block;
+            padding: 3px 15px;
+            opacity: .85;
+
+            &:hover,
+            &:focus {
+                opacity: 1;
+            }
+        }
+    }
+
+    .button {
+        margin-bottom: (@spacer / 4);
+
+        &:hover {
+            text-decoration: none;
+        }
+    }
+}
+
+
+//
+// Top footer
+//
+.footer__top {
+    background: @greyFooter;
+    padding: @spacer 0;
+
+    .menu {
+        margin-bottom: @spacer;
+
+        @media (@screen-sm) {
+            display: flex;
+            flex-flow: row wrap;
+            width: 70%;
+            float: left;
+        }
+    }
+
+    .menu-item {
+        @media (@screen-sm) {
+            flex: 0 0 33%;
+
+            a { display: block; }
+        }
+    }
+}
+
+
+//
+// Bottom footer
+//
+.footer__bottom {
+    .subfooterText;
+    padding: @spacer 0;
+
+    .menu {
+        margin-bottom: (@spacer/2);
+
+        @media (@screen-sm) {
+            float: left;
+            margin-bottom: 0;
+            margin-left: (@spacer/2);
+        }
+    }
+
+    .menu-item a {
+        .subfooterText;
+    }
+}
+
+
+//
+// Contact
+//
+.footer__contact {
+    @media (@screen-sm) {
+        width: 25%;
+        float: right;
+    }
+}
+
+
+//
+// Social links
+//
+.footer__social {
+    margin-top: (@spacer/2);
+
+    @media (@screen-sm) {
+        float: right;
+        margin-top: 0;
+    }
+
+    li { display: inline-block; }
+}
+
+
+.footer__eu {
+    width: 150px;
+    margin: 0 auto (@spacer/2) auto;
+
+    @media (@screen-sm) {
+        float: left;
+        margin: -15px 10px 0 0;
+    }
+}
+
+.footer__copyright {
+    margin-bottom: (@spacer/2);
+
+    @media (@screen-sm) {
+        margin-bottom: 0;
+        float: left;
+        padding: 3px 15px;
+    }
+}

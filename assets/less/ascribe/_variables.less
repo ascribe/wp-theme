@@ -5,21 +5,47 @@
 //
 
 // COLORS
-@blueDeep: #121417;
-@blueMedium: #003C69;
-@blueBright: #67C4DA;
-@blueLight: #d7e9ef;
-@pink: #D8127D;
+@blueDeep:             #121417;
+@blueMedium:           #003C69;
+@blueBright:           #67C4DA;
+@blueLight:            #d7e9ef;
+@pink:                 #D8127D;
 
-@white: #fff;
-@greyBg: #fbfbfb;
-@greySocial: #b8b8b8;
-@greyHr: #979797;
-@greyFooter: #8c8c8c;
-@greyText: #595959;
-@blackish: #1e1e1e;
-@black: #000;
+@white:                #fff;
+@greyBg:               #fbfbfb;
+@greySocial:           #b8b8b8;
+@greyHr:               #979797;
+@greyFooter:           #8c8c8c;
+@greyText:             #595959;
+@blackish:             #1e1e1e;
+@black:                #000;
 
 
 // SPACING
-@spacer:    40px;
+@spacer:              40px;
+
+
+//
+// Responsive breakpoints
+//
+@screen-xs-min:       400px;
+@screen-sm-min:       768px;
+@screen-md-min:       900px;
+@screen-lg-min:       1100px;
+
+@screen-sm:           ~'min-width: @{screen-sm-min}';
+@screen-md:           ~'min-width: @{screen-md-min}';
+@screen-lg:           ~'min-width: @{screen-lg-min}';
+
+// LEGACY
+// mostly used in conjunction with max-width media queries
+@smallWidth:          @screen-xs-min;
+@middleWidth:         570px;
+@phoneWidth:          600px;
+@tabletWidth:         @screen-sm-min;
+
+
+//
+// Grid
+//
+@gutter-space:              (@spacer * 2);

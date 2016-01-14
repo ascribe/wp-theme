@@ -104,9 +104,9 @@ gulp.task('serve', function() {
     browser.init({
         proxy: PROXY
     });
-    gulp.watch([SRC + 'assets/less/**/*'], ['css']);
+    gulp.watch([SRC + 'assets/less/**/*'], ['css']).on('change', browser.reload);
     gulp.watch([SRC + 'assets/js/src/**/*'], ['js']);
-    gulp.watch(SRC + '**/*').on('change', browser.reload);
+    //gulp.watch(SRC + '**/*').on('change', browser.reload);
 });
 
 

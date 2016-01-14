@@ -160,24 +160,40 @@ if ($twitter) {
 
 
 ?>
+
+
 <div class="chevron-divider"></div>
-<footer>
-    <section class="top-footer">
-        <div class="centered-footer">
+
+
+<footer class="footer">
+
+    <section class="footer__top">
+        <div class="row">
+
+
             <?php wp_nav_menu( array( 'theme_location' => 'main-footer-menu', 'container' => false ) ); ?>
-            <div class="contact">
+
+            <div class="footer__contact">
                 <a href="<?php echo $consultLink; ?>" class="button small">Request information</a>
                 <div><?php echo $address; ?></div>
                 <div><a href="mailto:<?php echo $email; ?>"><?php echo $email; ?></a></div>
             </div>
+
         </div>
     </section>
-    <section class="bottom-footer">
-        <div class="centered-footer">
-            <div class="eu-fund"><img src="https://www.ascribe.io/wp-content/uploads/2015/11/eu-dev-fund.png" /></div>
-            <div class="copyright"><?php echo $year; ?> © ascribe GmbH</div>
+
+    <section class="footer__bottom">
+        <div class="row">
+
+            <div class="footer__eu">
+                <img width="150" src="https://www.ascribe.io/wp-content/uploads/2015/11/eu-dev-fund.png" />
+            </div>
+
+            <div class="footer__copyright"><?php echo $year; ?> © ascribe GmbH</div>
+
             <?php wp_nav_menu( array( 'theme_location' => 'lower-footer-menu', 'container' => false ) ); ?>
-            <ul class="social">
+
+            <ul class="footer__social">
                 <?php echo $facebook; ?>
                 <?php echo $github; ?>
                 <?php echo $instagram; ?>
@@ -187,9 +203,13 @@ if ($twitter) {
                 <?php echo $tumblr; ?>
                 <?php echo $twitter; ?>
             </ul>
+
         </div>
     </section>
-</footer>
+
+<footer>
+
+
 </div>
 <?php wp_footer(); ?>
 </body>
