@@ -27,7 +27,7 @@ body {
     font-feature-settings: "kern" 1, "liga" 1, "calt" 1, "pnum" 1, "tnum" 0, "onum" 0, "lnum" 0, "dlig" 1;
 }
 
-// Text styles
+// Legacy Text styles
 .copyText {
     font-family: @font-family-base;
     font-size: @font-size-base;
@@ -66,6 +66,44 @@ a {
 }
 
 
+
+//
+// Headings
+//
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6 {
+    font-family: @headings-font-family;
+    font-weight: @headings-font-weight;
+    line-height: @headings-line-height;
+    color: @headings-color;
+
+    // remove old style numerals
+    font-feature-settings: "kern" 1, "liga" 1, "calt" 1, "pnum" 1, "tnum" 0, "onum" 0, "lnum" 0, "dlig" 1;
+}
+
+.h1, h1 {
+    font-size: @font-size-h1;
+}
+.h2, h2 {
+    font-size: @font-size-h2;
+}
+.h3, h3 {
+    font-size: @font-size-h3;
+}
+.h4, h4 {
+    font-size: @font-size-h4;
+    color: @black;
+}
+.h5, h5 {
+    color: @font-size-h5;
+    color: @black;
+}
+.h6, h6 {
+    font-size: @font-size-h6;
+    color: @black;
+}
+
+
 // Reset fonts for relevant elements
 input,
 button,
@@ -90,12 +128,11 @@ p {
 small,
 .small {
     font-size: @font-size-small;
-    font-weight: @font-weight-normal;
+    line-height: @line-height-small;
 }
 
 .mini {
     font-size: @font-size-mini;
-    font-weight: @font-weight-normal;
 }
 
 .large {

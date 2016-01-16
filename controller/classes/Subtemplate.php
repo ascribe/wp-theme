@@ -122,15 +122,15 @@ class Subtemplate {
                 $icon           = get_sub_field('icon')['url'];
                 $description    = get_sub_field('description');
 
-                $featureCircles .= "<article class='feature-circle'>
-                                        <img src='{$icon}' alt='{$title} Icon'>
-                                        <h1>{$title}</h1>
-                                        <div class='description'>{$description}</div>
+                $featureCircles .= "<article class='grid__col feature-circle'>
+                                        <img class='feature-circle__image' src='{$icon}' alt='{$title} Icon'>
+                                        <h1 class='feature-circle__title'>{$title}</h1>
+                                        <div class='feature-circle__description'>{$description}</div>
                                     </article>";
             }
         }
 
-        $result = "<section class='subtemplate feature-circles'><div class='centered-header'><div class='column-container'>{$featureCircles}</div></div></section>";
+        $result = "<section class='subtemplate feature-circles row'><div class='grid grid--gutters grid--full grid-small--half grid-medium--third'>{$featureCircles}</div></section>";
 
         return $result;
     }
@@ -144,13 +144,13 @@ class Subtemplate {
                 $title          = get_sub_field('title');
                 $description    = get_sub_field('description');
 
-                $featureCircles .= "<article class='surround-circle'>
+                $featureCircles .= "<article class='grid__col surround-circle'>
                                     <div class='circle'>
                                     <div class='container'>
                                     <div class='wrapper'>
                                     <div class='inner'>
-                                        <h1>{$title}</h1>
-                                        <div class='description'>{$description}</div>
+                                        <h1 class='feature-circle__title'>{$title}</h1>
+                                        <div class='feature-circle__description'>{$description}</div>
                                     </div>
                                     </div>
                                     </div>
@@ -159,7 +159,7 @@ class Subtemplate {
             }
         }
 
-        $result = "<section class='subtemplate feature-circles'><div class='centered-header'>{$featureCircles}</div></section>";
+        $result = "<section class='subtemplate feature-circles row'><div class='grid grid--gutters grid--full grid-small--third'>{$featureCircles}</div></section>";
 
         return $result;
     }

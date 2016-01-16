@@ -37,7 +37,7 @@
 
 .row {
     .clearfix; // for legacy float usage reasons
-    max-width: @screen-lg-min;
+    max-width: (@screen-lg-min + (@gutter-space * 2));
     margin: auto;
     padding-left: @gutter-space;
     padding-right: @gutter-space;
@@ -83,7 +83,7 @@
 //
 // Gutters
 //
-.grid--gutters{
+.grid--gutters {
     margin: -(@gutter-space) 0 @gutter-space (-(@gutter-space));
 
     > .grid__col {
