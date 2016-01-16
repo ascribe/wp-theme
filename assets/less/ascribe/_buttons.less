@@ -1,15 +1,19 @@
 
 .button {
     &:extend(.fontRegular);
-    display: inline-block;
+    display: block;
     padding: (@spacer / 2) @spacer;
     border: 1px solid;
     font-size: 22px;
     line-height: 26px;
     text-decoration: none;
-    min-width: 265px;
     text-align: center;
     transition: .2s ease-out;
+
+    @media (@screen-sm) {
+        display: inline-block;
+        min-width: 265px;
+    }
 
     &.blue {
         @bgColor: @blueBright;

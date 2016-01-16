@@ -1,0 +1,38 @@
+.subtemplate {
+    position: relative;
+    padding-top: @spacer;
+    padding-bottom: @spacer;
+
+    @media (min-width: @tabletWidth) {
+        padding-top: (@spacer * 2);
+        padding-bottom: (@spacer * 2);
+    }
+
+    > .row { background-color: @white; }
+
+    &.case-studies {
+        padding: 0;
+    }
+}
+
+.subtemplate__title,
+.subtemplate__description {
+    &:extend(.text-center);
+}
+
+.subtemplate__title {
+    margin-top: 0;
+    margin-bottom: @spacer;
+    text-transform: uppercase;
+
+    .above-chevron > .subtemplate:first-child & {
+        margin-top: @spacer;
+    }
+}
+
+.subtemplate__description {
+    &:extend(.large);
+    color: @greyText;
+    margin-top: -(@spacer/2);
+    margin-bottom: @spacer;
+}

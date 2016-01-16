@@ -37,10 +37,24 @@
 
 .row {
     .clearfix; // for legacy float usage reasons
-    max-width: (@screen-lg-min + (@gutter-space * 2));
+    max-width: @screen-lg-min;
     margin: auto;
-    padding-left: @gutter-space;
-    padding-right: @gutter-space;
+    padding-left: (@gutter-space/4);
+    padding-right: (@gutter-space/4);
+
+    @media (@screen-sm) {
+        padding-left: (@gutter-space/2);
+        padding-right: (@gutter-space/2);
+    }
+    @media (@screen-md) {
+        padding-left: @gutter-space;
+        padding-right: @gutter-space;
+    }
+}
+
+// more narrow row for all long text content
+.row--content {
+    max-width: (@screen-md-min - @gutter-space);
 }
 
 

@@ -175,14 +175,20 @@ class Subtemplate {
                 $colTitle          = get_sub_field('title');
                 $colContent        = get_sub_field('content');
 
-                $descriptiveColumns .= "<article class='short-description'>
-                                        <h1>{$colTitle}</h1>
-                                        <div class='description'>{$colContent}</div>
-                                    </article>";
+                $descriptiveColumns .= "<article class='grid__col short-description'>
+                                            <h1 class='short-description__title'>{$colTitle}</h1>
+                                            <div class='short-description__description'>{$colContent}</div>
+                                        </article>";
             }
         }
 
-        $result = "<section class='subtemplate short-descriptions'><div class='centered-content'><h1>{$subtemplateTitle}</h1><div>{$content}</div><div class='column-container'>{$descriptiveColumns}</div></div></section>";
+        $result = "<section class='subtemplate short-descriptions'>
+                        <div class='row'>
+                            <h1 class='subtemplate__title'>{$subtemplateTitle}</h1>
+                            <div class='subtemplate__description'>{$content}</div>
+                            <div class='grid grid--gutters grid--full grid-small--half grid-medium--third'>{$descriptiveColumns}</div>
+                        </div>
+                   </section>";
 
         return $result;
     }
@@ -247,8 +253,8 @@ class Subtemplate {
         }
 
         $result = "<section class='subtemplate old-new'>
-                    <div class='centered-content'>
-                        <h1>{$subtemplateTitle}</h1>
+                    <div class='row'>
+                        <h1 class='subtemplate__title'>{$subtemplateTitle}</h1>
                         <table>
                             <thead><tr><th>Old Way</th><th>New Way</th></tr></thead>
                             <tbody>{$oldNewRows}</tbody>
@@ -267,7 +273,7 @@ class Subtemplate {
         $content    = get_sub_field('content');
 
         $result = "<section class='subtemplate product-overview {$headingSize}'>
-                        <div class='centered-prodFeat'>
+                        <div class='row row--content'>
                             <img src='{$imageUrl}' alt='{$imageAlt}'>
                             <div class='text-column'>
                                 <h1 class='{$headingSize}'>{$subtemplateTitle}</h1>
@@ -284,12 +290,12 @@ class Subtemplate {
         $blueBoxCtaLink = get_sub_field('bluebox_cta_link');
 
         $result = "<section class='subtemplate blue-box'>
-                        <div class='centered-content'>
-                        <article class='blue-copy'>
-                            <h1>{$subtemplateTitle}</h1>
-                            <div>{$content}</div>
-                            <a href='{$blueBoxCtaLink}' class='button pink-overPic'>{$blueBoxCtaText}</a>
-                        </article>
+                        <div class='row row--content'>
+                            <article class='blue-copy'>
+                                <h1>{$subtemplateTitle}</h1>
+                                <div>{$content}</div>
+                                <a href='{$blueBoxCtaLink}' class='button pink-overPic'>{$blueBoxCtaText}</a>
+                            </article>
                         </div>
                     </section>";
 
@@ -326,8 +332,8 @@ class Subtemplate {
 
 
         $result = "<section class='subtemplate galleries-marketplaces'>
-                        <div class='centered-content'>
-                            <h1>{$subtemplateTitle}</h1>
+                        <div class='row'>
+                            <h1 class='subtemplate__title'>{$subtemplateTitle}</h1>
                             <img src='{$galleriesImgUrl}' alt='{$galleriesImgAlt}'>
                             {$galleryMarkup}
                         </div>
@@ -371,12 +377,12 @@ class Subtemplate {
 
         if ($page == "home") {
             $result = "<section class='subtemplate blog-features'>
-                    <div class='centered-content'>
-                                                <h1>{$subtemplateTitle}</h1>
-                        <div class='column-container'>
-                        {$blogFeatures}
+                        <div class='row'>
+                            <h1 class='subtemplate__title'>{$subtemplateTitle}</h1>
+                            <div class='column-container'>
+                            {$blogFeatures}
+                            </div>
                         </div>
-                    </div>
                     </section>";
         }
         else {
@@ -505,8 +511,8 @@ class Subtemplate {
                     $website = "<a href='{$website}' target='_blank' class='twitter'>{$webIcon}</a>";
                 }
 
-                $teamMemberMarkup .= "<article class='team-member'>
-                                        <img src='{$image}' alt='Picture of {$name}' data-hover='{$hoverimage}' data-regular='{$image}'>
+                $teamMemberMarkup .= "<article class='grid__col team-member'>
+                                        <img class='team-member__image' src='{$image}' alt='Picture of {$name}' data-hover='{$hoverimage}' data-regular='{$image}'>
                                         <h1>{$name}</h1>
                                         <h2>{$role}</h2>
                                         {$facebook}
@@ -518,11 +524,11 @@ class Subtemplate {
             }
         }
 
-        $result = "<section class='subtemplate team tour-page'>
-                        <div class='centered-content'>
-                            <h1>{$subtemplateTitle}</h1>
+        $result = "<section class='subtemplate team tour-page content'>
+                        <div class='row row--content'>
+                            <h1 class='subtemplate__title'>{$subtemplateTitle}</h1>
                             <div class='intro'>{$content}</div>
-                            <div class='column-container'>{$teamMemberMarkup}</div>
+                            <div class='grid grid--gutters grid--full grid-small--half grid-medium--third'>{$teamMemberMarkup}</div>
                             <a href='{$meetTeamLink}' class='button white-blue'>Meet the Team</a>
                         </div>
                     </section>";
@@ -574,8 +580,8 @@ class Subtemplate {
                     $website = "<a href='{$website}' target='_blank' class='twitter'><img src='{$themeUrl}images/svg/website.svg' alt='Website' class='social-icon'></a>";
                 }
 
-                $teamMemberMarkup .= "<article class='team-member'>
-                                        <img src='{$image}' alt='Picture of {$name}'>
+                $teamMemberMarkup .= "<article class='grid__col team-member'>
+                                        <img class='team-member__image' src='{$image}' alt='Picture of {$name}'>
                                         <h1>{$name}</h1>
                                         <h2>{$role}</h2>
                                         {$facebook}
@@ -588,12 +594,10 @@ class Subtemplate {
         }
 
         $result = "<section class='subtemplate team'>
-                        <div class='centered-content-padding'>
-                        <div class='centered-content'>
-                            <h1>{$subtemplateTitle}</h1>
+                        <div class='row row--content'>
+                            <h1 class='subtemplate__title'>{$subtemplateTitle}</h1>
                             <div class='intro'>{$content}</div>
-                            <div class='column-container'>{$teamMemberMarkup}</div>
-                        </div>
+                            <div class='grid grid--gutters grid--full grid-small--half grid-medium--third'>{$teamMemberMarkup}</div>
                         </div>
                     </section>";
 
@@ -606,11 +610,9 @@ class Subtemplate {
         $bgColor        = get_sub_field('background_color');
 
         $result = "<section class='subtemplate content {$bgColor}'>
-                        <div class='centered-content-padding'>
-                            <div class='centered-content'>
-                                <h1>{$subtemplateTitle}</h1>
-                                <div>{$content}</div>
-                            </div>
+                        <div class='row row--content'>
+                            <h1 class='subtemplate__title'>{$subtemplateTitle}</h1>
+                            <div>{$content}</div>
                         </div>
                     </section>";
 
@@ -621,11 +623,9 @@ class Subtemplate {
         $content = get_sub_field('content');
 
         $result = "<section class='subtemplate content-boxed'>
-                        <div class='centered-content-padding'>
-                            <div class='centered-content'>
-                                <h1>{$subtemplateTitle}</h1>
-                                <div>{$content}</div>
-                            </div>
+                        <div class='row row--content'>
+                            <h1 class='subtemplate__title'>{$subtemplateTitle}</h1>
+                            <div>{$content}</div>
                         </div>
                     </section>";
 
@@ -637,11 +637,9 @@ class Subtemplate {
         $imageAlt = get_sub_field('image')['alt'];
 
         $result = "<section class='subtemplate image'>
-                        <div class='centered-content-padding'>
-                            <div class='centered-content'>
-                                <h1>{$subtemplateTitle}</h1>
-                                <div><img src='{$image}' alt='{$imageAlt}'></div>
-                            </div>
+                        <div class='row'>
+                            <h1 class='subtemplate__title'>{$subtemplateTitle}</h1>
+                            <div><img src='{$image}' alt='{$imageAlt}'></div>
                         </div>
                     </section>";
 
@@ -676,13 +674,11 @@ class Subtemplate {
         }
         $regularFAQ .= "</dl>";
 
-        $result = "<section class='subtemplate faq'>
-                    <div class='centered-content-padding'>
-                    <div class='centered-content'>
+        $result = "<section class='subtemplate content faq'>
+                    <div class='row'>
                         <h1>{$subtemplateTitle}</h1>
                         {$featuredFAQ}
                         {$regularFAQ}
-                        </div>
                     </div>
                     </section>";
 
@@ -697,17 +693,17 @@ class Subtemplate {
                 $title          = get_sub_field('value_title');
                 $description    = get_sub_field('value_description');
 
-                $values .= "<article class='value'>
-                                        <h1>{$title}</h1>
-                                        <div class='description'>{$description}</div>
-                                    </article>";
+                $values .= "<article class='grid__col value'>
+                                <h1>{$title}</h1>
+                                <div class='description'>{$description}</div>
+                            </article>";
             }
         }
 
-        $result = "<section class='subtemplate values'><div class='centered-content-padding'><div class='centered-content'>
-                    <h1>{$subtemplateTitle}</h1>
-                    <div class='column-container'>{$values}</div>
-                    </div></div></section>";
+        $result = "<section class='subtemplate values'><div class='row'>
+                        <h1 class='subtemplate__title'>{$subtemplateTitle}</h1>
+                        <div class='grid grid--gutters grid--full grid-small--half'>{$values}</div>
+                    </div></section>";
 
         return $result;
     }
@@ -730,8 +726,8 @@ class Subtemplate {
         }
 
         $result = "<section class='subtemplate careers'>
-                        <div class='centered-content'>
-                            <h1>{$subtemplateTitle}</h1>
+                        <div class='row'>
+                            <h1 class='subtemplate__title'>{$subtemplateTitle}</h1>
                             <ul>{$careerMarkup}</ul>
                         </div>
                     </section>";
@@ -768,15 +764,11 @@ class Subtemplate {
             }
         }
 
-        $result = "<section class='subtemplate press-articles'>
-                        <div class='centered-content-padding'>
-                        <div class='centered-content'>
-                            <h1>{$subtemplateTitle}</h1>
-                            <img src='{$image}' alt='Media Companies'>
-                            <div>{$pressMarkup}</div>
-                            <!--<a href='#' id='more-articles' class='button blue'>Show More</a>-->
-                            </div>
-                        </div>
+        $result = "<section class='subtemplate press-articles row'>
+                        <h1 class='subtemplate__title'>{$subtemplateTitle}</h1>
+                        <img src='{$image}' alt='Media Companies'>
+                        <div>{$pressMarkup}</div>
+                        <!--<a href='#' id='more-articles' class='button blue'>Show More</a>-->
                     </section>";
 
         return $result;
@@ -785,12 +777,8 @@ class Subtemplate {
         $buttonUrl  = get_sub_field('button_url');
         $buttonText = get_sub_field('button_text');
 
-        $result = "<section class='subtemplate downloads'>
-                        <div class='centered-content-padding'>
-                            <div class='centered-content'>
-                                <a href='{$buttonUrl}' download class='button blue'>{$buttonText}</a>
-                            </div>
-                        </div>
+        $result = "<section class='subtemplate downloads row'>
+                        <a href='{$buttonUrl}' download class='button blue'>{$buttonText}</a>
                     </section>";
 
         return $result;
@@ -815,13 +803,12 @@ class Subtemplate {
         }
 
         $result = "<section class='subtemplate contact'>
-                        <div class='centered-content-padding'>
-                            <div class='centered-content'>
-                                <h1>{$subtemplateTitle}</h1>
-                                <div class='column-container'>
-                                    <div class='form'>{$content}</div>
-                                    <aside class='contact-points'>{$contactPoints}</aside>
-                                </div>
+                        <div class='row'>
+                            <h1 class='subtemplate__title'>{$subtemplateTitle}</h1>
+
+                            <div class='grid grid--gutters grid--fit grid-small--half'>
+                                <div class='grid__col form'>{$content}</div>
+                                <aside class='grid__col contact-points'>{$contactPoints}</aside>
                             </div>
                         </div>
                     </section>";
@@ -918,14 +905,12 @@ class Subtemplate {
             $sidebar = $this->eventSidebar();
 
             $result = "<section class='subtemplate upcoming-events'>
-                        <div class='centered-content-padding'>
-                        <div class='centered-content'>
+                        <div class='row'>
                             <div class='event-container'>
                                 <h1>Events</h1>
                                 <div>{$eventMarkup}</div>
                             </div>
                             {$sidebar}
-                        </div>
                         </div>
                     </section>";
 
@@ -941,12 +926,12 @@ class Subtemplate {
         $new        = get_sub_field('new_marketplace_content');
 
         $result = "<section class='subtemplate existing-new'>
-                        <div class='centered-content'>
-                            <h1>{$subtemplateTitle}</h1>
-                            <div class='column-container'>
-                            <div data-tab='existing' class='top-tab active'><div>Existing Marketplace</div></div>
-                            <div data-tab='new' class='top-tab'><div>New Marketplace</div></div>
-                        </div>
+                        <div class='row'>
+                            <h1 class='subtemplate__title'>{$subtemplateTitle}</h1>
+                            <div class='grid grid--full grid-small--half'>
+                                <div data-tab='existing' class='grid__col top-tab active'><div>Existing Marketplace</div></div>
+                                <div data-tab='new' class='grid__col top-tab'><div>New Marketplace</div></div>
+                            </div>
                             <div id='existing' class='content marketplace-info active'><h1 class='phone-only'>Existing Marketplace</h1>{$existing}</div>
                             <div id='new' class='content marketplace-info'><h1 class='phone-only'>New Marketplace</h1>{$new}</div>
                         </div>
@@ -963,16 +948,17 @@ class Subtemplate {
         $whiteText  = get_sub_field('white_label_text');
 
         $result = "<section class='subtemplate get-started'>
-                        <div class='centered-content'>
-                            <h1>{$subtemplateTitle}</h1>
-                            <div class='description'>{$content}</div>
-                            <div class='column-container'>
-                                <div class='api methods-of-use'>
+                        <div class='row'>
+                            <h1 class='subtemplate__title'>{$subtemplateTitle}</h1>
+                            <div class='subtemplate__description'>{$content}</div>
+
+                            <div class='grid grid--gutters grid--full grid-small--half'>
+                                <div class='grid__col api methods-of-use'>
                                     <h1>API</h1>
                                     <img src='{$apiImg}' alt='API'>
                                     {$apiText}
                                 </div>
-                                <div class='white-label methods-of-use'>
+                                <div class='grid__col white-label methods-of-use'>
                                     <h1>White Label Marketplace</h1>
                                     <img src='{$whiteImg}' alt='White Label Marketplace'>
                                     {$whiteText}
@@ -1081,25 +1067,21 @@ class Subtemplate {
         $sidebar = $this->eventSidebar();
 
         $result = "<section class='subtemplate upcoming-events'>
-                        <div class='centered-content-padding'>
-                        <div class='centered-content'>
+                        <div class='row'>
                             <div class='event-container'>
                                 <h1>Upcoming Events</h1>
                                 <div>{$futureMarkup}</div>
                             </div>
                             {$sidebar}
                         </div>
-                        </div>
                     </section>
                     <div class='chevron-divider'></div>
                     <section class='subtemplate past-events'>
-                        <div class='centered-content-padding'>
-                        <div class='centered-content'>
+                        <div class='row'>
                             <div class='event-container'>
                                 <h1>Past Events</h1>
                                 <div>{$pastMarkup}</div>
                             </div>
-                        </div>
                         </div>
                     </section>";
 

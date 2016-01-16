@@ -24,7 +24,7 @@ $url = get_the_permalink();
 
 ?>
 
-<article <?php post_class(); ?>>
+<article class="row row--content" <?php post_class(); ?>>
     <h2><?php echo get_the_category_list(); ?></h2>
     <?php echo "<h1><a href='{$url}'>{$title}</a></h1>"  ?>
 
