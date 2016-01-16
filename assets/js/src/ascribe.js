@@ -3,14 +3,12 @@
 
 $(document).ready(function(){
 
-    imgAttrRemover();
     slider();
     featuredFAQ();
     marketplaces();
     tourNav();
     mobileNav();
     stickyNav();
-    colourHover();
 
     function tourNav() {
 
@@ -84,23 +82,6 @@ $(document).ready(function(){
                 }
             }
         }, 250);
-    }
-    function colourHover() {
-        $('.team-member img').hover(
-            function(){
-                var hover = $(this).data('hover');
-                $(this).attr('src',hover);
-            },
-            function(){
-                var normal = $(this).data('regular');
-                $(this).attr('src',normal);
-            });
-    }
-    function imgAttrRemover() {
-        $('img').each(function(){
-            $(this).removeAttr('width');
-            $(this).removeAttr('height');
-        });
     }
 
 });
