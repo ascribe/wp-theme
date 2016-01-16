@@ -39,7 +39,7 @@ function scripts( $debug = false ) {
 
     wp_enqueue_script(
         'wptheme',
-        WPTHEME_TEMPLATE_URL . "/assets/js/ascribe.min.js",
+        WPTHEME_TEMPLATE_URL . "/assets/dist/js/ascribe.min.js",
         array('jquery'),
         WPTHEME_VERSION,
         true
@@ -60,7 +60,7 @@ function styles( $debug = false ) {
 
     wp_enqueue_style(
         'wptheme',
-        WPTHEME_URL . "/assets/css/ascribe{$min}.css",
+        WPTHEME_URL . "/assets/dist/css/ascribe{$min}.css",
         array(),
         WPTHEME_VERSION
     );
