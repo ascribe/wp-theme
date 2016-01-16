@@ -23,33 +23,6 @@
     }
 }
 
-
-// CENTERED
-// Apply this class to an element to center it responsively in a container
-@centeredpadding: 10px;
-
-.centered-pricing {
-    .clearfix;
-    max-width: 880px + 2*@centeredpadding;
-    padding: 0 @centeredpadding;
-    width: 100%;
-    margin: 0 auto;
-}
-
-.centered-categories {
-    .clearfix;
-    max-width: 1000px;
-    width: 100%;
-    margin: 0 auto;
-}
-
-// GENERAL LIST
-// TAKES AWAY PADDING AND LIST STYLE
-ul, ol {
-    padding:0;
-    margin:0;
-}
-
 //  COLUMN SECTIONS
 
 .wrapper {
@@ -138,27 +111,6 @@ ul, ol {
     .ttl-columns;
 }
 
-// BORDER-BOX
-// Changes the box model so that padding is included within width, rather than
-// outside of width
-*,
-*:before,
-*:after {
-    -moz-box-sizing: border-box;
-    -webkit-box-sizing: border-box;
-    box-sizing: border-box;
-}
-
-// EMBED OBJECTS
-// Makes embed objects responsive
-img,
-embed,
-object,
-video {
-    max-width: 100%;
-    border: 0;
-    padding: 0;
-}
 
 // MOBILE-ONLY
 // Use this to only display something on mobile- and tablet-width devices.
@@ -191,16 +143,6 @@ video {
 }
 
 // MIXINS
-
-// TRANSITION
-// Applies a CSS transition between properties
-.transition(@property: all, @speed: 0.15s, @easing: ease-in-out) {
-    -webkit-transition: @property @speed @easing;
-    -moz-transition: @property @speed @easing;
-    -ms-transition: @property @speed @easing;
-    -o-transition: @property @speed @easing;
-    transition: @property @speed @easing;
-}
 
 ///**
 // * Selection

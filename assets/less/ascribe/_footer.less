@@ -2,13 +2,15 @@
 // FOOTER
 //
 .footer {
-    &:extend(.copyTextSmall);
+    &:extend(.small);
     color: @white;
     text-align: center;
 
     @media (@screen-sm) {
         text-align: left;
     }
+
+    a { color: @white; }
 
     .menu {
         list-style: none;
@@ -18,7 +20,6 @@
         display: inline;
 
         a {
-            color: @white;
             display: inline-block;
             padding: 3px 15px;
             opacity: .85;
@@ -44,8 +45,8 @@
 // Top footer
 //
 .footer__top {
+    &:extend(.subtemplate);
     background: @greyFooter;
-    padding: @spacer 0;
 
     .menu {
         margin-bottom: @spacer;

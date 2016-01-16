@@ -10,7 +10,7 @@ require 'controller/init.php';
 
 ?>
 <header class="blog">
-    <div class="centered-header">
+    <div class="row">
         <a href="<?php echo get_bloginfo('wpurl');?>"><img src="<?php echo WPTHEME_TEMPLATE_URL; ?>/images/logo/logo-white.png" class="logo phone-and-up"></a>
         <a href="<?php echo get_bloginfo('wpurl');?>"><img src="<?php echo WPTHEME_TEMPLATE_URL; ?>/images/logo/ascribeicon-white.svg" class="logo phone-only"></a>
         <div class="app-links">
@@ -26,14 +26,11 @@ require 'controller/init.php';
             <?php wp_nav_menu( array( 'theme_location' => 'main-footer-menu', 'container' => false ) ); ?>
         </div>
     </div>
-    <div class="centered-header">
-
-    </div>
     <div class="chevron-divider"></div>
     <h1><a href="/blog">ascribe blog</a></h1>
 </header>
 <nav class="blog-categories">
-    <div class="centered-categories">
+    <div class="row">
         <ul>
             <?php
             $args = array(

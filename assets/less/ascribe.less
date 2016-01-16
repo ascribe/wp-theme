@@ -18,6 +18,7 @@
 @import 'ascribe/_branding.less';
 @import 'ascribe/_helpers.less';
 @import 'ascribe/_buttons.less';
+@import 'ascribe/_media.less';
 
 @import 'ascribe/_grid.less';
 @import 'ascribe/_footer.less';
@@ -335,7 +336,7 @@ header + .chevron-divider {
         background-size: cover;
         background-repeat: no-repeat;
         background-position: center;
-        .transition(all,0.3s);
+        transition: .3s ease-out;
         visibility: visible;
         opacity: 1;
 
@@ -743,7 +744,7 @@ header + .chevron-divider {
         dd {
             max-height:0;
             overflow-y:hidden;
-            .transition();
+            transition: .2s ease-out;
             margin-bottom: 5px;
 
             &.open {
@@ -853,11 +854,7 @@ header + .chevron-divider {
     }
 }
 .press-articles {
-    .copyText;
     text-align: center;
-    blockquote {
-        margin: 0;
-    }
 
     .press-article {
         text-align: left;
@@ -983,10 +980,6 @@ header + .chevron-divider {
     }
     h2 + .event {
         border-top: 0;
-    }
-    blockquote {
-        margin:0;
-        padding:0;
     }
 
     & + .chevron-divider {
@@ -1315,10 +1308,6 @@ h1 > a,
     font-size: 14px;
     margin-bottom: 6px;
     display: block;
-}
-
-.press-articles blockquote {
-    line-height: 1.4em;
 }
 
 .subtemplate.press-articles > div > div > img {
