@@ -2,6 +2,8 @@
 .hentry {
     &:extend(.subtemplate);
     border-bottom: 2px solid @blueLight;
+
+    &:last-child { border: none }
 }
 
 .entry-title {
@@ -43,71 +45,32 @@
 
 
 //
-// Blog header
+// Pagination
 //
-.header {
-    .blog &, .archive &, .single-post & {
-        &:extend(.blueGradient);
-        padding-bottom:0;
+.pagination {
+    background: @white;
+    margin-top: (@spacer/2);
+    padding-bottom: (@spacer/2);
 
-        .menu-item {
-            border: 1px solid fade(@white,30);
-            transition: .2s ease-out;
-
-            a {
-                color: @white;
-            }
-
-            &:hover {
-                background-color: fade(@white,30);
-                border: 1px solid fade(@white,30);
-
-                a {
-                    color: @white;
-                }
-            }
-        }
-
-        .chevron-divider {
-            position: absolute;
-            top: 110px;
-            z-index: 1;
-        }
-        h1 {
-            color: @white;
-            font-size: 54px;
-            position: relative;
-            z-index: 2;
-            margin-top: 100px;
-            margin-bottom: 50px;
-            text-align: center;
-            a {
-                color: @white;
-
-                &:hover {
-                    color: @pink;
-                }
-            }
-        }
-        .app-links {
-            color: @white;
-            a {
-                color: @white;
-
-                &:hover {
-                    color: @pink;
-                }
-            }
-        }
+    a {
+        &:extend(.button all, .button.small);
     }
 }
 
+.pagination__next {
+    &:extend(.text-right);
+}
+
+
+//
+// Blog header
+//
 .blog-categories {
     background-color: @blueBright;
     border-top: 2px solid fade(@white,50);
 
     ul {
-        &:extend(.list-unstyled);
+        &:extend(.list-unstyled all);
         display: table;
         padding: 0 10px;
         width: 100%;
@@ -120,20 +83,26 @@
         padding: 0;
         height: 88px;
         float: left;
+        transition: .2s ease-out;
 
-        &:hover {
+        &:hover,
+        &:focus {
             background-color: fade(@white,50);
         }
     }
     a {
+        &:extend(.text-center, .small);
         display: table-cell;
-        text-align: center;
-        font-size: 16px;
-        color: #fff;
+        color: @white;
         height: 88px;
         width: 100%;
         vertical-align: middle;
         padding: 0 10px;
+
+        &:hover,
+        &:focus {
+            color: @blueMedium;
+        }
     }
 
     @media screen and (max-width: 450px) {

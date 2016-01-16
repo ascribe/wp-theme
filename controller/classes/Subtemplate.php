@@ -702,7 +702,7 @@ class Subtemplate {
 
         $result = "<section class='subtemplate values'><div class='row'>
                         <h1 class='subtemplate__title'>{$subtemplateTitle}</h1>
-                        <div class='grid grid--gutters grid--full grid-small--half'>{$values}</div>
+                        <main><div class='grid grid--gutters grid--full grid-small--half'>{$values}</div></main>
                     </div></section>";
 
         return $result;

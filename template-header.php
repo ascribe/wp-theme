@@ -9,7 +9,7 @@
 require 'controller/init.php';
 ?>
 
-<header>
+<header class="header">
     <div class="sticky">
         <div class="row">
             <a href="<?php echo get_bloginfo('wpurl');?>"><img src="<?php echo WPTHEME_TEMPLATE_URL; ?>/images/logo/logo-black.png" class="logo phone-and-up"></a>

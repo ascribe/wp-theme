@@ -16,8 +16,11 @@
         get_template_part( 'content', 'noposts' );
     }
     ?>
-    <div class="nav-previous alignleft"><?php next_posts_link( 'Older posts' ); ?></div>
-    <div class="nav-next alignright"><?php previous_posts_link( 'Newer posts' ); ?></div>
+
+    <nav class="pagination grid grid--gutters grid--half">
+        <div class="grid__col pagination__previous"><?php next_posts_link( 'Older posts' ); ?></div>
+        <div class="grid__col pagination__next"><?php previous_posts_link( 'Newer posts' ); ?></div>
+    </nav>
 
     <?php
     echo '</div>';

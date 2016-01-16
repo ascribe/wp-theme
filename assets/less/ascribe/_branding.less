@@ -1,22 +1,13 @@
 
-a {
-    text-decoration: none;
-    color: @blueBright;
 
-    &:hover {
-        color: @pink;
-    }
-}
-
-
-//FONTS
+// FONTS
 .fontLight {
-    font-family: "canada-type-gibson",sans-serif;
-    font-weight: 200;
+    font-family: @font-family-base;
+    font-weight: @font-weight-light;
 }
 .fontRegular {
-    font-family: "canada-type-gibson",sans-serif;
-    font-weight: 400;
+    font-family: @font-family-base;
+    font-weight: @font-weight-normal;
 }
 
 // GENERAL TEXT STYLES
@@ -72,29 +63,6 @@ a {
     font-size: 24px;
     color: @pink;
     line-height: 29px;
-}
-
-.blueBoxTitle {
-    &:extend(.fontRegular);
-    font-size: 30px;
-    color: @white;
-    line-height: 52px;
-    text-align: center;
-
-    @media (min-width: @phoneWidth) {
-        font-size: 43px;
-    }
-}
-.blueBoxCopy {
-    &:extend(.fontLight);
-    font-size: 24px;
-    line-height: 31px;
-    color: @white;
-
-    @media (min-width: @phoneWidth) {
-        font-size: 43px;
-        line-height: 52px;
-    }
 }
 
 .galleriesPressTitle {

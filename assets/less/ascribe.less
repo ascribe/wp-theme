@@ -24,6 +24,7 @@
 @import 'ascribe/_footer.less';
 
 @import 'ascribe/_hero.less';
+@import 'ascribe/_header.less';
 @import 'ascribe/_subtemplates.less';
 @import 'ascribe/_feature-circles.less';
 @import 'ascribe/_team.less';
@@ -31,192 +32,7 @@
 
 @import 'vendor/print.less';
 
-// HEADER
-@chevronOffsetHeader: 60px;
 
-.header + .chevron-divider {
-    height: 175px;
-}
-
-.header {
-    overflow: hidden;
-    padding-bottom: 50px;
-
-    .page-template-template-companywhite &,
-    .page-template-template-general &,
-    .page-template-default &,
-    .blog &,
-    .single-career &,
-    .error404 &,
-    .archive &,
-    .single-post & {
-
-        .logo {
-            margin-top: 30px;
-            position:relative;
-            z-index:10;
-        }
-        nav {
-            position: relative;
-            width: 100%;
-            text-align: center;
-            margin: 0;
-            top: 20px;
-
-            ul {
-                &:extend(.list-unstyled all, .small);
-                li {
-                    display: inline-block;
-                    border: 1px solid #b8b9b9;
-                    margin: 0 15px 0 15px;
-                    height: 60px;
-                    padding: 0 30px;
-                    width: 160px;
-                    text-align: center;
-                    vertical-align: top;
-
-                    a {
-                        color: #000;
-                        display: block;
-                        font-size: 16px;
-                        position: relative;
-                        top: 50%;
-                        transform: translateY(-50%);
-
-                        &:after {
-                            content: ' Tour';
-                        }
-                    }
-
-                    &:hover {
-                        border: 1px solid @pink;
-
-                        a {
-                            color: @pink;
-                        }
-                    }
-                }
-            }
-        }
-
-        @media screen and (max-width: 910px) {
-            nav {
-                ul {
-                    li {
-                        margin-right: 10px;
-                        width: 120px;
-                        padding: 0 10px;
-                    }
-                }
-            }
-        }
-        @media screen and (max-width: 750px) {
-            .tour-switcher {
-                display: none;
-            }
-            .phone-and-up {
-                display: none;
-            }
-            .phone-only {
-                display: block;
-            }
-            .hamburger {
-                display: inline-block;
-            }
-            .mobile-nav {
-                display:none;
-                &.active {
-                    display:block;
-                }
-            }
-        }
-    }
-}
-
-
-
-.tour-switcher {
-    .phone-and-up;
-}
-.logo {
-    float:left;
-
-    &.phone-only {
-        width: 30px;
-        margin-left:10px;
-    }
-}
-.app-links {
-    float: right;
-    margin-top: 35px;
-    .signInUpText;
-    color: @black;
-    position:relative;
-    z-index:3;
-
-    a {
-        .signInUpText;
-        color: @black;
-
-        &:hover {
-            color: @pink;
-        }
-    }
-}
-.hamburger {
-    cursor:pointer;
-    width: 25px;
-    margin-left: 15px;
-    position: relative;
-    top: 2px;
-    z-index:50;
-
-    @media screen and (max-width: @phoneWidth) {
-        display: inline-block;
-    }
-}
-.mobile-nav {
-    display: none;
-    background-color: black;
-    position: absolute;
-    width: 120%;
-    left: -10%;
-    top: 0;
-    text-align:center;
-    z-index:4;
-
-    ul {
-        padding: 40px 0 20px;
-    }
-    li {
-        font-weight: 400;
-        padding-bottom: 15px;
-        font-size: 13px;
-
-        a {
-            color: @white;
-
-            &:hover {
-                color: @pink;
-            }
-        }
-        &:nth-child(-n+3) {
-            font-size: 16px;
-            padding-bottom: 35px;
-        }
-        &:nth-child(3) {
-            border-bottom:1px solid @white;
-            margin-bottom:25px;
-        }
-    }
-
-    @media screen and (max-width: @phoneWidth) {
-        display:none;
-        &.active {
-            display:block;
-        }
-    }
-}
 
 // MAIN
 .above-chevron {
@@ -582,58 +398,6 @@
 
     }
 }
-.blog-features {
-    background-color: @greyBg;
-    padding: 75px 0;
-
-        .centered-content > h1 {
-            .galleriesPressTitle;
-            text-align: center;
-            text-transform: none;
-        }
-
-    .blog {
-        .ttl-columns.column-3;
-        margin-bottom: 40px;
-
-        div {
-            background-color: white;
-            padding-bottom: 15px;
-            min-height: 225px;
-        }
-    }
-
-    h2 {
-        .featureBlogDesc;
-        margin:10px 10px 0;
-        padding: 0 10px;
-
-    }
-    h1 {
-        .featureBlogTitle;
-        margin:0 10px;
-        text-align: left;
-        padding: 0 10px;
-    }
-    @media screen and (max-width: @phoneWidth) {
-        .blog {
-            width: 50%;
-
-        }
-    }
-    @media screen and (max-width: @smallWidth) {
-        .blog {
-            width: 100%;
-            div {
-                width: 80%;
-                margin:0 auto;
-                img {
-                    width: 100%;
-                }
-            }
-        }
-    }
-}
 
 .faq {
     .copyTextMedium;
@@ -672,6 +436,11 @@
     }
 }
 
+
+.values {
+    padding-bottom: @spacer;
+}
+
 .value {
     h1 {
         &:extend(.fontRegular);
@@ -703,12 +472,12 @@
 
     }
     ul {
-        list-style: none;
+        &:extend(.list-unstyled all);
     }
 }
 .contact {
     label {
-        .copyTextSmall;
+        &:extend(.small);
 
         &.required {
             &:after {
@@ -918,7 +687,7 @@
 //
 .short-descriptions {
     &:extend(.text-center);
-    padding-bottom: 0;
+    padding-bottom: @spacer;
 }
 
 .short-description {
