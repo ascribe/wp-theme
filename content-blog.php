@@ -24,11 +24,14 @@ $url = get_the_permalink();
 
 ?>
 
-<article class="row row--content" <?php post_class(); ?>>
-    <h2><?php echo get_the_category_list(); ?></h2>
-    <?php echo "<h1><a href='{$url}'>{$title}</a></h1>"  ?>
+<article <?php post_class( '', $post_id ); ?>>
 
-    <div class="image">
+    <header>
+        <?php echo get_the_category_list(); ?>
+        <?php echo "<h1 class='entry-title'><a href='{$url}'>{$title}</a></h1>"  ?>
+    </header>
+
+    <div class="entry-image">
         <?php
         if ( has_post_thumbnail() ) { // check if the post has a Post Thumbnail assigned to it.
 
@@ -38,17 +41,18 @@ $url = get_the_permalink();
         }
         ?>
     </div>
-    <div class="meta">
+
+    <div class="entry-meta">
         <?php echo get_avatar( get_the_author_email(), 'size here' ); ?>
         <span class="author">by <?php echo $full_name; ?></span>
         on <date><?php the_time( get_option( 'date_format' ) ); ?></date>
     </div>
 
-    <main class="entry">
+    <main class="entry-content">
         <?php
         if ( ! is_singular() ) {
             the_excerpt();
-            echo "<a href='{$url}'>Read More</a>";
+            echo "<a class='button small' href='{$url}'>Read More</a>";
         } else {
             the_content();
         }

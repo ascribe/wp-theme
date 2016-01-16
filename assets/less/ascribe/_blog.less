@@ -1,0 +1,144 @@
+
+.hentry {
+    &:extend(.subtemplate);
+    border-bottom: 2px solid @blueLight;
+}
+
+.entry-title {
+    margin-top: 0;
+}
+
+.entry-image {
+    width: 100%;
+
+    img {
+        display: block;
+        width: 100%;
+    }
+}
+
+.entry-content {
+
+}
+
+.entry-meta {
+    .chevron-divider;
+    opacity: 1;
+    line-height: 75px;
+    height: 75px;
+    padding-left: 15px;
+    margin-bottom: 35px;
+    font-weight: 500;
+    font-size: 16px;
+}
+
+
+//
+// Categories list
+//
+.post-categories {
+    &:extend(.list-unstyled all, .small);
+    margin-bottom: (@line-height-small / 2);
+}
+
+
+//
+// Blog header
+//
+.header {
+    .blog &, .archive &, .single-post & {
+        &:extend(.blueGradient);
+        padding-bottom:0;
+
+        .menu-item {
+            border: 1px solid fade(@white,30);
+            transition: .2s ease-out;
+
+            a {
+                color: @white;
+            }
+
+            &:hover {
+                background-color: fade(@white,30);
+                border: 1px solid fade(@white,30);
+
+                a {
+                    color: @white;
+                }
+            }
+        }
+
+        .chevron-divider {
+            position: absolute;
+            top: 110px;
+            z-index: 1;
+        }
+        h1 {
+            color: @white;
+            font-size: 54px;
+            position: relative;
+            z-index: 2;
+            margin-top: 100px;
+            margin-bottom: 50px;
+            text-align: center;
+            a {
+                color: @white;
+
+                &:hover {
+                    color: @pink;
+                }
+            }
+        }
+        .app-links {
+            color: @white;
+            a {
+                color: @white;
+
+                &:hover {
+                    color: @pink;
+                }
+            }
+        }
+    }
+}
+
+.blog-categories {
+    background-color: @blueBright;
+    border-top: 2px solid fade(@white,50);
+
+    ul {
+        &:extend(.list-unstyled);
+        display: table;
+        padding: 0 10px;
+        width: 100%;
+    }
+    li {
+        width: 20%;
+        display: table;
+        text-align: center;
+        vertical-align: middle;
+        padding: 0;
+        height: 88px;
+        float: left;
+
+        &:hover {
+            background-color: fade(@white,50);
+        }
+    }
+    a {
+        display: table-cell;
+        text-align: center;
+        font-size: 16px;
+        color: #fff;
+        height: 88px;
+        width: 100%;
+        vertical-align: middle;
+        padding: 0 10px;
+    }
+
+    @media screen and (max-width: 450px) {
+        li {
+            width: 50%;
+        }
+    }
+}

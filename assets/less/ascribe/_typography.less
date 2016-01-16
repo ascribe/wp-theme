@@ -56,6 +56,7 @@ body {
 a {
     color: @link-color;
     text-decoration: none;
+    transition: .2s ease-out;
 
     &:hover,
     &:focus {
@@ -76,6 +77,7 @@ h1, h2, h3, h4, h5, h6,
     font-weight: @headings-font-weight;
     line-height: @headings-line-height;
     color: @headings-color;
+    margin-bottom: @line-height-base;
 
     // remove old style numerals
     font-feature-settings: "kern" 1, "liga" 1, "calt" 1, "pnum" 1, "tnum" 0, "onum" 0, "lnum" 0, "dlig" 1;
@@ -119,7 +121,7 @@ textarea {
 // Body text
 //
 p {
-    margin: 0 0 (@line-height-base / 2);
+    margin: 0 0 @line-height-base;
 }
 
 
@@ -172,12 +174,12 @@ em,
 // Unordered and Ordered lists
 ul,
 ol {
-    margin-top: (@line-height-base / 2);
-    margin-bottom: (@line-height-base / 2);
+    margin-top: @line-height-base;
+    margin-bottom: @line-height-base;
     padding-left: @line-height-base;
 
     li {
-        margin-bottom: (@line-height-base / 4);
+        margin-bottom: (@line-height-base / 2);
         padding-left: (@line-height-base / 2);
     }
     ul,
@@ -242,4 +244,12 @@ address {
     margin-bottom: @line-height-base;
     font-style: normal;
     line-height: @line-height-base;
+}
+
+
+hr {
+    border: 0;
+    height: 2px;
+    background: @blueLight;
+    margin: @spacer 0;
 }
