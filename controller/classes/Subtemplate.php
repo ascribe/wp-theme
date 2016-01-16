@@ -808,7 +808,7 @@ class Subtemplate {
         }
 
         $result = "<section class='subtemplate contact'>
-                        <div class='row'>
+                        <div class='row row--content'>
                             <h1 class='subtemplate__title'>{$subtemplateTitle}</h1>
 
                             <div class='grid grid--gutters grid--fit grid-small--half'>

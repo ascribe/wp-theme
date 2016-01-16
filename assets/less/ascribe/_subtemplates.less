@@ -10,7 +10,10 @@
 
     > .row { background-color: @white; }
 
-    &.grey > .row { background-color: transparent; }
+    &.content-boxed,
+    &.grey {
+        > .row { background-color: transparent; }
+    }
 
     &.case-studies {
         padding: 0;
@@ -25,7 +28,6 @@
 .subtemplate__title {
     margin-top: 0;
     margin-bottom: @spacer;
-    text-transform: uppercase;
 
     .above-chevron > .subtemplate:first-child & {
         margin-top: (@spacer * 2);
