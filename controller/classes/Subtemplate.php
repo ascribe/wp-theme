@@ -272,13 +272,18 @@ class Subtemplate {
 
         $content    = get_sub_field('content');
 
-        $result = "<section class='subtemplate product-overview {$headingSize}'>
-                        <div class='row row--content'>
-                            <img src='{$imageUrl}' alt='{$imageAlt}'>
-                            <div class='text-column'>
-                                <h1 class='{$headingSize}'>{$subtemplateTitle}</h1>
-                                <div>{$content}</div>
-                            </div>
+        $result = "<section class='subtemplate product-overview'>
+                        <div class='row'>
+                            <article class='grid grid--gutters grid--full grid-small--half'>
+                                <figure class='grid__col grid__col--center'>
+                                    <img src='{$imageUrl}' alt='{$imageAlt}'>
+                                </figure>
+
+                                <div class='grid__col grid__col--center text-column'>
+                                    <h1 class='{$headingSize}'>{$subtemplateTitle}</h1>
+                                    <div>{$content}</div>
+                                </div>
+                            </article>
                         </div>
                     </section>";
         return $result;

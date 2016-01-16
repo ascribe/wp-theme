@@ -3,12 +3,14 @@
     padding-top: @spacer;
     padding-bottom: @spacer;
 
-    @media (min-width: @tabletWidth) {
+    @media (@screen-sm) {
         padding-top: (@spacer * 2);
         padding-bottom: (@spacer * 2);
     }
 
     > .row { background-color: @white; }
+
+    &.grey > .row { background-color: transparent; }
 
     &.case-studies {
         padding: 0;
