@@ -1,0 +1,126 @@
+//
+// Typography
+//
+
+//
+// Scaffolding
+//
+
+// Root reset
+html {
+    font-size: 10px;
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+
+body {
+    &:extend(.copyText);
+    background-color: @body-bg;
+
+    text-rendering: optimizeLegibility;
+    // Controversial! But prevents text flickering in
+    // Safari/Firefox when animations are running
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    -moz-font-feature-settings: 'liga', 'kern';
+
+    // remove old style numerals
+    font-feature-settings: "kern" 1, "liga" 1, "calt" 1, "pnum" 1, "tnum" 0, "onum" 0, "lnum" 0, "dlig" 1;
+}
+
+// Text styles
+.copyText {
+    font-family: @font-family-base;
+    font-size: @font-size-base;
+    font-weight: @font-weight-base;
+    line-height: @line-height-base;
+    color: @text-color;
+}
+.copyTextMedium {
+    &:extend(.fontLight);
+    color: @blueDeep;
+    font-size: 17px;
+    line-height: 21px;
+}
+.copyTextSmall {
+    font-family: @font-family-base;
+    font-size: @font-size-small;
+    font-weight: @font-weight-base;
+    line-height: @line-height-small;
+    color: @text-color;
+}
+
+
+//
+// Links
+//
+a {
+    color: @link-color;
+    text-decoration: none;
+
+    &:hover,
+    &:focus {
+        color: @link-hover-color;
+    }
+
+    &:active {}
+}
+
+
+// Reset fonts for relevant elements
+input,
+button,
+select,
+textarea {
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+}
+
+//
+// Body text
+//
+p {
+    margin: 0 0 (@spacer / 2);
+}
+
+
+//
+// Emphasis & misc
+//
+small,
+.small {
+    font-size: @font-size-small;
+    font-weight: @font-weight-normal;
+}
+
+.mini {
+    font-size: @font-size-mini;
+    font-weight: @font-weight-normal;
+}
+
+.large {
+    font-size: @font-size-large;
+}
+
+strong,
+.strong,
+.bold {
+    font-weight: @font-weight-bold;
+}
+
+em,
+.italic {
+    font-style: italic;
+}
+
+// Alignment
+.text-left           { text-align: left; }
+.text-right          { text-align: right; }
+.text-center         { text-align: center; }
+.text-justify        { text-align: justify; }
+.text-nowrap         { white-space: nowrap; }
+
+// Transformation
+.text-lowercase      { text-transform: lowercase; }
+.text-uppercase      { text-transform: uppercase; }
+.text-capitalize     { text-transform: capitalize; }

@@ -14,8 +14,11 @@
 @import 'ascribe/_variables';
 //@import "ascribe/_mixins';
 
+@import 'ascribe/_typography.less';
 @import 'ascribe/_branding.less';
 @import 'ascribe/_helpers.less';
+@import 'ascribe/_buttons.less';
+
 @import 'ascribe/_grid.less';
 @import 'ascribe/_footer.less';
 @import 'vendor/print.less';
@@ -570,7 +573,7 @@ header + .chevron-divider {
         text-align: center;
     }
     .description {
-        .copyTextSmall;
+        //.copyTextSmall;
 
         p { margin-bottom: 0; }
     }
@@ -850,9 +853,6 @@ header + .chevron-divider {
         h1 {
             font-size: 22px;
             margin:0;
-        }
-        p {
-            .copyText;
         }
         .text-column {
             text-align: center;
@@ -1198,8 +1198,7 @@ header + .chevron-divider {
         }
     }
     input[type=submit] {
-        .button;
-        .button.blue;
+        &:extend(.button, .button.blue);
         width: auto;
     }
     .contact-point {
@@ -1533,7 +1532,7 @@ header + .chevron-divider {
         }
     }
     .button {
-        .button.pink;
+        &:extend(.button.pink);
     }
 
     @media screen and (max-width: @phoneWidth) {

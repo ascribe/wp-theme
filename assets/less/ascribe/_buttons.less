@@ -1,0 +1,95 @@
+
+.button {
+    &:extend(.fontRegular);
+    display: inline-block;
+    padding: (@spacer / 2) @spacer;
+    border: 1px solid;
+    font-size: 22px;
+    line-height: 26px;
+    text-decoration: none;
+    min-width: 265px;
+    text-align: center;
+    transition: .2s ease-out;
+
+    &.blue {
+        @bgColor: @blueBright;
+        color: @white;
+        background-color: @bgColor;
+        border-color: @bgColor;
+        &:hover,
+        &:focus {
+            background-color: fade(@bgColor,50);
+        }
+    }
+
+    &.pink {
+        @bgColor: @pink;
+        color: @white;
+        background-color: @bgColor;
+        border-color: @bgColor;
+        &:hover,
+        &:focus {
+            background-color: fade(@bgColor,50);
+        }
+    }
+
+    &.blue-overPic {
+        @bgColor: @blueBright;
+        color: @white;
+        background-color: @bgColor;
+        border-color: @bgColor;
+
+        &:hover,
+        &:focus {
+            background-color: @white;
+            color: @bgColor;
+        }
+    }
+
+    &.pink-overPic {
+        @bgColor: @pink;
+        color: @white;
+        background-color: @bgColor;
+        border-color: @bgColor;
+
+        &:hover,
+        &:focus {
+            background-color: @white;
+            color: @bgColor;
+        }
+    }
+
+    &.white-blue {
+        @bgColor: @white;
+        color: @blueBright;
+        background-color: @bgColor;
+        border-color: @blueBright;
+
+        &:hover,
+        &:focus {
+            background-color: fade(@blueBright,50);
+            color: @white;
+        }
+    }
+
+    &.small {
+        &:extend(.fontLight);
+        padding: (@spacer / 4) (@spacer / 2);
+        font-size: 14px;
+        color: @white;
+        background-color: transparent;
+        border-color: @white;
+        min-width: 0;
+
+        &:hover,
+        &:focus {
+            background-color: fade(@white,40);
+            border-color: fade(@white,40);
+            color: @white;
+        }
+    }
+
+    @media screen and (max-width: @smallWidth) {
+        min-width: initial;
+    }
+}

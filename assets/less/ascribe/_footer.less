@@ -2,7 +2,8 @@
 // FOOTER
 //
 .footer {
-    .footerText;
+    &:extend(.copyTextSmall);
+    color: @white;
     text-align: center;
 
     @media (@screen-sm) {
@@ -17,7 +18,7 @@
         display: inline;
 
         a {
-            .footerText;
+            color: @white;
             display: inline-block;
             padding: 3px 15px;
             opacity: .85;
@@ -71,7 +72,9 @@
 // Bottom footer
 //
 .footer__bottom {
-    .subfooterText;
+    color: @greyText;
+    font-size: 13px;
+    line-height: 14px;
     padding: (@spacer / 2) 15px;
 
     .menu {
@@ -85,7 +88,7 @@
     }
 
     .menu-item a {
-        .subfooterText;
+        color: @greyText;
     }
 }
 
@@ -97,6 +100,8 @@
     @media (@screen-sm) {
         width: 25%;
         float: right;
+
+        .button { width: 100%; }
     }
 }
 
