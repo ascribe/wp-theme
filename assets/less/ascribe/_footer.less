@@ -13,7 +13,7 @@
     a { color: @white; }
 
     .menu {
-        list-style: none;
+        &:extend(.list-unstyled);
     }
 
     .menu-item {
@@ -56,6 +56,7 @@
             flex-flow: row wrap;
             width: 70%;
             float: left;
+            margin-bottom: 0;
         }
     }
 
@@ -73,9 +74,8 @@
 // Bottom footer
 //
 .footer__bottom {
+    &:extend(.mini);
     color: @greyText;
-    font-size: 13px;
-    line-height: 14px;
     padding: (@spacer / 2) 15px;
 
     .menu {
@@ -111,6 +111,7 @@
 // Social links
 //
 .footer__social {
+    &:extend(.list-unstyled);
     margin-top: (@spacer/2);
 
     @media (@screen-sm) {
