@@ -57,7 +57,10 @@ if ( get_field('header_tagline') != '' ) {
 
 if (empty($description)) {
 
-    $content = get_field('subtemplate')[0]['content'];
+    if (get_field('subtemplate')) {
+        $content = get_field('subtemplate')[0]['content'];
+    }
+
     if (!empty($content)) {
         $description = substr(strip_tags($content),0,140)."...";
 
