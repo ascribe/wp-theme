@@ -6,11 +6,12 @@
  * @since 0.1.0
  */
 
-$year        = date("Y");
-$address     = get_field('address', 'option');
-$email       = get_field('email', 'option');
-$consultLink = get_field('request_consultation_link', 'option');
-$euLink      = get_field('eu_logo_link', 'option');
+$year                = date("Y");
+$address             = get_field('address', 'option');
+$email               = get_field('email', 'option');
+$consultLink         = get_field('request_consultation_link', 'option');
+$euLink              = get_field('eu_logo_link', 'option');
+$footerContactButton = get_field('footer_contact_button', 'option');
 
 $themeUrl = WPTHEME_TEMPLATE_URL . '/';
 
@@ -176,7 +177,11 @@ if ($twitter) {
             <?php wp_nav_menu( array( 'theme_location' => 'main-footer-menu', 'container' => false ) ); ?>
 
             <div class="footer__contact">
-                <a href="<?php echo $consultLink; ?>" class="button small">Request information</a>
+
+                <?php if ($footerContactButton) { ?>
+                    <a href="<?php echo $consultLink; ?>" class="button small"><?php echo $footerContactButton ?></a>
+                <?php } ?>
+
                 <div><?php echo $address; ?></div>
                 <div><a href="mailto:<?php echo $email; ?>"><?php echo $email; ?></a></div>
             </div>
@@ -197,7 +202,7 @@ if ($twitter) {
                 <?php } ?>
             </div>
 
-            <div class="footer__copyright"><?php echo $year; ?> © ascribe GmbH</div>
+            <div class="footer__copyright">© <?php echo $year; ?> ascribe GmbH</div>
 
             <?php wp_nav_menu( array( 'theme_location' => 'lower-footer-menu', 'container' => false ) ); ?>
 
