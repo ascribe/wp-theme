@@ -1,0 +1,45 @@
+.team {
+    text-align: center;
+
+    .intro {
+        margin-bottom: 60px;
+        text-align: left;
+    }
+
+    p {
+        margin:0;
+    }
+    &.tour-page {
+        padding: 70px 0;
+        background-color: @greyBg;
+    }
+    @media screen and (max-width: @tabletWidth) {
+        .intro {
+            text-align: center;
+        }
+    }
+}
+
+
+//
+// Component: Team Member
+//
+.team-member {
+    &:extend(.text-center);
+    h1 {
+        .teamName;
+        margin-top: 20px;
+        margin-bottom:0;
+    }
+    h2 {
+        .copyText;
+        margin-top:2px;
+    }
+}
+
+.team-member__image {
+    border-radius: 50%;
+    max-width: 200px;
+    margin: auto;
+    display: block;
+}

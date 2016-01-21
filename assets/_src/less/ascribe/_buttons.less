@@ -1,0 +1,84 @@
+
+.button {
+    &:extend(.fontRegular);
+    display: block;
+    padding: (@spacer / 2) @spacer;
+    border: 1px solid;
+    font-size: 22px;
+    line-height: 26px;
+    text-decoration: none;
+    text-align: center;
+    transition: .2s ease-out;
+
+    @media (@screen-sm) {
+        display: inline-block;
+        min-width: 265px;
+    }
+
+    &.blue {
+        @bgColor: @blueBright;
+        color: @white;
+        background-color: @bgColor;
+        border-color: @bgColor;
+        &:hover,
+        &:focus {
+            background-color: fade(@bgColor,50);
+        }
+    }
+
+    &.pink {
+        @bgColor: @pink;
+        color: @white;
+        background-color: @bgColor;
+        border-color: @bgColor;
+        &:hover,
+        &:focus {
+            background-color: fade(@bgColor,50);
+        }
+    }
+
+    &.blue-overPic {
+        @bgColor: @blueBright;
+        color: @white;
+        background-color: @bgColor;
+        border-color: @bgColor;
+
+        &:hover,
+        &:focus {
+            background-color: @white;
+            color: @bgColor;
+        }
+    }
+
+    &.pink-overPic {
+        @bgColor: @pink;
+        color: @white;
+        background-color: @bgColor;
+        border-color: @bgColor;
+
+        &:hover,
+        &:focus {
+            background-color: @white;
+            color: @bgColor;
+        }
+    }
+
+    &.white-blue {
+        @bgColor: @white;
+        color: @blueBright;
+        background-color: @bgColor;
+        border-color: @blueBright;
+
+        &:hover,
+        &:focus {
+            background-color: fade(@blueBright,50);
+            color: @white;
+        }
+    }
+
+    &.small {
+        padding: (@spacer / 4) (@spacer / 2);
+        font-size: @font-size-small;
+        min-width: 0;
+    }
+}

@@ -1,16 +1,12 @@
 
-//=include ajax-pagination.js
-
 $(document).ready(function(){
 
-    imgAttrRemover();
     slider();
     featuredFAQ();
     marketplaces();
     tourNav();
     mobileNav();
     stickyNav();
-    colourHover();
 
     function tourNav() {
 
@@ -58,49 +54,28 @@ $(document).ready(function(){
 
         });
     }
-    function mobileNav() {
-        $('.hamburger').click(function(){
-            console.log('hi');
-             $('.mobile-nav').toggleClass('active');
-        });
-    }
-    function stickyNav() {
-        var didScroll = false;
-        var sticky = $('.sticky');
-
-        $(window).scroll(function () {
-            didScroll = true;
-        });
-
-        setInterval(function () {
-            if (didScroll) {
-                didScroll = false;
-
-                if ($(window).scrollTop() > 100) {
-                    sticky.addClass('stuck');
-                }
-                else {
-                    sticky.removeClass('stuck');
-                }
-            }
-        }, 250);
-    }
-    function colourHover() {
-        $('.team-member img').hover(
-            function(){
-                var hover = $(this).data('hover');
-                $(this).attr('src',hover);
-            },
-            function(){
-                var normal = $(this).data('regular');
-                $(this).attr('src',normal);
-            });
-    }
-    function imgAttrRemover() {
-        $('img').each(function(){
-            $(this).removeAttr('width');
-            $(this).removeAttr('height');
-        });
-    }
 
 });
+
+
+
+function stickyNav() {
+    var sticky = $('.sticky');
+
+    $(window).on('load resize scroll', function() {
+        if ( $(window).width() > 768 ) {
+            if ( $(window).scrollTop() > 100 ) {
+                sticky.addClass('stuck');
+            } else {
+                sticky.removeClass('stuck');
+            }
+        }
+    });
+}
+
+
+function mobileNav() {
+    $('.hamburger').click(function() {
+         $('.mobile-nav').toggleClass('active');
+    });
+}

@@ -5,10 +5,13 @@
  * @package ascribe
  * @since 0.1.0
  */
-$year       = date("Y");
-$address    = get_field('address','option');
-$email      = get_field('email','option');
-$consultLink= get_field('request_consultation_link','option');
+
+$year                = date("Y");
+$address             = get_field('address', 'option');
+$email               = get_field('email', 'option');
+$consultLink         = get_field('request_consultation_link', 'option');
+$euLink              = get_field('eu_logo_link', 'option');
+$footerContactButton = get_field('footer_contact_button', 'option');
 
 $themeUrl = WPTHEME_TEMPLATE_URL . '/';
 
@@ -160,24 +163,50 @@ if ($twitter) {
 
 
 ?>
+
+
 <div class="chevron-divider"></div>
-<footer>
-    <section class="top-footer">
-        <div class="centered-footer">
+
+
+<footer class="footer">
+
+    <section class="footer__top">
+        <div class="row">
+
+
             <?php wp_nav_menu( array( 'theme_location' => 'main-footer-menu', 'container' => false ) ); ?>
-            <div class="contact">
-                <a href="<?php echo $consultLink; ?>" class="button small">Request information</a>
+
+            <div class="footer__contact">
+
+                <?php if ($footerContactButton) { ?>
+                    <a href="<?php echo $consultLink; ?>" class="button small"><?php echo $footerContactButton ?></a>
+                <?php } ?>
+
                 <div><?php echo $address; ?></div>
                 <div><a href="mailto:<?php echo $email; ?>"><?php echo $email; ?></a></div>
             </div>
+
         </div>
     </section>
-    <section class="bottom-footer">
-        <div class="centered-footer">
-            <div class="eu-fund"><img src="https://www.ascribe.io/wp-content/uploads/2015/11/eu-dev-fund.png" /></div>
-            <div class="copyright"><?php echo $year; ?> © ascribe GmbH</div>
+
+    <section class="footer__bottom">
+        <div class="row">
+
+            <div class="footer__eu">
+                <?php if ($euLink) { ?>
+                    <a href="<?php echo $euLink ?>">
+                        <img width="150" src="https://www.ascribe.io/wp-content/uploads/2015/11/eu-dev-fund.png" />
+                    </a>
+                <?php } else { ?>
+                    <img width="150" src="https://www.ascribe.io/wp-content/uploads/2015/11/eu-dev-fund.png" />
+                <?php } ?>
+            </div>
+
+            <div class="footer__copyright">© <?php echo $year; ?> ascribe GmbH</div>
+
             <?php wp_nav_menu( array( 'theme_location' => 'lower-footer-menu', 'container' => false ) ); ?>
-            <ul class="social">
+
+            <ul class="footer__social">
                 <?php echo $facebook; ?>
                 <?php echo $github; ?>
                 <?php echo $instagram; ?>
@@ -187,9 +216,13 @@ if ($twitter) {
                 <?php echo $tumblr; ?>
                 <?php echo $twitter; ?>
             </ul>
+
         </div>
     </section>
+
 </footer>
+
+
 </div>
 <?php wp_footer(); ?>
 </body>

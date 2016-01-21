@@ -67,16 +67,14 @@ var PROXY         = 'http://localhost:8888'
 // Styles
 //
 gulp.task('css', function() {
-    return gulp.src(SRC + 'assets/less/ascribe.less')
-        .pipe($.sourcemaps.init())
+    return gulp.src(SRC + 'assets/_src/less/ascribe.less')
         .pipe($.less()).on('error', onError)
         .pipe($.autoprefixer({ browsers: COMPATIBILITY }))
         .pipe($.cssmin())
-        .pipe($.sourcemaps.write())
         .pipe($.header(BANNER, { pkg: pkg }))
-        .pipe(gulp.dest(DIST + 'assets/css/'))
+        .pipe(gulp.dest(DIST + 'assets/dist/css/'))
         .pipe($.rename({ suffix: '.min' }))
-        .pipe(gulp.dest(DIST + 'assets/css/'))
+        .pipe(gulp.dest(DIST + 'assets/dist/css/'))
         .pipe(browser.stream());
 });
 
@@ -85,15 +83,13 @@ gulp.task('css', function() {
 // JavaScript
 //
 gulp.task('js', function() {
-    return gulp.src(SRC + 'assets/js/src/ascribe.js')
-    .pipe($.sourcemaps.init())
+    return gulp.src(SRC + 'assets/_src/js/ascribe.js')
     .pipe($.include())
     .pipe($.uglify()).on('error', onError)
-    .pipe($.sourcemaps.write())
     .pipe($.header(BANNER, { pkg: pkg }))
-    .pipe(gulp.dest(DIST + 'assets/js/'))
+    .pipe(gulp.dest(DIST + 'assets/dist/js/'))
     .pipe($.rename({suffix: '.min'}))
-    .pipe(gulp.dest(DIST + 'assets/js/'));
+    .pipe(gulp.dest(DIST + 'assets/dist/js/'));
 });
 
 
@@ -104,9 +100,9 @@ gulp.task('serve', function() {
     browser.init({
         proxy: PROXY
     });
-    gulp.watch([SRC + 'assets/less/**/*'], ['css']);
-    gulp.watch([SRC + 'assets/js/src/**/*'], ['js']);
-    gulp.watch(SRC + '**/*').on('change', browser.reload);
+    gulp.watch([SRC + 'assets/_src/less/**/*'], ['css']);
+    gulp.watch([SRC + 'assets/_src/js/**/*'], ['js']);
+    gulp.watch(SRC + '**/*.{php,svg,png,jpg,gif}').on('change', browser.reload);
 });
 
 

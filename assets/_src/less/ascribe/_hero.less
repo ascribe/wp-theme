@@ -1,0 +1,159 @@
+
+.hero {
+    height: 815px;
+    padding:0;
+    padding-top: 30px;
+    margin-bottom: @spacer;
+    position: relative;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    overflow: visible;
+
+    .sticky {
+        padding: 15px 0;
+        width: 100%;
+        position: fixed;
+        background-color: fade(@black,0);
+        transition: .2s ease-out;
+
+        &.stuck {
+            background-color: fade(@black,100);
+            z-index:800;
+
+            ul {
+                &.active {
+                    background-color: @black;
+                    padding-bottom: 10px;
+                }
+            }
+        }
+    }
+    nav {
+        float: left;
+        margin-top: 9px;
+        .tourNavText;
+
+        ul {
+            &:extend(.list-unstyled all);
+            padding: 0 35px;
+            position: absolute;
+
+            &.active {
+                li {
+                    display: block;
+                    &.current-menu-item {
+                        a {
+                            &:after {
+                                transform: rotate(180deg);
+                            }
+                        }
+                    }
+                }
+            }
+
+            li {
+                display: none;
+                text-align: right;
+
+                &.current-menu-item {
+                    display: block;
+
+                    a {
+                        position: relative;
+                        font-size: 25px;
+
+                        &:before {
+                            content: 'for ';
+                            display: inline-block;
+                            margin-right: 6px;
+                        }
+                        &:after {
+                            content: '';
+                            background-image: url(../../img/arrow.png);
+                            background-repeat: no-repeat;
+                            width: 10px;
+                            height: 8px;
+                            display: inline-block;
+                            position: absolute;
+                            top: 10px;
+                            right: -25px;
+                            font-size: 15px;
+                        }
+                    }
+                }
+                a {
+                    width: 100%;
+                    font-size: 20px;
+                }
+            }
+
+
+        }
+    }
+    .description {
+        clear: both;
+        width: 80%;
+        margin: 190px auto 0;
+        text-align: center;
+    }
+    h1 {
+        .heroText;
+        margin-bottom: 160px;
+    }
+    .app-links {
+        color: @white;
+        margin-top: 10px;
+
+        a {
+            color: @white;
+
+            &:hover {
+                color: @pink;
+            }
+        }
+    }
+    .chevron-divider {
+        position: absolute;
+        bottom: -@spacer;
+        height: 150px;
+    }
+
+    @media screen and (max-width: @tabletWidth) {
+        height: 600px;
+
+        h1 {
+            margin-bottom: 80px;
+        }
+
+
+        .description {
+            margin: 160px auto 0;
+            font-size: 34px;
+            width: 100%;
+        }
+    }
+    @media screen and (max-width: @phoneWidth) {
+        padding-top: 10px;
+        .description {
+            margin: 90px auto 0;
+            font-size: 34px;
+            width: 100%;
+        }
+        h1 {
+            font-size:26px;
+            line-height: 33px;
+            margin-bottom:0;
+        }
+        .sticky {
+            position: absolute;
+
+            &.stuck {
+                background-color: fade(@black,0);
+            }
+        }
+        .app-links {
+            margin-top:5px;
+        }
+    }
+}

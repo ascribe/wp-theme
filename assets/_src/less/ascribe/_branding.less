@@ -1,0 +1,122 @@
+
+
+// FONTS
+.fontLight {
+    font-family: @font-family-base;
+    font-weight: @font-weight-light;
+}
+.fontRegular {
+    font-family: @font-family-base;
+    font-weight: @font-weight-normal;
+}
+
+// GENERAL TEXT STYLES
+.sectionHeader {
+    &:extend(.fontLight);
+    font-size: 34px;
+    color: @blueBright;
+    line-height: 1.2;
+    margin: 35px 0;
+    text-align: center;
+
+    @media screen and (max-width: @tabletWidth) {
+        font-size: 30px;
+    }
+}
+.subsectionHeader {
+    &:extend(.fontLight);
+    font-size: 31px;
+    color: @black;
+    line-height: 37px;
+    text-align: center;
+}
+
+// SPECIALIZED TEXT STYLES
+.heroText {
+    &:extend(.fontLight);
+    font-size: 37px;
+    color: @white;
+    line-height: 44px;
+}
+.tourNavText {
+    &:extend(.fontLight);
+    font-size: 25px;
+    line-height: 30px;
+    color: @blueBright;
+
+}
+.signInUpText {
+    &:extend(.fontLight);
+    font-size: 17px;
+    line-height: 20px;
+    color: @white;
+    text-transform: uppercase;
+}
+.caseStudyText {
+    &:extend(.fontRegular);
+    font-size: 23px;
+    color: @white;
+    line-height: 28px;
+}
+.oldWayNewWayTH {
+    &:extend(.fontLight);
+    font-size: 24px;
+    color: @pink;
+    line-height: 29px;
+}
+
+.galleriesPressTitle {
+    &:extend(.fontLight);
+    font-size: 30px;
+    color: @black;
+    line-height: 36px;
+    margin-bottom: 50px;
+}
+.featureBlogDesc {
+    &:extend(.fontLight);
+    font-size: 13px;
+    color: @blueBright;
+    line-height: 22.79px;
+}
+.featureBlogTitle {
+    &:extend(.fontLight);
+    font-size: 17px;
+    color: @greyText;
+    line-height: 22.79px;
+    text-transform: uppercase;
+}
+.teamName {
+    &:extend(.fontRegular);
+    color: @black;
+    font-size: 19px;
+}
+
+.chevron-divider {
+    background-image: url(../../../images/svg/ascribe-chevron.svg);
+    background-position: bottom;
+    width: 100%;
+    background-size: 100%;
+    height: 150px;
+
+    @media screen and (max-width: @tabletWidth) {
+        background-size: 120%;
+    }
+}
+
+.social-icon {
+    width: 21px;
+    height: 21px;
+    padding: 1px;
+    fill: @white;
+    background-color: @greySocial;
+    border-radius: 5px;
+
+    &:hover {
+        background-color: fade(@greySocial,40);
+    }
+}
+
+.blueGradient {
+    background-color: @blueBright;
+    background: linear-gradient(to bottom,  rgba(81,156,173,1) 0%,rgba(103,196,218,1) 100%); /* W3C */
+}
