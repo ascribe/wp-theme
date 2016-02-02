@@ -17,7 +17,9 @@ require 'controller/init.php';
             <div class="app-links">
                 <a href="<?php echo $signInLink; ?>">Log In</a> / <a href="<?php echo $signUpLink; ?>">Sign Up</a>
 
-                <img src="<?php echo WPTHEME_TEMPLATE_URL; ?>/images/svg/hamburger.svg" class="phone-only hamburger">
+                <button class="hamburger phone-only">
+                    <span></span>
+                </button>
 
             </div>
             <nav class="tour-switcher"><?php wp_nav_menu( array(

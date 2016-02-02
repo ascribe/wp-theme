@@ -165,8 +165,6 @@
     margin-top: 35px;
     .signInUpText;
     color: @black;
-    position:relative;
-    z-index:3;
 
     a {
         .signInUpText;
@@ -177,18 +175,7 @@
         }
     }
 }
-.hamburger {
-    cursor:pointer;
-    width: 25px;
-    margin-left: 15px;
-    position: relative;
-    top: 2px;
-    z-index:50;
 
-    @media screen and (max-width: @phoneWidth) {
-        display: inline-block;
-    }
-}
 .mobile-nav {
     display: none;
     background-color: black;
@@ -226,8 +213,9 @@
 
     @media screen and (max-width: @phoneWidth) {
         display:none;
+
         &.active {
-            display:block;
+            display: block;
         }
     }
 }
