@@ -75,7 +75,28 @@ function stickyNav() {
 
 
 function mobileNav() {
-    $('.hamburger').click(function() {
-         $('.mobile-nav').toggleClass('active');
+    $('.hamburger').click(function(e) {
+        e.preventDefault();
+
+        var popup = $('.mobile-nav');
+
+        // toggle popup
+        popup.toggleClass('active');
+
+        // bind the hide controls
+        $(document).bind('click.hidepopup', function() {
+            // hide popup
+            popup.removeClass('active');
+            // unbind the hide controls
+            $(document).unbind('click.hidepopup');
+        });
+
+        // dont close thepop when you click on thepop
+        popup.on('click', function(e) {
+            e.stopPropagation();
+        });
+
+        // and dont close thepop now
+        e.stopPropagation();
     });
 }
