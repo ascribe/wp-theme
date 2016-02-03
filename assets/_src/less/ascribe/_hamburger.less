@@ -1,0 +1,69 @@
+//
+// Ascribe
+// -----------------
+// Omnomnom, CSS only hamburger
+//
+
+.hamburger {
+    cursor: pointer;
+    margin: 0 5px;
+    position: relative;
+    z-index: 50;
+    width: 25px;
+    height: 25px;
+    vertical-align: bottom;
+
+    // button reset
+    background: none;
+    box-shadow: none;
+    border: none;
+
+    span {
+        &,
+        &:before,
+        &:after {
+            border-radius: 9px;
+            height: 4px;
+            width: 100%;
+            background: @blueBright;
+            position: absolute;
+            display: block;
+            content: '';
+            transition: .3s ease-out;
+        }
+
+        &:before {
+            top: -8px;
+        }
+
+        &:after {
+            bottom: -8px;
+        }
+
+    }
+
+    // open state
+    &.open {
+        span {
+            background: transparent;
+
+            &:before,
+            &:after {
+                top: 0;
+            }
+
+            &:before {
+                transform: rotate(45deg);
+            }
+
+            &:after {
+                transform: rotate(-45deg);
+            }
+        }
+
+    }
+
+    @media screen and (max-width: @phoneWidth) {
+        display: inline-block;
+    }
+}
