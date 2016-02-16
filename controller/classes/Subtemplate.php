@@ -718,16 +718,19 @@ class Subtemplate {
             'order'     => 'ASC'
         );
 
-        $careers = get_posts($args);
+        $careers      = get_posts($args);
         $careerMarkup = '';
+
         if (!empty($careers)) {
             foreach ($careers as $career) {
-                $id     = $career->ID;
-                $name   = $career->post_title;
-                $url    = get_permalink($id);
+                $id   = $career->ID;
+                $name = $career->post_title;
+                $url  = get_permalink($id);
 
                 $careerMarkup .= "<li class='career'><a href='{$url}'>{$name}</a></li>";
             }
+        } else {
+            $careerMarkup .= get_sub_field('empty_text');
         }
 
         $result = "<section class='subtemplate careers'>
