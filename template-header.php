@@ -12,8 +12,19 @@ require 'controller/init.php';
 <header class="header">
     <div class="sticky">
         <div class="row">
-            <a href="<?php echo get_bloginfo('wpurl');?>"><img src="<?php echo WPTHEME_TEMPLATE_URL; ?>/images/logo/logo-black.png" class="logo phone-and-up"></a>
-            <a href="<?php echo get_bloginfo('wpurl');?>"><img src="<?php echo WPTHEME_TEMPLATE_URL; ?>/images/logo/ascribeicon-black.svg" class="logo phone-only"></a>
+            <a href="<?php echo get_bloginfo('wpurl');?>">
+                <img
+                    src="<?php echo WPTHEME_TEMPLATE_URL; ?>/images/logo/logo-black.png"
+                    srcset="<?php echo WPTHEME_TEMPLATE_URL; ?>/images/logo/logo-black.png 1x, <?php echo WPTHEME_TEMPLATE_URL; ?>/images/logo/logo-black@2x.png 2x"  
+                    alt="ascribe logo"
+                    class="logo phone-and-up">
+            </a>
+            <a href="<?php echo get_bloginfo('wpurl');?>">
+                <img
+                    src="<?php echo WPTHEME_TEMPLATE_URL; ?>/images/logo/ascribeicon-black.svg"
+                    alt="ascribe logo"
+                    class="logo phone-only">
+            </a>
             <div class="app-links">
                 <a href="<?php echo $signInLink; ?>">Log In</a> / <a href="<?php echo $signUpLink; ?>">Sign Up</a>
 
