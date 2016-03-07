@@ -1216,11 +1216,13 @@ class Subtemplate {
             }
         }
 
-        $result = "<section class='subtemplate row'>
-                        <h1 class='subtemplate__title'>{$subtemplateTitle}</h1>
-                        <article class='testimonials grid grid--full grid-medium--fit grid--gutters'>
-                            {$testimonialMarkup}
-                        </article>
+        $result = "<section class='subtemplate testimonials'>
+                        <div class='row'>
+                            <h1 class='subtemplate__title'>{$subtemplateTitle}</h1>
+                            <article class='grid grid--full grid-medium--fit grid--gutters'>
+                                {$testimonialMarkup}
+                            </article>
+                        </div>
                     </section>";
 
         return $result;
