@@ -1183,17 +1183,10 @@ class Subtemplate {
     //
     public function testimonials($subtemplateTitle) {
 
-        $args = array(
-            'post_type'      => 'testimonial',
-            'order'          => 'ASC',
-            'orderby'        => 'rand',
-            'posts_per_page' => 3
-        );
-
-        $testimonials = get_posts($args);
+        $testimonials = get_sub_field('testimonials');
         $testimonialMarkup = '';
 
-        if (!empty($testimonials)) {
+        if ( $testimonials ) {
             foreach ($testimonials as $testimonial) {
 
                 $id      = $testimonial->ID;
