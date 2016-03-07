@@ -29,6 +29,7 @@ require_once WPTHEME_INC . 'cpt-team.php';
 require_once WPTHEME_INC . 'cpt-career.php';
 require_once WPTHEME_INC . 'cpt-presscoverage.php';
 require_once WPTHEME_INC . 'cpt-event.php';
+require_once WPTHEME_INC . 'cpt-testimonial.php';
 
 // Run the setup functions
 TenUp\ascribe\Core\setup();
