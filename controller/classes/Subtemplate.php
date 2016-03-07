@@ -1184,8 +1184,10 @@ class Subtemplate {
     public function testimonials($subtemplateTitle) {
 
         $args = array(
-            'post_type' => 'testimonial',
-            'order'     => 'ASC'
+            'post_type'      => 'testimonial',
+            'order'          => 'ASC',
+            'orderby'        => 'rand',
+            'posts_per_page' => 3
         );
 
         $testimonials = get_posts($args);
