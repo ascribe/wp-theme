@@ -6,6 +6,8 @@
 
     .row { background: none; }
 
+    .grid { margin-bottom: 0; }
+
     .grid__col {
         display: flex;
         flex-wrap: wrap;
@@ -15,6 +17,7 @@
 .testimonial {
     display: flex;
     flex-wrap: wrap;
+    background: #fff;
 }
 
 .testimonial__quote,
@@ -32,10 +35,9 @@
     font-style: normal;
 
     // styling
-    &:extend(.bold);
+    //&:extend(.bold);
     padding: (@spacer / 2);
     align-self: flex-start;
-    background: #fff;
 
     // quote characters
     // &:before {
@@ -51,9 +53,10 @@
     align-self: flex-end;
     display: flex;
     align-items: center;
-    border-top: 2px solid @greySocial;
+    border-top: 2px solid lighten(@greySocial, 10%);
     padding-top: (@spacer / 2);
     position: relative;
+    background: @greyBg;
 
     // speech triangle
     &:before {
@@ -66,7 +69,7 @@
         top: 0;
         border-width: .9em .9em 0 0;
         border-color: transparent;
-        border-top-color: @greySocial;
+        border-top-color: lighten(@greySocial, 10%);
     }
 }
 
@@ -74,9 +77,9 @@
     width: 4em;
     height: 4em;
     display: inline-block;
-    margin-right: @spacer;
+    margin-right: (@spacer / 2);
     border-radius: 50%;
-    border: 2px solid @greySocial;
+    border: 2px solid lighten(@greySocial, 20%);
 }
 
 .testimonial__cite {
