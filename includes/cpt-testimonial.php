@@ -35,6 +35,7 @@ function ascribe_register_cpt_testimonial() {
 		"hierarchical" => false,
 		"rewrite" => false,
 		"query_var" => true,
+        "menu_icon" => 'dashicons-format-quote'
 
 	);
 	register_post_type( "testimonial", $args );

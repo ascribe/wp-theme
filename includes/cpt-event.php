@@ -20,8 +20,8 @@ function ascribe_register_cpt_event() {
 		"hierarchical" => false,
 		"rewrite" => array( "slug" => "event", "with_front" => true ),
 		"query_var" => true,
-
 		"supports" => array( "title" ),
+        "menu_icon" => 'dashicons-calendar-alt'
 	);
 	register_post_type( "event", $args );
 }

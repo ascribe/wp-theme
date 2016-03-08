@@ -20,6 +20,7 @@ function ascribe_register_cpt_press() {
 		"hierarchical" => false,
 		"rewrite" => array( "slug" => "presscoverage", "with_front" => true ),
 		"query_var" => true,
+        "menu_icon" => 'dashicons-media-document'
 
 	);
 	register_post_type( "presscoverage", $args );

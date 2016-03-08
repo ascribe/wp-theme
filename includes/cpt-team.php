@@ -20,6 +20,7 @@ function ascribe_register_cpt_team() {
         "hierarchical" => false,
         "rewrite" => array( "slug" => "team", "with_front" => true ),
         "query_var" => true,
+        "menu_icon" => 'dashicons-nametag'
     );
     register_post_type( "team", $args );
 }

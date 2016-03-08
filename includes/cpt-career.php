@@ -20,6 +20,7 @@ function ascribe_register_cpt_career() {
 		"hierarchical" => false,
 		"rewrite" => array( "slug" => "career", "with_front" => true ),
 		"query_var" => true,
+        "menu_icon" => 'dashicons-businessman'
 
 	);
 	register_post_type( "career", $args );
