@@ -24,7 +24,12 @@ define( 'WPTHEME_PATH',         get_template_directory() . '/' );
 define( 'WPTHEME_INC',          WPTHEME_PATH . 'includes/' );
 
 // Include compartmentalized functions
-require_once WPTHEME_INC . 'functions/core.php';
+require_once WPTHEME_INC . 'core.php';
+require_once WPTHEME_INC . 'cpt-team.php';
+require_once WPTHEME_INC . 'cpt-career.php';
+require_once WPTHEME_INC . 'cpt-presscoverage.php';
+require_once WPTHEME_INC . 'cpt-event.php';
+require_once WPTHEME_INC . 'cpt-testimonial.php';
 
 // Run the setup functions
 TenUp\ascribe\Core\setup();

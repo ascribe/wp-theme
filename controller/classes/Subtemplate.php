@@ -104,6 +104,9 @@ class Subtemplate {
                     case 'events':
                         $result .= $this->eventPage($subtemplateTitle);
                         break;
+                    case 'testimonials':
+                        $result .= $this->testimonials($subtemplateTitle);
+                        break;
                 }
             }
         }
@@ -1171,6 +1174,53 @@ class Subtemplate {
                     </ul>
                     <h1><a href='{$url}/events/?date=all'>Show All</a></h1>
                     </aside>";
+
+        return $result;
+    }
+
+    //
+    // Subtemplate: Testimonials
+    //
+    public function testimonials($subtemplateTitle) {
+
+        $testimonials = get_sub_field('testimonials');
+        $testimonialMarkup = '';
+
+        if ( $testimonials ) {
+            foreach ($testimonials as $testimonial) {
+
+                $id           = $testimonial->ID;
+                $quote        = get_field('quote', $id);
+                $name         = get_field('name', $id);
+                $company      = get_field('company', $id);
+                $link         = get_field('link', $id);
+                $photo_object = get_field('photo', $id);
+                $photo_size   = 'thumbnail';
+                $photo_url    = $photo_object['sizes'][$photo_size];
+
+                $testimonialMarkup .= "<div class='grid__col'>
+                                        <figure class='testimonial'>
+                                            <blockquote class='testimonial__quote'>{$quote}</blockquote>
+                                            <figcaption class='testimonial__caption'>
+                                                <img class='testimonial__avatar' src='{$photo_url}'>
+                                                <cite class='testimonial__cite'>
+                                                    <span class='testimonial__name'>{$name}</span>
+                                                    <span class='testimonial__org'><a href='{$link}'>{$company}</a></span>
+                                                </cite>
+                                            </figcaption>
+                                        </figure>
+                                    </div>";
+            }
+        }
+
+        $result = "<section class='subtemplate testimonials'>
+                        <div class='row'>
+                            <h1 class='subtemplate__title'>{$subtemplateTitle}</h1>
+                            <article class='grid grid--full grid-medium--fit grid--gutters'>
+                                {$testimonialMarkup}
+                            </article>
+                        </div>
+                    </section>";
 
         return $result;
     }
