@@ -111,3 +111,26 @@
         }
     }
 }
+
+
+//
+// Featured Blog Posts
+//
+.subtemplate--featured {
+    @media (@screen-sm) {
+        .grid__col { flex: 33%; }
+    }
+}
+
+.subtemplate--featured--more {
+    &:extend(.text-center);
+    margin-bottom: 0;
+}
+
+.featured {
+
+}
+
+.featured__title {
+    &:extend(.h4);
+}
