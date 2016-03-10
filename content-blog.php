@@ -37,8 +37,12 @@ $avatar = get_avatar( get_the_author_meta('ID'), 96 );
         if ( has_post_thumbnail() ) { // check if the post has a Post Thumbnail assigned to it.
 
             $thumb = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'blog-crop');
-            echo "<img src='{$thumb[0]}' alt='{$title} image'>";
 
+            if ( is_singular() ) {
+                echo "<img src='{$thumb[0]}' alt='{$title} image'>";
+            } else {
+                echo "<a href='{$url}'><img src='{$thumb[0]}' alt='{$title} image'></a>";
+            }
         }
         ?>
     </div>

@@ -27,7 +27,13 @@ require 'controller/init.php';
         </div>
     </div>
     <div class="chevron-divider"></div>
-    <h1><a href="/blog">ascribe blog</a></h1>
+
+    <?php
+        $blogPage       = get_page_by_title('Blog');
+        $blogUrl        = get_permalink($blogPage->ID);
+    ?>
+
+    <h1><a href="<?php echo $blogUrl; ?>">ascribe blog</a></h1>
 </header>
 <nav class="blog-categories">
     <div class="row">
