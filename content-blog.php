@@ -1,5 +1,5 @@
 <?php
-global $post;
+global $post, $post_id;
 
 $title = get_the_title();
 
@@ -43,7 +43,7 @@ $url = get_the_permalink();
     </div>
 
     <div class="entry-meta">
-        <?php echo get_avatar( get_the_author_email(), 'size here' ); ?>
+        <?php echo get_avatar( get_the_author_meta('email'), 48 ); ?>
         <span class="author">by <?php echo $full_name; ?></span>
         on <date><?php the_time( get_option( 'date_format' ) ); ?></date>
     </div>
