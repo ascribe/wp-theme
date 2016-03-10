@@ -361,7 +361,7 @@ class Subtemplate {
                 $postTitle      = $feature->post_title;
                 $url            = get_permalink($feature->ID);
                 $content        = substr($feature->post_content, 0, 144) . '...';
-                $date           = date('F Y',$feature->post_date);
+                $date           = date('F Y', strtotime($feature->post_date));
                 $image          = wp_get_attachment_image_src(get_post_thumbnail_id($feature->ID),'blog-feature-crop')[0];
 
                 if ($page == "home") {
