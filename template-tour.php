@@ -32,7 +32,8 @@ $controller     = new Controller();
             </a>
 
             <div class="app-links">
-                <a href="<?php echo $signInLink; ?>">Log In</a> / <a href="<?php echo $signUpLink; ?>">Sign Up</a>
+                <nav class="app-links--default"><a href="<?php echo $signInLink; ?>">Log In</a> / <a href="<?php echo $signUpLink; ?>">Sign Up</a></nav>
+                <nav class="app-links--active hide"><a href="/app">Web App</a></nav>
 
                 <button class="hamburger phone-only">
                     <span></span>

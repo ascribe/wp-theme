@@ -14,7 +14,9 @@ require 'controller/init.php';
         <a href="<?php echo get_bloginfo('wpurl');?>"><img src="<?php echo WPTHEME_TEMPLATE_URL; ?>/images/logo/logo-white.png" class="logo phone-and-up"></a>
         <a href="<?php echo get_bloginfo('wpurl');?>"><img src="<?php echo WPTHEME_TEMPLATE_URL; ?>/images/logo/ascribeicon-white.svg" class="logo phone-only"></a>
         <div class="app-links">
-            <a href="<?php echo $signInLink; ?>">Log In</a> / <a href="<?php echo $signUpLink; ?>">Sign Up</a>
+            <nav class="app-links--default"><a href="<?php echo $signInLink; ?>">Log In</a> / <a href="<?php echo $signUpLink; ?>">Sign Up</a></nav>
+            <nav class="app-links--active hide"><a href="/app">Web App</a></nav>
+            
             <img src="<?php echo WPTHEME_TEMPLATE_URL; ?>/images/svg/hamburger.svg" class="phone-only hamburger">
         </div>
         <nav class="tour-switcher"><?php wp_nav_menu( array(

@@ -1,5 +1,9 @@
 
+//=include _sessionstate.js
+
 $(document).ready(function(){
+
+    SessionState.init();
 
     slider();
     featuredFAQ();
