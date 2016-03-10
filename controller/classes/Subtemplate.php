@@ -383,7 +383,7 @@ class Subtemplate {
             }
         } else {
 
-            $latestPosts = wp_get_recent_posts(array( 'numberposts' => '3' ));
+            $latestPosts = wp_get_recent_posts(array( 'numberposts' => '3', 'post_status' => 'publish', ));
 
             foreach( $latestPosts as $latest ) {
                 $postTitle = $latest['post_title'];
