@@ -356,21 +356,41 @@ class Subtemplate {
     //
     public function blogFeatures() {
 
-        $blogFeatures = '';
+        $blogFeatures     = '';
         $subtemplateTitle = get_sub_field('section_title');
+        $blogPage         = get_page_by_title('Blog');
+        $blogUrl          = get_permalink($blogPage->ID);
 
-        if (have_rows('blog_features','option')) {
-            while (have_rows('blog_features','option')) {
+        if (have_rows('blog_features', 'option')) {
+            while (have_rows('blog_features', 'option')) {
                 the_row();
+                $feature   = get_sub_field('post');
+                $postTitle = $feature->post_title;
+                $url       = get_permalink($feature->ID);
+                $content   = substr($feature->post_content, 0, 144) . '...';
+                $date      = date('F Y', strtotime($feature->post_date));
+                $image     = wp_get_attachment_image_src(get_post_thumbnail_id($feature->ID),'blog-feature-crop')[0];
 
-                $feature        = get_sub_field('post');
-                $postTitle      = $feature->post_title;
-                $url            = get_permalink($feature->ID);
-                $content        = substr($feature->post_content, 0, 144) . '...';
-                $date           = date('F Y', strtotime($feature->post_date));
-                $image          = wp_get_attachment_image_src(get_post_thumbnail_id($feature->ID),'blog-feature-crop')[0];
-                $blogPage       = get_page_by_title('Blog');
-                $blogUrl        = get_permalink($blogPage->ID);
+                $blogFeatures .= "<div class='grid__col'>
+                                    <a href='{$url}'>
+                                        <article class='featured'>
+                                            <img class='featured__image' src='{$image}' alt='{$postTitle} Image'>
+                                            <h1 class='featured__title'>{$postTitle}</h1>
+                                        </article>
+                                    </a>
+                                </div>";
+
+            }
+        } else {
+
+            $latestPosts = wp_get_recent_posts(array( 'numberposts' => '3' ));
+
+            foreach( $latestPosts as $latest ) {
+                $postTitle = $latest['post_title'];
+                $url       = get_permalink($latest['ID']);
+                $content   = substr($latest['post_content'], 0, 144) . '...';
+                $date      = date('F Y', strtotime($latest['post_date']));
+                $image     = wp_get_attachment_image_src(get_post_thumbnail_id($latest['ID']),'blog-feature-crop')[0];
 
                 $blogFeatures .= "<div class='grid__col'>
                                     <a href='{$url}'>
