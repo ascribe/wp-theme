@@ -1,5 +1,5 @@
 <?php
-global $post, $post_id;
+global $post;
 
 $title = get_the_title();
 
@@ -20,11 +20,12 @@ if (strlen($full_name) <= 0) {
     $full_name = 'ascribe';
 }
 
-$url = get_the_permalink();
+$url    = get_the_permalink();
+$avatar = get_avatar( get_the_author_meta('ID'), 96 );
 
 ?>
 
-<article <?php post_class( '', $post_id ); ?>>
+<article <?php post_class( '', $post->ID ); ?>>
 
     <header>
         <?php echo get_the_category_list(); ?>
@@ -43,7 +44,7 @@ $url = get_the_permalink();
     </div>
 
     <div class="entry-meta">
-        <?php echo get_avatar( get_the_author_meta('email'), 48 ); ?>
+        <?php echo $avatar; ?>
         <span class="author">by <?php echo $full_name; ?></span>
         on <date><?php the_time( get_option( 'date_format' ) ); ?></date>
     </div>
