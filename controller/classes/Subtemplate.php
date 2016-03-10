@@ -369,6 +369,8 @@ class Subtemplate {
                 $content        = substr($feature->post_content, 0, 144) . '...';
                 $date           = date('F Y', strtotime($feature->post_date));
                 $image          = wp_get_attachment_image_src(get_post_thumbnail_id($feature->ID),'blog-feature-crop')[0];
+                $blogPage       = get_page_by_title('Blog');
+                $blogUrl        = get_permalink($blogPage->ID);
 
                 $blogFeatures .= "<div class='grid__col'>
                                     <a href='{$url}'>
@@ -383,10 +385,10 @@ class Subtemplate {
 
         $result = "<section class='subtemplate row subtemplate--featured'>
                         <h1 class='subtemplate__title'>{$subtemplateTitle}</h1>
-                        <div class='grid grid--gutters grid--full grid-small--fit'>
+                        <div class='grid grid--gutters grid--half grid-small--fit'>
                             {$blogFeatures}
                         </div>
-                        <p class='subtemplate--featured--more'><a class='button small white-blue' href=''>Go to Blog</a></p>
+                        <p class='subtemplate--featured--more'><a class='button small white-blue' href='{$blogUrl}'>Go to Blog</a></p>
                 </section>";
 
         return $result;
