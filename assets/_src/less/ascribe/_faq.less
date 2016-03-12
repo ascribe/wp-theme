@@ -1,60 +1,47 @@
 
 .subtemplate--faq {
-
+    padding-top: @spacer;
+    padding-bottom: @spacer;
 }
 
 .faq {
-    // reset default dl,dt,dd styles
-    &,
-    .faq__answer {
-        margin: 0;
-        padding: 0;
-    }
-
+    margin-left: 20px;
 }
 
 .faq__title { margin-top: 0; }
 
 .faq__question {
-    &:extend(.h4);
+    &:extend(.bold);
     display: block;
+    margin-top: 0;
     margin-bottom: (@spacer / 2);
+    cursor: pointer;
+
+    .caret {
+        margin-left: -20px;
+        margin-right: 10px;
+    }
+
+    &.open .caret {
+        transform: rotate(90deg);
+    }
 }
 
 .faq__answer {
-    &:not(:last-child) {
-        margin-bottom: @spacer;
+    display: none;
+    margin-bottom: @spacer;
+    margin-left: 0;
+
+    &.open {
+        display: block;
+        max-height: 800px;
     }
 }
 
-.faq--featured {
-    margin-left: 20px;
 
+.faq--featured {
     .faq__question {
         color: @pink;
-        cursor: pointer;
-
-        .caret {
-            margin-left: -20px;
-            margin-right: 10px;
-        }
-
-        &.open .caret {
-            transform: rotate(90deg);
-        }
-    }
-
-    .faq__answer {
-        transition: .2s ease-out;
-        height: 0;
-        opacity: 0;
-        margin-bottom: @spacer;
-
-        &.open {
-            height: 100%;
-            opacity: 1;
-            max-height: 800px;
-        }
     }
 }
 

@@ -667,7 +667,7 @@ class Subtemplate {
                 $question     = get_sub_field('question');
                 $answer       = get_sub_field('answer');
 
-                $featuredFAQ .= "<dt class='faq__question'><i class='caret'></i>{$question}</dt>
+                $featuredFAQ .= "<dt class='faq__question'><i class='caret'></i> {$question}</dt>
                                 <dd class='faq__answer'>{$answer}</dd>";
             }
 
@@ -684,7 +684,7 @@ class Subtemplate {
                 $question    = get_sub_field('question');
                 $answer      = get_sub_field('answer');
 
-                $regularFAQ .= "<dt class='faq__question'>{$question}</dt>
+                $regularFAQ .= "<dt class='faq__question'><i class='caret'></i> {$question}</dt>
                                 <dd class='faq__answer'>{$answer}</dd>";
             }
 

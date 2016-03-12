@@ -2,7 +2,7 @@
 $(document).ready(function(){
 
     slider();
-    featuredFAQ();
+    faqToggle();
     marketplaces();
     tourNav();
     mobileNav();
@@ -40,8 +40,8 @@ $(document).ready(function(){
         });
     }
 
-    function featuredFAQ() {
-        $('.faq--featured .faq__question').click(function() {
+    function faqToggle() {
+        $('.faq__question').click(function() {
             $(this).toggleClass('open');
             $(this).next('.faq__answer').toggleClass('open');
         });
