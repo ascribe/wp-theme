@@ -59,8 +59,16 @@
 
         var container = $(opts.container);
         var headings = $(opts.selectors, container);
-        var headingOffsets = [];
         var activeClassName = opts.activeClass;
+
+        var headingOffsets = function() {
+            var offsets = [];
+            headings.each(function(i, heading) {
+                var $h = $(heading);
+                offsets.push($h.offset().top - opts.highlightOffset);
+            });
+            return offsets;
+        };
 
         var scrollTo = function(e, callback) {
             if (opts.smoothScrolling && typeof opts.smoothScrolling === 'function') {
@@ -82,10 +90,11 @@
             timeout = setTimeout(function() {
                 var top = $(window).scrollTop(),
                     highlighted, closest = Number.MAX_VALUE,
-                    index = 0;
+                    index = 0
+                    offsets = headingOffsets();
 
-                for (var i = 0, c = headingOffsets.length; i < c; i++) {
-                    var currentClosest = Math.abs(headingOffsets[i] - top);
+                for (var i = 0, c = offsets.length; i < c; i++) {
+                    var currentClosest = Math.abs(offsets[i] - top);
                     if (currentClosest < closest) {
                         index = i;
                         closest = currentClosest;
@@ -109,7 +118,6 @@
 
             headings.each(function(i, heading) {
                 var $h = $(heading);
-                headingOffsets.push($h.offset().top - opts.highlightOffset);
 
                 var anchorName = opts.anchorName(i, heading, opts.prefix);
 
