@@ -664,43 +664,63 @@ class Subtemplate {
 
         return $result;
     }
+
+
+    //
+    // Subtemplate: FAQs
+    //
     public function faq($subtemplateTitle) {
-        $featuredFAQ = '<dl class="featured-faqs">';
+
+        $featuredFAQ = '';
+        $regularFAQ  = '';
+
         if (have_rows('featured_faqs')) {
+
+            $featuredFAQ = '<dl class="faq faq--featured">';
+
             while (have_rows('featured_faqs')) {
                 the_row();
 
-                $question          = get_sub_field('question');
-                $answer          = get_sub_field('answer');
+                $question     = get_sub_field('question');
+                $answer       = get_sub_field('answer');
 
-                $featuredFAQ .= "<dt>{$question}</dt>
-                                <dd>{$answer}</dd>";
+                $featuredFAQ .= "<dt class='faq__question'><i class='caret'></i> {$question}</dt>
+                                <dd class='faq__answer'>{$answer}</dd>";
             }
-        }
-        $featuredFAQ .= "</dl>";
 
-        $regularFAQ = '<dl class="regular-faqs">';
+            $featuredFAQ .= "</dl>";
+        }
+
         if (have_rows('regular_faqs')) {
+
+            $regularFAQ = '<dl class="faq faq--regular">';
+
             while (have_rows('regular_faqs')) {
                 the_row();
 
-                $question          = get_sub_field('question');
-                $answer          = get_sub_field('answer');
+                $question    = get_sub_field('question');
+                $answer      = get_sub_field('answer');
 
-                $regularFAQ .= "<dt>Q: {$question}</dt>
-                                <dd>A: {$answer}</dd>";
+                $regularFAQ .= "<dt class='faq__question'><i class='caret'></i> {$question}</dt>
+                                <dd class='faq__answer'>{$answer}</dd>";
             }
-        }
-        $regularFAQ .= "</dl>";
 
-        $result = "<section class='subtemplate row row--content content faq'>
-                        <h1>{$subtemplateTitle}</h1>
+            $regularFAQ .= "</dl>";
+        }
+
+        // create ID for section jumps from lowercased & sanitized title
+        $subtemplateTitleID = strtolower(sanitize_html_class($subtemplateTitle));
+
+        $result = "<section class='section-faq'>
+                        <h1 class='faq__title' id='{$subtemplateTitleID}'>{$subtemplateTitle}</h1>
                         {$featuredFAQ}
                         {$regularFAQ}
                     </section>";
 
         return $result;
     }
+
+
     public function values($subtemplateTitle) {
         $values = '';
         if (have_rows('ascribe_values')) {
@@ -724,6 +744,8 @@ class Subtemplate {
 
         return $result;
     }
+
+
     public function careers($subtemplateTitle) {
         $args           = array(
             'post_type' => 'career',
@@ -752,6 +774,8 @@ class Subtemplate {
 
         return $result;
     }
+
+
     public function mediaDetail($subtemplateTitle) {
         $image = get_sub_field('image')['url'];
 

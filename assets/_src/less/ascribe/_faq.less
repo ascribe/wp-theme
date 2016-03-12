@@ -1,0 +1,156 @@
+
+.section-faq {
+    padding-top: @spacer;
+    padding-bottom: @spacer;
+}
+
+.faq {
+    margin-left: 20px;
+}
+
+
+//
+// FAQ Section Title
+//
+.faq__title {
+    &:extend(.h2);
+    margin-top: 0;
+}
+
+
+//
+// FAQ Question
+//
+.faq__question {
+    &:extend(.bold);
+    display: block;
+    margin-top: 0;
+    margin-bottom: (@spacer / 2);
+    cursor: pointer;
+
+    .caret {
+        margin-left: -20px;
+        margin-right: 10px;
+    }
+
+    &.open .caret {
+        transform: rotate(90deg);
+    }
+}
+
+
+//
+// FAQ Answer
+//
+.faq__answer {
+    transition: .2s ease-out;
+    transform-origin: top;
+    height: 0;
+    overflow: hidden;
+    margin-left: 0;
+
+    &.open {
+        animation: openQuestion .15s ease-out forwards;
+    }
+}
+
+@keyframes openQuestion {
+    0% {
+        transform: scaleY(0);
+        opacity: 0;
+    }
+    100% {
+        transform: scaleY(1);
+        opacity: 1;
+        height: 100%;
+    }
+}
+
+
+//
+// Featured FAQ modifier
+//
+.faq--featured {
+    .faq__question {
+        color: @pink;
+    }
+}
+
+.caret {
+    display: inline-block;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 5px 0 5px 6px;
+    border-color: transparent transparent transparent @greySocial;
+    transition: .15s ease-out;
+}
+
+.grid__col--toc {
+    position: relative;
+
+    @media (@screen-sm) {
+        flex: 0 0 33% !important;
+    }
+}
+
+
+//
+// Table of Contents
+//
+#toc {
+    margin-top: @spacer;
+
+    &.affix {
+        top: 0;
+        padding-top: @spacer;
+    }
+
+    ul {
+        &:extend(.list-unstyled all);
+
+        li,
+        a {
+            line-height: @line-height-base;
+        }
+
+        li {
+            display: inline-block;
+
+            @media (@screen-sm) {
+                display: block;
+            }
+        }
+
+        a {
+            &:extend(.h4);
+            color: @link-color;
+            display: block;
+            margin: 0;
+            padding: 8px 12px;
+
+            @media (@screen-sm) {
+                padding: 6px 0;
+            }
+
+            &:active,
+            &:focus {
+                outline: 0;
+            }
+        }
+
+        a:hover,
+        a:focus,
+        .toc-active a {
+            color: @link-hover-color;
+        }
+    }
+}
+
+
+//
+// Affix.js helpers
+//
+.affix {
+    position: fixed !important;
+}
