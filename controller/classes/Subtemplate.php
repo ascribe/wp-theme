@@ -691,8 +691,11 @@ class Subtemplate {
             $regularFAQ .= "</dl>";
         }
 
-        $result = "<section class='subtemplate row row--content content subtemplate--faq'>
-                        <h1 class='faq__title'>{$subtemplateTitle}</h1>
+        // create ID for section jumps from lowercased & sanitized title
+        $subtemplateTitleID = strtolower(sanitize_html_class($subtemplateTitle));
+
+        $result = "<section class='section-faq'>
+                        <h1 class='faq__title' id='{$subtemplateTitleID}'>{$subtemplateTitle}</h1>
                         {$featuredFAQ}
                         {$regularFAQ}
                     </section>";

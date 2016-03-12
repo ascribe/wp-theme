@@ -1,8 +1,11 @@
 
+//=include _faq.js
+
 $(document).ready(function(){
 
+    Faq.init();
+
     slider();
-    faqToggle();
     marketplaces();
     tourNav();
     mobileNav();
@@ -37,13 +40,6 @@ $(document).ready(function(){
                 displayed.appendTo('.slide-container');
             }
 
-        });
-    }
-
-    function faqToggle() {
-        $('.faq__question').click(function() {
-            $(this).toggleClass('open');
-            $(this).next('.faq__answer').toggleClass('open');
         });
     }
 
