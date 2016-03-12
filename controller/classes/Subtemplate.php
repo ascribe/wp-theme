@@ -647,9 +647,17 @@ class Subtemplate {
 
         return $result;
     }
+
+
+    //
+    // Subtemplate: FAQs
+    //
     public function faq($subtemplateTitle) {
-        $featuredFAQ = '<dl class="featured-faqs">';
+
         if (have_rows('featured_faqs')) {
+
+            $featuredFAQ = '<dl class="featured-faqs">';
+
             while (have_rows('featured_faqs')) {
                 the_row();
 
@@ -659,11 +667,14 @@ class Subtemplate {
                 $featuredFAQ .= "<dt>{$question}</dt>
                                 <dd>{$answer}</dd>";
             }
-        }
-        $featuredFAQ .= "</dl>";
 
-        $regularFAQ = '<dl class="regular-faqs">';
+            $featuredFAQ .= "</dl>";
+        }
+
         if (have_rows('regular_faqs')) {
+
+            $regularFAQ = '<dl class="regular-faqs">';
+
             while (have_rows('regular_faqs')) {
                 the_row();
 
@@ -673,8 +684,9 @@ class Subtemplate {
                 $regularFAQ .= "<dt>Q: {$question}</dt>
                                 <dd>A: {$answer}</dd>";
             }
+
+            $regularFAQ .= "</dl>";
         }
-        $regularFAQ .= "</dl>";
 
         $result = "<section class='subtemplate row row--content content faq'>
                         <h1>{$subtemplateTitle}</h1>
@@ -684,6 +696,8 @@ class Subtemplate {
 
         return $result;
     }
+
+
     public function values($subtemplateTitle) {
         $values = '';
         if (have_rows('ascribe_values')) {
@@ -707,6 +721,8 @@ class Subtemplate {
 
         return $result;
     }
+
+
     public function careers($subtemplateTitle) {
         $args           = array(
             'post_type' => 'career',
@@ -735,6 +751,8 @@ class Subtemplate {
 
         return $result;
     }
+
+
     public function mediaDetail($subtemplateTitle) {
         $image = get_sub_field('image')['url'];
 
