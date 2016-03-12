@@ -1,5 +1,5 @@
 
-//=include ../../../node_modules/toc/dist/toc.js
+//=include vendor/toc.js
 
 var Faq = (function(w, d, $) {
 
@@ -27,7 +27,6 @@ var Faq = (function(w, d, $) {
             _config.faqToc.toc({
                 'selectors': _config.faqTitle, // elements to use as headings
                 'container': 'body', // element to find all selectors in
-                'smoothScrolling': true, // enable or disable smooth scrolling on click
                 'highlightOffset': 200, // offset to trigger the next headline
             });
         },

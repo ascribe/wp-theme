@@ -103,9 +103,15 @@
             @media (@screen-sm) {
                 padding: 6px 0;
             }
+
+            &:active,
+            &:focus {
+                outline: 0;
+            }
         }
 
         a:hover,
+        a:focus,
         .toc-active a {
             color: @link-hover-color;
         }
