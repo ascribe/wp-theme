@@ -20,11 +20,12 @@ if (strlen($full_name) <= 0) {
     $full_name = 'ascribe';
 }
 
-$url = get_the_permalink();
+$url    = get_the_permalink();
+$avatar = get_avatar( get_the_author_meta('ID'), 96 );
 
 ?>
 
-<article <?php post_class( '', $post_id ); ?>>
+<article <?php post_class( '', $post->ID ); ?>>
 
     <header>
         <?php echo get_the_category_list(); ?>
@@ -36,14 +37,18 @@ $url = get_the_permalink();
         if ( has_post_thumbnail() ) { // check if the post has a Post Thumbnail assigned to it.
 
             $thumb = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'blog-crop');
-            echo "<img src='{$thumb[0]}' alt='{$title} image'>";
 
+            if ( is_singular() ) {
+                echo "<img src='{$thumb[0]}' alt='{$title} image'>";
+            } else {
+                echo "<a href='{$url}'><img src='{$thumb[0]}' alt='{$title} image'></a>";
+            }
         }
         ?>
     </div>
 
     <div class="entry-meta">
-        <?php echo get_avatar( get_the_author_email(), 'size here' ); ?>
+        <?php echo $avatar; ?>
         <span class="author">by <?php echo $full_name; ?></span>
         on <date><?php the_time( get_option( 'date_format' ) ); ?></date>
     </div>

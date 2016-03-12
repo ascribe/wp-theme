@@ -349,58 +349,75 @@ class Subtemplate {
 
         return $result;
     }
-    public function blogFeatures($page = "home") {
-        $blogFeatures = '';
-                $subtemplateTitle = get_sub_field('section_title');
-        if (have_rows('blog_features','option')) {
-            while (have_rows('blog_features','option')) {
+
+
+    //
+    // Subtemplate: Featured Blog Posts
+    //
+    public function blogFeatures() {
+
+        $blogFeatures     = '';
+        $subtemplateTitle = get_sub_field('section_title');
+        $blogPage         = get_page_by_title('Blog');
+        $blogUrl          = get_permalink($blogPage->ID);
+
+        if (have_rows('blog_features', 'option')) {
+            while (have_rows('blog_features', 'option')) {
                 the_row();
+                $feature   = get_sub_field('post');
+                $postTitle = $feature->post_title;
+                $url       = get_permalink($feature->ID);
+                $content   = substr($feature->post_content, 0, 144) . '...';
+                $date      = date('F Y', strtotime($feature->post_date));
+                $image     = wp_get_attachment_image_src(get_post_thumbnail_id($feature->ID),'blog-feature-crop')[0];
 
-                $title          = get_sub_field('feature_title');
-                $feature        = get_sub_field('post');
-                $postTitle      = $feature->post_title;
-                $url            = get_permalink($feature->ID);
-                $content        = substr($feature->post_content, 0, 144) . '...';
-                $date           = date('F Y',$feature->post_date);
-                $image          = wp_get_attachment_image_src(get_post_thumbnail_id($feature->ID),'blog-feature-crop')[0];
+                $blogFeatures .= "<div class='grid__col'>
+                                    <a href='{$url}'>
+                                        <article class='featured'>
+                                            <img class='featured__image' src='{$image}' alt='{$postTitle} Image'>
+                                            <h1 class='featured__title'>{$postTitle}</h1>
+                                        </article>
+                                    </a>
+                                </div>";
 
-                if ($page == "home") {
-                    $blogFeatures .= "<a href='{$url}'><article class='blog'><div>
-                                    <img src='{$image}' alt='{$postTitle} Image'>
-                                    <h2>{$title}</h2>
-                                    <h1>{$postTitle}</h1></div>
-                                </article></a>";
+            }
+        } else {
 
-                }
-                else {
-                    $blogFeatures .= "<a href='{$url}'><article class='blog'>
-                                    <h1>{$postTitle}</h1>
-                                    <time>{$date}</time>
-                                    <div>{$content}</div>
-                                </article></a>";
+            $latestPosts = wp_get_recent_posts(array( 'numberposts' => '3', 'post_status' => 'publish', ));
 
-                }
+            foreach( $latestPosts as $latest ) {
+                $postTitle = $latest['post_title'];
+                $url       = get_permalink($latest['ID']);
+                $content   = substr($latest['post_content'], 0, 144) . '...';
+                $date      = date('F Y', strtotime($latest['post_date']));
+                $image     = wp_get_attachment_image_src(get_post_thumbnail_id($latest['ID']),'blog-feature-crop')[0];
+
+                $blogFeatures .= "<div class='grid__col'>
+                                    <a href='{$url}'>
+                                        <article class='featured'>
+                                            <img class='featured__image' src='{$image}' alt='{$postTitle} Image'>
+                                            <h1 class='featured__title'>{$postTitle}</h1>
+                                        </article>
+                                    </a>
+                                </div>";
             }
         }
 
-        if ($page == "home") {
-            $result = "<section class='subtemplate blog-features'>
-                        <div class='row'>
-                            <h1 class='subtemplate__title'>{$subtemplateTitle}</h1>
-                            <div class='column-container'>
+        $result = "<section class='subtemplate row subtemplate--featured'>
+                        <h1 class='subtemplate__title'>{$subtemplateTitle}</h1>
+                        <div class='grid grid--gutters grid--half grid-small--fit'>
                             {$blogFeatures}
-                            </div>
                         </div>
-                    </section>";
-        }
-        else {
-            $result = "<section class='sidebar-blog-features'>
-                        {$blogFeatures}
-                        </section>";
-        }
+                        <p class='subtemplate--featured--more'><a class='button small white-blue' href='{$blogUrl}'>Go to Blog</a></p>
+                </section>";
 
         return $result;
     }
+
+
+    //
+    // Subtemplate: Team
+    //
     public function team($subtemplateTitle) {
         $content        = get_sub_field('content');
         $meetTeamLink   = get_sub_field('meet_the_team_link');
