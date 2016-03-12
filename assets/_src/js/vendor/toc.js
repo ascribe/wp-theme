@@ -25,11 +25,7 @@
             var hash = el.attr('id');
 
             if (hash.length) {
-                if (history.pushState) {
-                    history.pushState(null, null, '#' + hash);
-                } else {
-                    document.location.hash = hash;
-                }
+                document.location.hash = hash;
             }
 
             el.trigger('smoothScrollerComplete');
