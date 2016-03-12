@@ -18,7 +18,9 @@
 
         </div>
     <?php } else {
+
         echo $controller->loopSubtemplates();
+
     } ?>
 
 </main>

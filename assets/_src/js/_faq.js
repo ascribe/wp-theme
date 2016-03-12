@@ -1,5 +1,6 @@
 
 //=include vendor/toc.js
+//=include vendor/affix.js
 
 var Faq = (function(w, d, $) {
 
@@ -27,29 +28,26 @@ var Faq = (function(w, d, $) {
             _config.faqToc.toc({
                 'selectors': _config.faqTitle, // elements to use as headings
                 'container': 'body', // element to find all selectors in
-                'highlightOffset': 200, // offset to trigger the next headline
+                'highlightOffset': 100, // offset to trigger the next headline
             });
         },
         faqTocSticky: function() {
             var win = $(window);
 
-            win.on('load resize scroll',function(e) {
+            win.on('load resize',function(e) {
                 if (_private.isWide()) {
-                    if ( win.scrollTop() > _config.faqTocColumn.offset().top) {
-                        _config.faqToc.addClass('sticky');
-                    } else {
-                        _config.faqToc.removeClass('sticky');
-                    }
-
-                    // TODO: remove sticky when bottom of content has been reached
+                    _config.faqToc.affix({
+                        offset: {
+                            top: ( _config.faqTocColumn.offset().top + 20 ),
+                            bottom: ( $('.section-faq:last-child').outerHeight(true) + 40 )
+                        }
+                    });
                 }
             });
         },
         isWide: function() {
             return $(window).width() >= _config.minWidth;
         }
-
-        // TODO: actually make section jumps work
     }
 
     app = {

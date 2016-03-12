@@ -70,9 +70,8 @@
 
 #toc {
     margin-top: @spacer;
-
-    &.sticky {
-        position: fixed;
+    
+    &.affix {
         top: 0;
         padding-top: @spacer;
     }
@@ -116,4 +115,12 @@
             color: @link-hover-color;
         }
     }
+}
+
+
+//
+// Affix.js helpers
+//
+.affix {
+    position: fixed !important;
 }
