@@ -39,11 +39,14 @@ $(document).ready(function(){
 
         });
     }
+
     function featuredFAQ() {
-        $('.featured-faqs dt').click(function() {
-            $(this).next('dd').toggleClass('open');
+        $('.faq--featured .faq__question').click(function() {
+            $(this).toggleClass('open');
+            $(this).next('.faq__answer').toggleClass('open');
         });
     }
+
     function marketplaces() {
         $('.top-tab').click(function(){
             $('.top-tab').removeClass('active');

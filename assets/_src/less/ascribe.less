@@ -31,6 +31,7 @@
 @import 'ascribe/_team.less';
 @import 'ascribe/_blog.less';
 @import 'ascribe/_testimonials.less';
+@import 'ascribe/_faq.less';
 
 @import '_page-api.less';
 
@@ -368,45 +369,6 @@
         h1 {
             font-size: 27px;
         }
-
-    }
-}
-
-.faq {
-
-    > h1 { margin-top: 0; }
-
-    dl,dt,dd {
-        margin: 0;
-        padding: 0;
-    }
-
-    dd:not(:last-child) {
-        margin-bottom: @spacer;
-    }
-
-    dt {
-        &:extend(.bold);
-    }
-
-    .featured-faqs {
-
-        dt {
-            color: @pink;
-            cursor: pointer;
-        }
-        dd {
-            max-height:0;
-            overflow-y:hidden;
-            transition: .2s ease-out;
-            margin-bottom: @spacer;
-
-            &.open {
-                max-height: 800px;
-            }
-        }
-    }
-    .regular-faqs {
 
     }
 }

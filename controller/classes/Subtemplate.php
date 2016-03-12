@@ -654,18 +654,21 @@ class Subtemplate {
     //
     public function faq($subtemplateTitle) {
 
+        $featuredFAQ = '';
+        $regularFAQ  = '';
+
         if (have_rows('featured_faqs')) {
 
-            $featuredFAQ = '<dl class="featured-faqs">';
+            $featuredFAQ = '<dl class="faq faq--featured">';
 
             while (have_rows('featured_faqs')) {
                 the_row();
 
-                $question          = get_sub_field('question');
-                $answer          = get_sub_field('answer');
+                $question     = get_sub_field('question');
+                $answer       = get_sub_field('answer');
 
-                $featuredFAQ .= "<dt>{$question}</dt>
-                                <dd>{$answer}</dd>";
+                $featuredFAQ .= "<dt class='faq__question'><i class='caret'></i>{$question}</dt>
+                                <dd class='faq__answer'>{$answer}</dd>";
             }
 
             $featuredFAQ .= "</dl>";
@@ -673,23 +676,23 @@ class Subtemplate {
 
         if (have_rows('regular_faqs')) {
 
-            $regularFAQ = '<dl class="regular-faqs">';
+            $regularFAQ = '<dl class="faq faq--regular">';
 
             while (have_rows('regular_faqs')) {
                 the_row();
 
-                $question          = get_sub_field('question');
-                $answer          = get_sub_field('answer');
+                $question    = get_sub_field('question');
+                $answer      = get_sub_field('answer');
 
-                $regularFAQ .= "<dt>Q: {$question}</dt>
-                                <dd>A: {$answer}</dd>";
+                $regularFAQ .= "<dt class='faq__question'>{$question}</dt>
+                                <dd class='faq__answer'>{$answer}</dd>";
             }
 
             $regularFAQ .= "</dl>";
         }
 
-        $result = "<section class='subtemplate row row--content content faq'>
-                        <h1>{$subtemplateTitle}</h1>
+        $result = "<section class='subtemplate row row--content content subtemplate--faq'>
+                        <h1 class='faq__title'>{$subtemplateTitle}</h1>
                         {$featuredFAQ}
                         {$regularFAQ}
                     </section>";
