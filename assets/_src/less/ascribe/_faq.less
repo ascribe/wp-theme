@@ -8,11 +8,19 @@
     margin-left: 20px;
 }
 
+
+//
+// FAQ Section Title
+//
 .faq__title {
     &:extend(.h2);
     margin-top: 0;
 }
 
+
+//
+// FAQ Question
+//
 .faq__question {
     &:extend(.bold);
     display: block;
@@ -30,18 +38,38 @@
     }
 }
 
+
+//
+// FAQ Answer
+//
 .faq__answer {
-    display: none;
-    margin-bottom: @spacer;
+    transition: .2s ease-out;
+    transform-origin: top;
+    height: 0;
+    overflow: hidden;
     margin-left: 0;
 
     &.open {
-        display: block;
-        max-height: 800px;
+        animation: openQuestion .15s ease-out forwards;
+    }
+}
+
+@keyframes openQuestion {
+    0% {
+        transform: scaleY(0);
+        opacity: 0;
+    }
+    100% {
+        transform: scaleY(1);
+        opacity: 1;
+        height: 100%;
     }
 }
 
 
+//
+// Featured FAQ modifier
+//
 .faq--featured {
     .faq__question {
         color: @pink;
@@ -55,22 +83,24 @@
     border-style: solid;
     border-width: 5px 0 5px 6px;
     border-color: transparent transparent transparent @greySocial;
-    transition: .2s ease-out;
+    transition: .15s ease-out;
 }
 
 .grid__col--toc {
+    position: relative;
+
     @media (@screen-sm) {
         flex: 0 0 33% !important;
     }
 }
 
-.grid__col--toc {
-    position: relative;
-}
 
+//
+// Table of Contents
+//
 #toc {
     margin-top: @spacer;
-    
+
     &.affix {
         top: 0;
         padding-top: @spacer;
