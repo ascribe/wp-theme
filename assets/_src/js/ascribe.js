@@ -1,9 +1,12 @@
 
+//=include _dnt.js
 //=include _faq.js
 
 $(document).ready(function(){
 
-    Faq.init();
+    if ( $('.subtemplate--faq').length ) {
+        Faq.init();
+    }
 
     slider();
     marketplaces();

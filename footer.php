@@ -165,65 +165,99 @@ if ($twitter) {
 ?>
 
 
-<div class="chevron-divider"></div>
+    <div class="chevron-divider"></div>
 
 
-<footer class="footer">
+    <footer class="footer">
 
-    <section class="footer__top">
-        <div class="row">
+        <section class="footer__top">
+            <div class="row">
 
 
-            <?php wp_nav_menu( array( 'theme_location' => 'main-footer-menu', 'container' => false ) ); ?>
+                <?php wp_nav_menu( array( 'theme_location' => 'main-footer-menu', 'container' => false ) ); ?>
 
-            <div class="footer__contact">
+                <div class="footer__contact">
 
-                <?php if ($footerContactButton) { ?>
-                    <a href="<?php echo $consultLink; ?>" class="button small"><?php echo $footerContactButton ?></a>
-                <?php } ?>
+                    <?php if ($footerContactButton) { ?>
+                        <a href="<?php echo $consultLink; ?>" class="button small"><?php echo $footerContactButton ?></a>
+                    <?php } ?>
 
-                <div><?php echo $address; ?></div>
-                <div><a href="mailto:<?php echo $email; ?>"><?php echo $email; ?></a></div>
+                    <div><?php echo $address; ?></div>
+                    <div><a href="mailto:<?php echo $email; ?>"><?php echo $email; ?></a></div>
+                </div>
+
             </div>
+        </section>
 
-        </div>
-    </section>
+        <section class="footer__bottom">
+            <div class="row">
 
-    <section class="footer__bottom">
-        <div class="row">
-
-            <div class="footer__eu">
-                <?php if ($euLink) { ?>
-                    <a href="<?php echo $euLink ?>">
+                <div class="footer__eu">
+                    <?php if ($euLink) { ?>
+                        <a href="<?php echo $euLink ?>">
+                            <img width="150" src="https://www.ascribe.io/wp-content/uploads/2015/11/eu-dev-fund.png" />
+                        </a>
+                    <?php } else { ?>
                         <img width="150" src="https://www.ascribe.io/wp-content/uploads/2015/11/eu-dev-fund.png" />
-                    </a>
-                <?php } else { ?>
-                    <img width="150" src="https://www.ascribe.io/wp-content/uploads/2015/11/eu-dev-fund.png" />
-                <?php } ?>
+                    <?php } ?>
+                </div>
+
+                <div class="footer__copyright">© <?php echo $year; ?> ascribe GmbH</div>
+
+                <?php wp_nav_menu( array( 'theme_location' => 'lower-footer-menu', 'container' => false ) ); ?>
+
+                <ul class="footer__social">
+                    <?php echo $facebook; ?>
+                    <?php echo $github; ?>
+                    <?php echo $instagram; ?>
+                    <?php echo $linkedin; ?>
+                    <?php echo $medium; ?>
+                    <?php echo $reddit; ?>
+                    <?php echo $tumblr; ?>
+                    <?php echo $twitter; ?>
+                </ul>
+
             </div>
+        </section>
 
-            <div class="footer__copyright">© <?php echo $year; ?> ascribe GmbH</div>
-
-            <?php wp_nav_menu( array( 'theme_location' => 'lower-footer-menu', 'container' => false ) ); ?>
-
-            <ul class="footer__social">
-                <?php echo $facebook; ?>
-                <?php echo $github; ?>
-                <?php echo $instagram; ?>
-                <?php echo $linkedin; ?>
-                <?php echo $medium; ?>
-                <?php echo $reddit; ?>
-                <?php echo $tumblr; ?>
-                <?php echo $twitter; ?>
-            </ul>
-
-        </div>
-    </section>
-
-</footer>
+    </footer>
 
 
-</div>
-<?php wp_footer(); ?>
+    </div>
+
+    <?php wp_footer(); ?>
+
+    <script>
+    if (!_dntEnabled()) {
+        (function(window) {
+
+            // Google Analytics async snippet
+            // http://goo.gl/3FPNDx
+            window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};
+            ga.l=+new Date;
+
+            // Create the GA tracker
+            ga('create', 'UA-60614729-2', 'auto', {siteSpeedSampleRate: 10});
+
+            // Send initial pageview
+            ga('send', 'pageview');
+
+            // Track uncaught errors
+            window.onerror = function(message, url, line, col) {
+                var desc = message + ' (line: ' + line + ', url: ' + url + ', col: '
+                + col + ')';
+
+                ga('send', 'exception', {
+                    exDescription: 'window.onerror: ' + desc,
+                    exFatal: false
+                });
+            };
+
+        }(window));
+    }
+    </script>
+
+    <script async src="//www.google-analytics.com/analytics.js"></script>
+
 </body>
 </html>
