@@ -94,6 +94,39 @@
 
 
 //
+// Art Radar MailChimp Signup
+//
+#mc-embedded-subscribe-form {
+    position: relative;
+
+    .button {
+        &:extend(.button.small all);
+        font-size: @font-size-base;
+        height: 46px;
+        border: 1px solid @greyHr;
+    }
+
+    // try to deal with the existing messy markup
+    #mce-EMAIL {
+        margin-bottom: 0;
+    }
+    .button { width: 100%; }
+
+    @media (@screen-sm) {
+        #mce-EMAIL {
+            width: 70%;
+        }
+        .button {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 31%;
+        }
+    }
+}
+
+
+//
 // Pagination
 //
 .pagination {
