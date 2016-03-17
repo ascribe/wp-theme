@@ -11,8 +11,19 @@ require 'controller/init.php';
 ?>
 <header class="header">
     <div class="row">
-        <a href="<?php echo get_bloginfo('wpurl');?>"><img src="<?php echo WPTHEME_TEMPLATE_URL; ?>/images/logo/logo-white.png" class="logo phone-and-up"></a>
-        <a href="<?php echo get_bloginfo('wpurl');?>"><img src="<?php echo WPTHEME_TEMPLATE_URL; ?>/images/logo/ascribeicon-white.svg" class="logo phone-only"></a>
+        <a href="<?php echo get_bloginfo('wpurl');?>">
+            <img
+                src="<?php echo WPTHEME_TEMPLATE_URL; ?>/images/logo/logo-white.png"
+                srcset="<?php echo WPTHEME_TEMPLATE_URL; ?>/images/logo/logo-white.png 1x, <?php echo WPTHEME_TEMPLATE_URL; ?>/images/logo/logo-white@2x.png 2x"
+                alt="ascribe logo"
+                class="logo phone-and-up">
+        </a>
+        <a href="<?php echo get_bloginfo('wpurl');?>">
+            <img
+                src="<?php echo WPTHEME_TEMPLATE_URL; ?>/images/logo/ascribeicon-white.svg"
+                alt="ascribe logo"
+                class="logo phone-only">
+        </a>
         <div class="app-links">
             <a href="<?php echo $signInLink; ?>">Log In</a> / <a href="<?php echo $signUpLink; ?>">Sign Up</a>
             <img src="<?php echo WPTHEME_TEMPLATE_URL; ?>/images/svg/hamburger.svg" class="phone-only hamburger">
