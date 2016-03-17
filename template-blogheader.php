@@ -42,6 +42,8 @@ require 'controller/init.php';
             $args = array(
                 'hide_empty' => 0
             );
+            echo "<li><a href='{$blogUrl}'>All</a></li>";
+
             foreach((get_categories($args)) as $category) {
                 if ($category->cat_name != 'Uncategorized') {
                     echo '<li><a href="' . get_category_link( $category->term_id ) . '" title="' . sprintf( __( "View all posts in %s" ), $category->name ) . '" ' . '><span>' . $category->name.'</span></a></li> ';
