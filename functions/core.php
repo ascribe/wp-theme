@@ -15,7 +15,7 @@ function ascribe_setup() {
     // Blog teaser images, cropped to 720px x 420px
     add_image_size( 'blog-teaser', 720, 420, true );
 
-    add_image_size( 'blog-feature-crop', 300, 175, true ); //(cropped)
+    add_image_size( 'blog-feature-crop', 400, 230, true ); //(cropped)
 
     // Add default posts and comments RSS feed links to head.
     add_theme_support( 'automatic-feed-links' );

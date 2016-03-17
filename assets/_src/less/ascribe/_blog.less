@@ -1,4 +1,11 @@
 
+.blog-column {
+    margin-bottom: -80px;
+    background: #fff;
+    position: relative;
+    z-index: 5;
+}
+
 .hentry {
     &:extend(.subtemplate);
     border-bottom: 2px solid @blueLight;
@@ -44,6 +51,7 @@
         border-radius: 50%;
         vertical-align: middle;
         display: inline-block;
+        margin: 0;
         margin-right: (@spacer / 4);
         border: 1px solid #CFEEF3;
     }
@@ -90,6 +98,31 @@
 .post-categories {
     &:extend(.list-unstyled all, .small);
     margin-bottom: (@line-height-small / 2);
+}
+
+
+//
+// Related Posts
+//
+.yarpp-related { margin: 0 !important; }
+
+.related {
+    padding-top: (@spacer / 2);
+
+    .featured__title {
+        &:extend(.bold);
+        font-size: @font-size-h6;
+    }
+
+    a { display: block; }
+
+    .grid { margin-bottom: 0; }
+}
+
+.related__title {
+    &:extend(.h3, .text-center);
+    margin-bottom: 0;
+    padding-bottom: @spacer;
 }
 
 

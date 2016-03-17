@@ -405,7 +405,7 @@ class Subtemplate {
 
         $result = "<section class='subtemplate row subtemplate--featured'>
                         <h1 class='subtemplate__title'>{$subtemplateTitle}</h1>
-                        <div class='grid grid--gutters grid--half grid-small--fit'>
+                        <div class='grid grid--gutters grid--full grid-mini--half grid-small--fit'>
                             {$blogFeatures}
                         </div>
                         <p class='subtemplate--featured--more'><a class='button small white-blue' href='{$blogUrl}'>Go to Blog</a></p>

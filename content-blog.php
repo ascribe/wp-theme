@@ -71,6 +71,9 @@ $teaser  = get_the_post_thumbnail($post->ID, 'blog-teaser');
 
     <?php if ( is_singular() ) {
         get_template_part( 'partials/share' );
+
+        if( function_exists('related_posts') )
+            related_posts();
     } ?>
 
 </article>
