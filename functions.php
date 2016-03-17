@@ -21,7 +21,7 @@ define( 'WPTHEME_VERSION',      '0.1.0' );
 define( 'WPTHEME_URL',          get_stylesheet_directory_uri() );
 define( 'WPTHEME_TEMPLATE_URL', get_template_directory_uri() );
 define( 'WPTHEME_PATH',         get_template_directory() . '/' );
-define( 'WPTHEME_INC',          WPTHEME_PATH . 'includes/' );
+define( 'WPTHEME_INC',          WPTHEME_PATH . 'functions/' );
 
 // Include compartmentalized functions
 require_once WPTHEME_INC . 'core.php';
