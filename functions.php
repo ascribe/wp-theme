@@ -26,16 +26,6 @@ require_once WPTHEME_INC . 'cpt-presscoverage.php';
 require_once WPTHEME_INC . 'cpt-event.php';
 require_once WPTHEME_INC . 'cpt-testimonial.php';
 
-
-// REMOVE WIDTH AND HEIGHT ATTRIBUTES ON THUMBNAILS
-add_filter( 'post_thumbnail_html', 'remove_thumbnail_dimensions', 10 );
-add_filter( 'image_send_to_editor', 'remove_thumbnail_dimensions', 10 );
-
-function remove_thumbnail_dimensions( $html ) {
-    $html = preg_replace( '/(width|height)=\"\d*\"\s/', "", $html );
-    return $html;
-}
-
 //remove emoji script
 remove_action( 'wp_head', 'print_emoji_detection_script', 7 );
 remove_action( 'admin_print_scripts', 'print_emoji_detection_script' );
@@ -56,13 +46,6 @@ if( function_exists('acf_add_options_page') ) {
     ));
 }
 
-//add excerpt to page
-function wpcodex_add_excerpt_support_for_pages() {
-    add_post_type_support( 'page', 'excerpt' );
-}
-add_action( 'init', 'wpcodex_add_excerpt_support_for_pages' );
-
-
 //Register Navigation
 function register_primary_nav_menu() {
     register_nav_menu('landing-menu',__( 'Product Tour Navigation Menu' ));
@@ -70,14 +53,6 @@ function register_primary_nav_menu() {
     register_nav_menu('lower-footer-menu',__( 'Lower Footer Navigation Menu' ));
 }
 add_action( 'init', 'register_primary_nav_menu');
-
-// ENABLE HR IN WSYWIG
-function enable_more_buttons($buttons) {
-    $buttons[] = 'hr';
-
-    return $buttons;
-}
-add_filter("mce_buttons", "enable_more_buttons");
 
 // ADD QUERY VAR FOR EVENT PAGINATION
 add_filter('query_vars', 'add_my_var');
