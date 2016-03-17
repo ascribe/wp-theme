@@ -20,32 +20,37 @@ if (strlen($full_name) <= 0) {
     $full_name = 'ascribe';
 }
 
-$url    = get_the_permalink();
-$avatar = get_avatar( get_the_author_meta('ID'), 96 );
+$url     = get_the_permalink();
+$avatar  = get_avatar( get_the_author_meta('ID'), 96 );
+$excerpt = get_the_excerpt();
+$teaser  = get_the_post_thumbnail($post->ID, 'blog-teaser');
 
 ?>
 
 <article <?php post_class( '', $post->ID ); ?>>
 
-    <header>
-        <?php echo get_the_category_list(); ?>
-        <?php echo "<h1 class='entry-title'><a href='{$url}'>{$title}</a></h1>"  ?>
+    <header class="entry-header">
+        <?php
+            echo get_the_category_list();
+            echo "<h1 class='entry-title'><a href='{$url}'>{$title}</a></h1>";
+
+            // Show custom post excerpt when set
+            if ( is_singular() && has_excerpt() ) {
+                echo "<div class='entry-lead'>{$excerpt}</div>";
+            }
+        ?>
     </header>
 
-    <div class="entry-image">
-        <?php
-        if ( has_post_thumbnail() ) { // check if the post has a Post Thumbnail assigned to it.
-
-            $thumb = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'blog-crop');
-
-            if ( is_singular() ) {
-                echo "<img src='{$thumb[0]}' alt='{$title} image'>";
+    <?php if ( has_post_thumbnail() ) { ?>
+        <div class="entry-teaser">
+            <?php if ( is_singular() ) {
+                echo $teaser;
             } else {
-                echo "<a href='{$url}'><img src='{$thumb[0]}' alt='{$title} image'></a>";
+                echo "<a href='{$url}'>{$teaser}</a>";
             }
-        }
-        ?>
-    </div>
+            ?>
+        </div>
+    <?php } ?>
 
     <div class="entry-meta">
         <?php echo $avatar; ?>
@@ -56,7 +61,7 @@ $avatar = get_avatar( get_the_author_meta('ID'), 96 );
     <main class="entry-content">
         <?php
         if ( ! is_singular() ) {
-            the_excerpt();
+            echo "<p>{$excerpt}</p>";
             echo "<a class='button small' href='{$url}'>Read More</a>";
         } else {
             the_content();

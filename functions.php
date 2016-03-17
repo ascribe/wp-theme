@@ -19,6 +19,7 @@ define( 'WPTHEME_INC',          WPTHEME_PATH . 'functions/' );
 
 // Include compartmentalized functions
 require_once WPTHEME_INC . 'core.php';
+require_once WPTHEME_INC . 'blog.php';
 require_once WPTHEME_INC . 'cpt-team.php';
 require_once WPTHEME_INC . 'cpt-career.php';
 require_once WPTHEME_INC . 'cpt-presscoverage.php';
