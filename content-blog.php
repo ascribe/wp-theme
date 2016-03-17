@@ -68,4 +68,9 @@ $teaser  = get_the_post_thumbnail($post->ID, 'blog-teaser');
         }
         ?>
     </main>
+
+    <?php if ( is_singular() ) {
+        get_template_part( 'partials/share' );
+    } ?>
+
 </article>
