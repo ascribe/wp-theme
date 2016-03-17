@@ -23,11 +23,19 @@ add_filter('image_size_names_choose', 'ascribe_blog_image_sizes');
  * Put excerpt meta-box before editor
  *
  */
-add_action(
-    'admin_menu', function () {
-        remove_meta_box('postexcerpt', 'post', 'normal');
-    }, 999
-);
-add_action('edit_form_after_title', 'post_excerpt_meta_box');
+function ascribe_move_excerpt_meta_box( $post ) {
+    if ( in_array( $post->post_type, array( 'post' ) ) ) {
+        remove_meta_box( 'postexcerpt', $post->post_type, 'normal' );
+        echo "<h2 style='padding: 10px 0 0;'>Excerpt</h2>";
+        post_excerpt_meta_box( $post );
+
+        echo "<style>
+                #excerpt { min-height: 90px }
+                #excerpt + p { display: none }
+
+              </style>";
+    }
+}
+add_action( 'edit_form_after_title', 'ascribe_move_excerpt_meta_box' );
 
 ?>
