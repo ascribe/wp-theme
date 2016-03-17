@@ -129,10 +129,12 @@
 //
 // Art Radar MailChimp Signup
 //
-#mc-embedded-subscribe-form {
+#mc-embedded-subscribe-form,
+#subForm {
     position: relative;
 
-    .button {
+    .button,
+    button {
         &:extend(.button.small all);
         font-size: @font-size-base;
         height: 46px;
@@ -140,20 +142,38 @@
     }
 
     // try to deal with the existing messy markup
-    #mce-EMAIL {
+    #mce-EMAI,
+    #fieldEmail {
         margin-bottom: 0;
     }
-    .button { width: 100%; }
+    .button,
+    button {
+        &:extend(.button all, .button.blue);
+        width: 100%;
+    }
 
     @media (@screen-sm) {
-        #mce-EMAIL {
-            width: 70%;
+        #mce-EMAIL,
+        #fieldEmail {
+            width: 60%;
         }
-        .button {
+        .button,
+        button {
             position: absolute;
             top: 0;
             right: 0;
-            width: 31%;
+            width: 41%;
+        }
+    }
+}
+
+#subForm {
+    button {
+        margin-top: (@spacer/2);
+
+        @media (@screen-sm) {
+            top: 24px;
+            margin-top: 0;
         }
     }
 }
