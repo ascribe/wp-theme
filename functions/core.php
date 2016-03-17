@@ -1,36 +1,39 @@
 <?php
-namespace TenUp\ascribe\Core;
 
-/**
- * Set up theme defaults and register supported WordPress features.
+/*
  *
- * @since 0.1.0
+ * Theme setup
  *
- * @uses add_action()
- *
- * @return void.
  */
-function setup() {
-    $n = function( $function ) {
-        return __NAMESPACE__ . "\\$function";
-    };
+function ascribe_setup() {
+    add_theme_support('post-thumbnails');
+    add_theme_support('html5', ['caption']);
 
-    add_action( 'wp_enqueue_scripts', $n( 'scripts' )     );
-    add_action( 'wp_enqueue_scripts', $n( 'styles' )      );
+    add_image_size( 'blog-crop', 600, 350, true ); //(cropped)
+    add_image_size( 'blog-feature-crop', 300, 175, true ); //(cropped)
 
+    // Add default posts and comments RSS feed links to head.
+    add_theme_support( 'automatic-feed-links' );
 }
+add_action('after_setup_theme', 'ascribe_setup');
 
-/**
- * Enqueue scripts for front-end.
+
+/*
  *
- * @uses wp_enqueue_script() to load front end scripts.
+ * Theme Assets
  *
- * @since 0.1.0
- *
- * @return void.
  */
-function scripts( $debug = false ) {
+function ascribe_assets() {
 
+    // Styles
+    wp_enqueue_style(
+        'wptheme',
+        WPTHEME_URL . "/assets/dist/css/ascribe.min.css",
+        array(),
+        WPTHEME_VERSION
+    );
+
+    // Scripts
     if (!is_admin()) {
         wp_deregister_script('jquery');
         wp_register_script('jquery', 'https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js', false, '2.2.0', true);
@@ -45,23 +48,6 @@ function scripts( $debug = false ) {
         true
     );
 }
+add_action( 'wp_enqueue_scripts', 'ascribe_assets' );
 
-/**
- * Enqueue styles for front-end.
- *
- * @uses wp_enqueue_style() to load front end styles.
- *
- * @since 0.1.0
- *
- * @return void.
- */
-function styles( $debug = false ) {
-    $min = ( $debug || defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) ? '' : '.min';
-
-    wp_enqueue_style(
-        'wptheme',
-        WPTHEME_URL . "/assets/dist/css/ascribe{$min}.css",
-        array(),
-        WPTHEME_VERSION
-    );
-}
+?>

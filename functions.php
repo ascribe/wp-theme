@@ -3,12 +3,6 @@
 /**
  * ascribe functions and definitions
  *
- * When using a child theme (see http://codex.wordpress.org/Theme_Development and
- * http://codex.wordpress.org/Child_Themes), you can override certain functions
- * (those wrapped in a function_exists() call) by defining them first in your child theme's
- * functions.php file. The child theme's functions.php file is included before the parent
- * theme's file, so the child theme functions would be used.
- *
  * @package ascribe
  * @since 0.1.0
  */
@@ -30,9 +24,6 @@ require_once WPTHEME_INC . 'cpt-career.php';
 require_once WPTHEME_INC . 'cpt-presscoverage.php';
 require_once WPTHEME_INC . 'cpt-event.php';
 require_once WPTHEME_INC . 'cpt-testimonial.php';
-
-// Run the setup functions
-TenUp\ascribe\Core\setup();
 
 
 // REMOVE WIDTH AND HEIGHT ATTRIBUTES ON THUMBNAILS
@@ -79,10 +70,6 @@ function register_primary_nav_menu() {
 }
 add_action( 'init', 'register_primary_nav_menu');
 
-// ADD THUMBNAILS TO POSTS
-add_theme_support( 'post-thumbnails' );
-
-
 // ENABLE HR IN WSYWIG
 function enable_more_buttons($buttons) {
     $buttons[] = 'hr';
@@ -90,16 +77,6 @@ function enable_more_buttons($buttons) {
     return $buttons;
 }
 add_filter("mce_buttons", "enable_more_buttons");
-
-
-
-// THUMBNAIL ADD CUSTOM SIZE
-add_action( 'after_setup_theme', 'ttl_image_setup' );
-function ttl_image_setup() {
-    add_image_size( 'blog-crop', 600, 350, true ); //(cropped)
-    add_image_size( 'blog-feature-crop', 300, 175, true ); //(cropped)
-}
-
 
 // ADD QUERY VAR FOR EVENT PAGINATION
 add_filter('query_vars', 'add_my_var');
