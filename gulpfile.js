@@ -37,8 +37,8 @@ console.log("");
 var COMPATIBILITY = ['Chrome >= 30', 'Safari >= 6.1', 'Firefox >= 35', 'Opera >= 32', 'iOS >= 8', 'Android >= 4', 'ie >= 10'];
 
 // paths
-var SRC           = './',
-    DIST          = './';
+var SRC           = './ascribe/',
+    DIST          = './ascribe/';
 
 // code banner
 var BANNER = [

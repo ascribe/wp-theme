@@ -1,6 +1,6 @@
 # wp-theme
 
-> WordPress theme for Ascribe's landing page and blog
+> WordPress theme for ascribe's landing page and blog
 
 ## Prerequisites
 
@@ -28,3 +28,10 @@ The following compiles css & js files only:
 ```bash
 gulp build
 ```
+
+## Continuous Delivery
+
+The site gets built & deployed automatically via Codeship under the following conditions:
+
+- every push builds the site
+- every push to the master branch initiates a live deployment
