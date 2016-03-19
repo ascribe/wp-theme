@@ -2,6 +2,8 @@
 
 > WordPress theme for ascribe's landing page and blog
 
+[ ![Codeship Status for ascribe/wp-theme](https://codeship.com/projects/33c7d280-cf2d-0133-1c09-5ed74b30bb55/status?branch=master)](https://codeship.com/projects/141150)
+
 ## Prerequisites
 
 - node & npm
