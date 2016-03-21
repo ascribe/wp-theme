@@ -40,9 +40,9 @@ The site gets built & deployed automatically via Codeship under the following co
 
 The [deployment script](_ci/deploy.sh) requires the following environment variables to be set:
 
-| variable | description
-|--|--
-| `$DEPLOY_SRC` | source of CI build artifacts. On Codeship this is usually `~/src/github.com/ascribe/wp-theme/ascribe/`
-| `$DEPLOY_USER` | user for connecting to deploy server
-| `$DEPLOY_HOST` | hostname of deploy server
-| `$DEPLOY_PATH` | path to deploy into on deploy server, should be `PATH_ON_SERVER/wp-content/themes/`
+variable | description 
+---|---
+`$DEPLOY_SRC` | source of CI build artifacts. On Codeship this is usually `~/src/github.com/ascribe/wp-theme/ascribe/`
+`$DEPLOY_USER` | user for connecting to deploy server
+`$DEPLOY_HOST` | hostname of deploy server 
+`$DEPLOY_PATH` | path to deploy into on deploy server, should be `PATH_ON_SERVER/wp-content/themes/`
