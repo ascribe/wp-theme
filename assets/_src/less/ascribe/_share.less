@@ -1,0 +1,37 @@
+//
+// Share area
+//
+.entry-share {
+    &:extend(.text-center);
+    margin: @spacer 0;
+    padding: (@spacer / 2);
+    border-top: 2px solid @blueLight;
+    border-bottom: 2px solid @blueLight;
+    background:  @greyBg;
+
+    a {
+        text-decoration: none;
+        display: inline-block;
+        background: @greySocial;
+        border-radius: 5px;
+        margin: 0 (@spacer / 8);
+
+        &:hover,
+        &:focus {
+            background: fade(@greySocial, 40%);
+
+            #icon-twitter { fill: @brand-twitter; }
+            #icon-facebook { fill: @brand-facebook; }
+            #icon-linkedin { fill: @brand-linkedin; }
+        }
+    }
+
+    // icons
+    .icon {
+        width: 32px;
+        height: 32px;
+        transition: .2s ease-out;
+        fill: @white;
+        vertical-align: middle;
+    }
+}

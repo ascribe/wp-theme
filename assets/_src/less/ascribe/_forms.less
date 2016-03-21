@@ -1,0 +1,57 @@
+label {
+    &:extend(.small);
+
+    &.required {
+        &:after {
+            content: '*';
+            color: @pink;
+        }
+    }
+}
+
+.form-control {
+    margin: 0 0 (@spacer / 2) 0;
+    padding: 10px;
+    color: @greyText;
+    width: 100%;
+    border: 1px solid @greyHr;
+    outline: none;
+
+    &[aria-invalid=true] {
+        border: 1px solid @pink;
+    }
+}
+
+input[type="text"],
+input[type="email"],
+input[type="number"],
+input[type="range"],
+input[type="search"],
+textarea {
+    &:extend(.form-control all);
+}
+
+input[type=submit] {
+    &:extend(.button, .button.blue);
+    width: auto;
+}
+
+.required-info {
+    .copyTextSmall;
+    color: @pink;
+}
+
+.wpcf7-not-valid-tip {
+    .copyTextSmall;
+    color: @pink;
+    margin-top: -20px;
+    margin-bottom: 10px;
+}
+div.wpcf7-validation-errors {
+    border: none;
+    padding:0;
+    margin:0;
+}
+div.wpcf7-response-output, div.wpcf7-display-none, div.wpcf7-mail-sent-ok {
+    border: 0!important;
+}

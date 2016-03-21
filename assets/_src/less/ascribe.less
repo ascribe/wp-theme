@@ -19,6 +19,7 @@
 @import 'ascribe/_helpers.less';
 @import 'ascribe/_buttons.less';
 @import 'ascribe/_media.less';
+@import 'ascribe/_forms.less';
 
 @import 'ascribe/_grid.less';
 @import 'ascribe/_footer.less';
@@ -32,6 +33,7 @@
 @import 'ascribe/_blog.less';
 @import 'ascribe/_testimonials.less';
 @import 'ascribe/_faq.less';
+@import 'ascribe/_share.less';
 
 @import '_page-api.less';
 
@@ -412,63 +414,22 @@
         &:extend(.list-unstyled all);
     }
 }
-.contact {
-    label {
-        &:extend(.small);
 
-        &.required {
-            &:after {
-                content: '*';
-                color: @pink;
-            }
-        }
-    }
-    input, textarea {
-        margin-bottom: 20px;
-        padding: 10px;
-        color: @greyText;
-        width: 80%;
-        margin-top: 5px;
-        border: 1px solid @greyHr;
-        outline: none;
 
-        &[aria-invalid=true] {
-            border: 1px solid @pink;
-        }
-    }
-    input[type=submit] {
-        &:extend(.button, .button.blue);
-        width: auto;
-    }
-    .contact-point {
-
-        h1 {
-            &:extend(.fontRegular);
-            font-size: 19px;
-            color: @pink;
-            text-align: left;
-            margin-bottom:0;
-        }
-    }
-    .required-info {
-        .copyTextSmall;
+//
+// Contact
+//
+.contact-point {
+    h1 {
+        &:extend(.fontRegular);
+        font-size: 19px;
         color: @pink;
-    }
-    .wpcf7-not-valid-tip {
-        .copyTextSmall;
-        color: @pink;
-        margin-top: -20px;
-        margin-bottom: 10px;
-    }
-    div.wpcf7-validation-errors {
-        border: none;
-        padding:0;
-        margin:0;
-    }
-    div.wpcf7-response-output, div.wpcf7-display-none, div.wpcf7-mail-sent-ok {
-        border: 0!important;
+        text-align: left;
+        margin-bottom:0;
     }
 }
+
+
 .press-articles {
     text-align: center;
 
