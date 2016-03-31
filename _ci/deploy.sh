@@ -5,7 +5,7 @@
 set -e;
 
 if [ $CI_BRANCH == "master" ]; then
-    rsync --recursive --delete --delete-excluded --checksum --verbose -e "ssh" $DEPLOY_SRC $DEPLOY_USER@$DEPLOY_HOST:$DEPLOY_PATH
+    sudo rsync --recursive --delete --delete-excluded --checksum --verbose -e "ssh" $DEPLOY_SRC $DEPLOY_USER@$DEPLOY_HOST:$DEPLOY_PATH
 fi;
 
 exit;
