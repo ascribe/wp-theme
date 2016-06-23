@@ -21,3 +21,10 @@ deploy:
 
 notifications:
     email: false
+
+env:
+  global:
+    - DEPLOY_SRC=ascribe/
+    - DEPLOY_USER=deploy
+    - DEPLOY_HOST=ec2-52-29-65-193.eu-central-1.compute.amazonaws.com
+    - DEPLOY_PATH=/var/www/ascribe-wp/wp-content/themes/ascribe/
