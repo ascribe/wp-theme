@@ -1,0 +1,23 @@
+sudo: required
+dist: trusty
+
+language: node_js
+node_js:
+  - "6"
+
+cache:
+  directories:
+  - node_modules
+
+before_script: "_ci/setup.sh"
+script: "_ci/build.sh"
+
+deploy:
+  skip_cleanup: true
+  provider: script
+  script: "_ci/deploy.sh"
+  on:
+    branch: master
+
+notifications:
+    email: false
