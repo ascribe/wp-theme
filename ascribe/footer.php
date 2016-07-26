@@ -202,7 +202,7 @@ if ($twitter) {
                     <?php } ?>
                 </div>
 
-                <div class="footer__copyright">© <?php echo $year; ?> ascribe GmbH</div>
+                <div class="footer__copyright">© <?php echo $year; ?> BigchainDB GmbH</div>
 
                 <?php wp_nav_menu( array( 'theme_location' => 'lower-footer-menu', 'container' => false ) ); ?>
 
