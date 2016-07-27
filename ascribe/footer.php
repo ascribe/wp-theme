@@ -192,6 +192,12 @@ if ($twitter) {
         <section class="footer__bottom">
             <div class="row">
 
+                <div class="footer__bigchaindb">
+                    <a href="https://www.bigchaindb.com/">
+                        <img width="170" src="https://www.ascribe.io/wp-content/uploads/2016/07/Powered-by-dark.png" />
+                    </a>
+                </div>
+
                 <div class="footer__eu">
                     <?php if ($euLink) { ?>
                         <a href="<?php echo $euLink ?>">
