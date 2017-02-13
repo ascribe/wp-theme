@@ -2,7 +2,7 @@
 
 > WordPress theme for ascribe's landing page and blog
 
-[ ![Codeship Status for ascribe/wp-theme](https://codeship.com/projects/33c7d280-cf2d-0133-1c09-5ed74b30bb55/status?branch=master)](https://codeship.com/projects/141150)
+[![Build Status](https://travis-ci.com/ascribe/wp-theme.svg?token=3psqw6c8KMDqfdGQ2x6d&branch=master)](https://travis-ci.com/ascribe/wp-theme)
 
 ## Prerequisites
 
@@ -33,7 +33,7 @@ gulp build
 
 ## Deployment: Continuous Delivery
 
-The theme under `ascribe/` gets built & deployed automatically via Codeship under the following conditions:
+The theme under `ascribe/` gets built & deployed automatically via Travis under the following conditions:
 
 - every push builds the site
 - every push to the master branch initiates a live deployment

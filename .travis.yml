@@ -1,0 +1,30 @@
+sudo: required
+dist: trusty
+
+language: node_js
+node_js:
+  - "6"
+
+cache:
+  directories:
+  - node_modules
+
+before_script: "_ci/setup.sh"
+script: "_ci/build.sh"
+
+deploy:
+  skip_cleanup: true
+  provider: script
+  script: "_ci/deploy.sh"
+  on:
+    branch: master
+
+notifications:
+    email: false
+
+env:
+  global:
+    - DEPLOY_SRC=ascribe/
+    - DEPLOY_USER=deploy
+    - DEPLOY_HOST=ec2-52-29-65-193.eu-central-1.compute.amazonaws.com
+    - DEPLOY_PATH=/var/www/ascribe-wp/wp-content/themes/ascribe/
