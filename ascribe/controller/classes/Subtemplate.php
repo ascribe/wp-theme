@@ -848,8 +848,8 @@ class Subtemplate {
                         <h1 class='subtemplate__title'>{$subtemplateTitle}</h1>
 
                         <div class='grid grid--gutters grid--fit grid-small--half'>
-                            <div class='grid__col form'>{$content}</div>
                             <aside class='grid__col contact-points'>{$contactPoints}</aside>
+                            <div class='grid__col form'>{$content}</div>
                         </div>
                     </section>";
 
