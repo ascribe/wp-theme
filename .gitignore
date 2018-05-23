@@ -2,3 +2,4 @@ node_modules
 composer.lock
 phpunit.xml
 ascribe/assets/dist
+package-lock.json

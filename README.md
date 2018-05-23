@@ -2,15 +2,13 @@
 
 > WordPress theme for ascribe's landing page and blog
 
-[ ![Codeship Status for ascribe/wp-theme](https://codeship.com/projects/33c7d280-cf2d-0133-1c09-5ed74b30bb55/status?branch=master)](https://codeship.com/projects/141150)
-
 ## Prerequisites
 
 - node & npm
 - composer
 
 ```bash
-npm install && composer
+npm i && composer install
 ```
 
 ## Development
@@ -31,27 +29,28 @@ The following compiles css & js files only:
 gulp build
 ```
 
-## Deployment: Continuous Delivery
+## Deployment
 
-The theme under `ascribe/` gets built & deployed automatically via Codeship under the following conditions:
+Deployment happens via rsync'ing the theme folder `./ascribe/` over SSH, as defined in the [deployment script](deploy.sh).
 
-- every push builds the site
-- every push to the master branch initiates a live deployment
-
-Deployment happens via rsync'ing the theme build artifacts as defined in the [deployment script](_ci/deploy.sh):
+If you have SSH access to the server, you can do a deployment by calling the deployment script:
 
 ```bash
-sudo rsync --recursive --delete --delete-excluded --checksum --verbose -e "ssh" $DEPLOY_SRC $DEPLOY_USER@$DEPLOY_HOST:$DEPLOY_PATH
+# do a fresh build of the CSS & JS
+gulp build
+
+# Then deploy
+./deploy.sh
 ```
 
-The [deployment script](_ci/deploy.sh) requires the following environment variables to be set in Codeship:
+It requires the following environment variables to be defined, which is done in the deployment script:
 
 variable | description
 ---|---
-`$DEPLOY_SRC` | source of CI build artifacts. On Codeship this is usually just relative to cloned repo path, so `ascribe/`
-`$DEPLOY_USER` | user for connecting to deploy server
-`$DEPLOY_HOST` | hostname of deploy server
-`$DEPLOY_PATH` | path to deploy into on the server, should be `PATH_ON_SERVER/wp-content/themes/`
+`$ASCRIBE_DEPLOY_SRC` | source of CI build artifacts. On Codeship this is usually just relative to cloned repo path, so `ascribe/`
+`$ASCRIBE_DEPLOY_USER` | user for connecting to deploy server
+`$ASCRIBE_DEPLOY_HOST` | hostname of deploy server
+`$ASCRIBE_DEPLOY_PATH` | path to deploy into on the server, should be `PATH_ON_SERVER/wp-content/themes/`
 
 ## Server documentation
 
@@ -59,6 +58,6 @@ Site is hosted on an AWS EC2 instance with WordPress running on nginx.
 
 Option | Server path
 ---|---
-Host | `ec2-52-29-65-193.eu-central-1.compute.amazonaws.com`
+Host | `ec2-52-57-166-130.eu-central-1.compute.amazonaws.com`
 WordPress installation | `/var/www/ascribe-wp/`
 Active theme | `/var/www/ascribe-wp/wp-content/themes/ascribe/`
