@@ -233,37 +233,5 @@ if ($twitter) {
 
     <?php wp_footer(); ?>
 
-    <script>
-    if (!_dntEnabled()) {
-        (function(window) {
-
-            // Google Analytics async snippet
-            // http://goo.gl/3FPNDx
-            window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};
-            ga.l=+new Date;
-
-            // Create the GA tracker
-            ga('create', 'UA-60614729-2', 'auto', {siteSpeedSampleRate: 10});
-
-            // Send initial pageview
-            ga('send', 'pageview');
-
-            // Track uncaught errors
-            window.onerror = function(message, url, line, col) {
-                var desc = message + ' (line: ' + line + ', url: ' + url + ', col: '
-                + col + ')';
-
-                ga('send', 'exception', {
-                    exDescription: 'window.onerror: ' + desc,
-                    exFatal: false
-                });
-            };
-
-        }(window));
-    }
-    </script>
-
-    <script async src="//www.google-analytics.com/analytics.js"></script>
-
 </body>
 </html>
