@@ -47,7 +47,7 @@ It requires the following environment variables to be defined, which is done in 
 
 variable | description
 ---|---
-`$ASCRIBE_DEPLOY_SRC` | source of CI build artifacts. On Codeship this is usually just relative to cloned repo path, so `ascribe/`
+`$ASCRIBE_DEPLOY_SRC` | source of CI build artifacts
 `$ASCRIBE_DEPLOY_USER` | user for connecting to deploy server
 `$ASCRIBE_DEPLOY_HOST` | hostname of deploy server
 `$ASCRIBE_DEPLOY_PATH` | path to deploy into on the server, should be `PATH_ON_SERVER/wp-content/themes/`

@@ -32,7 +32,7 @@ $controller     = new Controller();
             </a>
 
             <div class="app-links">
-                <a href="<?php echo $signInLink; ?>">Log In</a> / <a href="<?php echo $signUpLink; ?>">Sign Up</a>
+                <a href="<?php echo $signInLink; ?>">Log In</a>
 
                 <button class="hamburger phone-only">
                     <span></span>
@@ -49,7 +49,6 @@ $controller     = new Controller();
     <div class="row">
         <section class="description">
             <h1><?php echo $headerTagline; ?></h1>
-            <a href="<?php echo $signUpLink; ?>" class="button <?php echo $buttonColour; ?>-overPic"><?php echo $buttonText; ?></a>
         </section>
         <div class="mobile-nav">
             <?php wp_nav_menu( array( 'theme_location' => 'main-footer-menu', 'container' => false ) ); ?>

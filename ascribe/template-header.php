@@ -15,7 +15,7 @@ require 'controller/init.php';
             <a href="<?php echo get_bloginfo('wpurl');?>">
                 <img
                     src="<?php echo WPTHEME_TEMPLATE_URL; ?>/images/logo/logo-black.png"
-                    srcset="<?php echo WPTHEME_TEMPLATE_URL; ?>/images/logo/logo-black.png 1x, <?php echo WPTHEME_TEMPLATE_URL; ?>/images/logo/logo-black@2x.png 2x"  
+                    srcset="<?php echo WPTHEME_TEMPLATE_URL; ?>/images/logo/logo-black.png 1x, <?php echo WPTHEME_TEMPLATE_URL; ?>/images/logo/logo-black@2x.png 2x"
                     alt="ascribe logo"
                     class="logo phone-and-up">
             </a>
@@ -26,7 +26,7 @@ require 'controller/init.php';
                     class="logo phone-only">
             </a>
             <div class="app-links">
-                <a href="<?php echo $signInLink; ?>">Log In</a> / <a href="<?php echo $signUpLink; ?>">Sign Up</a>
+                <a href="<?php echo $signInLink; ?>">Log In</a>
 
                 <button class="hamburger phone-only">
                     <span></span>
