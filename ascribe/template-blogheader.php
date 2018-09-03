@@ -24,18 +24,6 @@ require 'controller/init.php';
                 alt="ascribe logo"
                 class="logo phone-only">
         </a>
-        <div class="app-links">
-            <a href="<?php echo $signInLink; ?>">Log In</a>
-            <img src="<?php echo WPTHEME_TEMPLATE_URL; ?>/images/svg/hamburger.svg" class="phone-only hamburger">
-        </div>
-        <nav class="tour-switcher"><?php wp_nav_menu( array(
-                'theme_location' => 'landing-menu',
-                'container'      => false
-            )); ?>
-        </nav>
-        <div class="mobile-nav">
-            <?php wp_nav_menu( array( 'theme_location' => 'main-footer-menu', 'container' => false ) ); ?>
-        </div>
     </div>
     <div class="chevron-divider"></div>
 
