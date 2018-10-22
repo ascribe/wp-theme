@@ -31,28 +31,12 @@ $controller     = new Controller();
                     class="logo phone-only">
             </a>
 
-            <div class="app-links">
-                <a href="<?php echo $signInLink; ?>">Log In</a>
-
-                <button class="hamburger phone-only">
-                    <span></span>
-                </button>
-
-            </div>
-            <nav class="tour-switcher"><?php wp_nav_menu( array(
-                    'theme_location' => 'landing-menu',
-                    'container'      => false
-                    )); ?>
-            </nav>
         </div>
     </div>
     <div class="row">
         <section class="description">
             <h1><?php echo $headerTagline; ?></h1>
         </section>
-        <div class="mobile-nav">
-            <?php wp_nav_menu( array( 'theme_location' => 'main-footer-menu', 'container' => false ) ); ?>
-        </div>
     </div>
     <div class="chevron-divider"></div>
 </header>
