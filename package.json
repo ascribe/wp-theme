@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "description": "The best WordPress theme ever made!",
   "homepage": "http://ascribe.io",
-  "license": "",
+  "license": "GPL-2.0-or-later",
   "main": "gulpfile.js",
   "scripts": {
     "start": "gulp",
