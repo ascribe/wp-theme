@@ -5,23 +5,23 @@
   "type": "wordpress-theme",
   "keywords": [],
   "homepage": "http://wordpress.org/themes",
-  "license": "GPLv2.0+",
+  "license": "GPL-2.0-or-later",
   "authors": [
     {
       "name": "Territorial",
       "email": "us@territorial.ca",
-    "homepage": "http://territorial.ca",
+      "homepage": "http://territorial.ca",
       "role": "Developer"
     }
   ],
     "minimum-stability": "dev",
-  "require": {
-    "php": ">=5.4"
+    "require": {
+      "php": ">=5.4"
   },
     "require-dev": {
       "antecedent/patchwork": "1.2.*",
-        "phpunit/phpunit"     : "*@stable",
+      "phpunit/phpunit"     : "*@stable",
       "brianium/paratest"   : "dev-master",
-        "10up/wp_mock"        : "dev-master"
+      "10up/wp_mock"        : "dev-master"
     }
 }
